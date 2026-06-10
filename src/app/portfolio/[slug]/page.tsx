@@ -87,7 +87,7 @@ export default async function CaseStudy({ params }: PageProps) {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#030014] text-[#ededed] overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-[#f8fafc] text-[#334155] overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
@@ -95,19 +95,19 @@ export default async function CaseStudy({ params }: PageProps) {
         {/* Back Link */}
         <Link
           href="/portfolio"
-          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-white transition-colors duration-300 mb-8"
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-colors duration-300 mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Portfolio
         </Link>
 
         {/* Title Header */}
-        <div className="flex flex-col gap-4 border-b border-glass-border pb-8 mb-10">
+        <div className="flex flex-col gap-4 border-b border-slate-200/60 pb-8 mb-10">
           <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest">{study.industry}</span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight font-display">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
             {study.title}
           </h1>
-          <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-3xl">{study.desc}</p>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl font-medium">{study.desc}</p>
         </div>
 
         {/* Challenge & Solution Section */}
@@ -115,17 +115,17 @@ export default async function CaseStudy({ params }: PageProps) {
           <GlassCard className="flex flex-col gap-4" hoverGlow>
             <div className="flex items-center gap-2 text-neon-magenta">
               <HelpCircle className="w-5 h-5" />
-              <h3 className="text-lg font-bold text-white uppercase tracking-wider">The Challenge</h3>
+              <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider font-display">The Challenge</h3>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">{study.challenge}</p>
+            <p className="text-sm text-slate-650 leading-relaxed font-medium">{study.challenge}</p>
           </GlassCard>
 
           <GlassCard className="flex flex-col gap-4" hoverGlow>
-            <div className="flex items-center gap-2 text-emerald-400">
+            <div className="flex items-center gap-2 text-emerald-600">
               <CheckCircle2 className="w-5 h-5" />
-              <h3 className="text-lg font-bold text-white uppercase tracking-wider">The Solution</h3>
+              <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider font-display">The Solution</h3>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">{study.solution}</p>
+            <p className="text-sm text-slate-650 leading-relaxed font-medium">{study.solution}</p>
           </GlassCard>
         </div>
 
@@ -135,13 +135,13 @@ export default async function CaseStudy({ params }: PageProps) {
           <GlassCard className="flex flex-col gap-5 md:col-span-1" hoverGlow>
             <div className="flex items-center gap-2 text-neon-purple">
               <Cpu className="w-5 h-5" />
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Technology Stack</h3>
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider font-display">Technology Stack</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {study.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-xs text-gray-300 font-semibold px-3 py-1.5 rounded-lg border border-glass-border bg-glass-card"
+                  className="text-xs text-slate-750 font-bold px-3 py-1.5 rounded-lg border border-slate-200 bg-white"
                 >
                   {t}
                 </span>
@@ -153,13 +153,13 @@ export default async function CaseStudy({ params }: PageProps) {
           <GlassCard className="flex flex-col gap-6 md:col-span-2" hoverGlow>
             <div className="flex items-center gap-2 text-neon-cyan">
               <BarChart3 className="w-5 h-5" />
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Key Metrics Delivered</h3>
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider font-display">Key Metrics Delivered</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               {study.metrics.map((m, idx) => (
                 <div key={idx} className="border-l border-neon-cyan/20 pl-4 py-1">
-                  <span className="text-[10px] text-gray-500 uppercase font-semibold">{m.label}</span>
-                  <p className="text-lg sm:text-xl font-bold text-white mt-0.5">{m.val}</p>
+                  <span className="text-[10px] text-slate-450 uppercase font-semibold">{m.label}</span>
+                  <p className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">{m.val}</p>
                 </div>
               ))}
             </div>
@@ -167,17 +167,17 @@ export default async function CaseStudy({ params }: PageProps) {
         </div>
 
         {/* Client Testimonial Banner */}
-        <GlassCard className="p-8 md:p-10 relative overflow-hidden bg-glass-card rounded-3xl" hoverGlow>
-          <p className="text-base sm:text-lg text-gray-200 leading-relaxed font-medium italic mb-6">
+        <GlassCard className="p-8 md:p-10 relative overflow-hidden bg-white rounded-3xl" hoverGlow>
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-semibold italic mb-6">
             "{study.clientQuote}"
           </p>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neon-cyan flex items-center justify-center font-bold text-black text-xs">
+            <div className="w-10 h-10 rounded-full bg-neon-cyan flex items-center justify-center font-bold text-white text-xs">
               {study.clientAuthor.split(" ").map(w => w[0]).join("")}
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white">{study.clientAuthor}</h4>
-              <p className="text-xs text-gray-500">{study.clientRole}</p>
+              <h4 className="text-sm font-bold text-slate-900">{study.clientAuthor}</h4>
+              <p className="text-xs text-slate-500 font-medium">{study.clientRole}</p>
             </div>
           </div>
         </GlassCard>
@@ -186,7 +186,7 @@ export default async function CaseStudy({ params }: PageProps) {
         <div className="mt-16 text-center">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-widest hover:bg-gray-200 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold text-xs uppercase tracking-widest hover:opacity-90 shadow-md transition-all duration-300 cursor-pointer"
           >
             Start Your Own Project
             <ArrowUpRight className="w-4 h-4" />

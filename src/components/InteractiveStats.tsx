@@ -40,15 +40,15 @@ function StatCounter({ value, suffix, label }: StatItemProps) {
   }, [isInView, value]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-glass-card border border-glass-border backdrop-blur-sm relative group hover:border-neon-cyan/20 transition-colors duration-300">
+    <div ref={ref} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white border border-slate-200/80 backdrop-blur-xs relative group hover:border-neon-cyan/20 transition-colors duration-300 shadow-xs">
       {/* Decorative vertical gradient bar */}
       <span className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-gradient-to-b from-neon-blue to-neon-purple opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
       
-      <span className="text-4xl sm:text-5xl font-bold font-display text-white tracking-tight mb-2">
+      <span className="text-4xl sm:text-5xl font-bold font-display text-slate-900 tracking-tight mb-2">
         {count}
         <span className="text-neon-cyan">{suffix}</span>
       </span>
-      <span className="text-xs text-gray-400 font-semibold tracking-wider uppercase text-center">{label}</span>
+      <span className="text-xs text-slate-500 font-semibold tracking-wider uppercase text-center">{label}</span>
     </div>
   );
 }

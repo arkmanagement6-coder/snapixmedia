@@ -79,7 +79,7 @@ export default function Portfolio() {
       : caseStudies.filter((item) => item.category === activeFilter);
 
   return (
-    <div className="relative min-h-screen bg-[#030014] text-[#ededed] overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-[#f8fafc] text-[#334155] overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
@@ -91,28 +91,28 @@ export default function Portfolio() {
             <Sparkles className="w-3.5 h-3.5" />
             <span>Proven Case Studies</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-display">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 font-display">
             Premium Work,{" "}
             <span className="text-gradient-purple-cyan">Measurable Results</span>
           </h1>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
             Review how we align technical web systems engineering with targeted digital acquisition funnels to deliver enterprise scaling.
           </p>
         </div>
       </section>
 
       {/* Filter Tabs */}
-      <section className="py-6 px-6 border-y border-glass-border bg-space-black/30">
+      <section className="py-6 px-6 border-y border-glass-border bg-slate-50/50">
         <div className="max-w-6xl mx-auto flex flex-wrap gap-3 items-center justify-center">
-          <Filter className="w-4 h-4 text-gray-500 mr-2 hidden sm:block" />
+          <Filter className="w-4 h-4 text-slate-400 mr-2 hidden sm:block" />
           {filters.map((filter) => (
             <button
               key={filter.value}
               onClick={() => setActiveFilter(filter.value)}
               className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase border transition-all duration-300 cursor-pointer ${
                 activeFilter === filter.value
-                  ? "bg-white text-black border-white"
-                  : "bg-glass-card border-glass-border text-gray-400 hover:text-white"
+                  ? "bg-gradient-to-r from-neon-blue to-neon-purple text-white border-transparent shadow-sm"
+                  : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
               }`}
             >
               {filter.name}
@@ -128,27 +128,27 @@ export default function Portfolio() {
             {filteredStudies.map((study) => (
               <GlassCard
                 key={study.slug}
-                className={`h-[320px] flex flex-col justify-between border-glass-border hover:border-white/10 bg-gradient-to-br ${study.bgGradient} relative group`}
+                className={`h-[320px] flex flex-col justify-between border-slate-200/80 hover:border-neon-cyan/40 bg-gradient-to-br ${study.bgGradient} relative group`}
                 hoverGlow
               >
                 <div className="flex flex-col gap-3">
                   <span className="text-[10px] font-bold text-neon-cyan uppercase tracking-wider">
                     {study.categoryLabel}
                   </span>
-                  <h3 className="text-xl font-extrabold text-white group-hover:text-neon-cyan transition-colors duration-300">
+                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300">
                     {study.title}
                   </h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">{study.desc}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">{study.desc}</p>
                 </div>
 
                 {/* Key Metrics Highlight Block */}
-                <div className="grid grid-cols-2 gap-4 border-y border-glass-border/40 py-4 my-2">
+                <div className="grid grid-cols-2 gap-4 border-y border-slate-200/60 py-4 my-2">
                   <div>
-                    <span className="text-[9px] text-gray-500 uppercase font-semibold">Primary Stat</span>
-                    <p className="text-sm font-bold text-white mt-0.5">{study.metrics}</p>
+                    <span className="text-[9px] text-slate-400 uppercase font-semibold">Primary Stat</span>
+                    <p className="text-sm font-bold text-slate-900 mt-0.5">{study.metrics}</p>
                   </div>
                   <div>
-                    <span className="text-[9px] text-gray-500 uppercase font-semibold">Value Delivered</span>
+                    <span className="text-[9px] text-slate-400 uppercase font-semibold">Value Delivered</span>
                     <p className="text-sm font-bold text-neon-cyan mt-0.5">{study.roi}</p>
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export default function Portfolio() {
                 <div className="flex justify-end">
                   <Link
                     href={`/portfolio/${study.slug}`}
-                    className="text-xs font-semibold uppercase tracking-wider text-gray-400 group-hover:text-white flex items-center gap-1 transition-colors duration-300"
+                    className="text-xs font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-900 flex items-center gap-1 transition-colors duration-300"
                   >
                     View Details
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -169,25 +169,25 @@ export default function Portfolio() {
       </section>
 
       {/* Traffic & Lead Growth Metric Dashboard (Before vs After) */}
-      <section className="py-20 px-6 border-t border-glass-border bg-space-black/20">
+      <section className="py-20 px-6 border-t border-glass-border bg-slate-50/50">
         <div className="max-w-5xl mx-auto flex flex-col gap-12">
           <div className="text-center max-w-xl mx-auto">
-            <span className="text-xs font-bold text-neon-purple uppercase tracking-widest">Growth Metrics</span>
-            <h2 className="text-3xl font-extrabold text-white mt-3 mb-2 font-display">Average Campaign Impact</h2>
-            <p className="text-xs text-gray-500">Historical performance data aggregated across active retainers.</p>
+            <span className="text-xs font-bold text-neon-purple uppercase tracking-widest font-sans">Growth Metrics</span>
+            <h2 className="text-3xl font-extrabold text-slate-900 mt-3 mb-2 font-display">Average Campaign Impact</h2>
+            <p className="text-xs text-slate-500 font-medium">Historical performance data aggregated across active retainers.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Traffic Graph Card */}
             <GlassCard className="flex flex-col gap-6" hoverGlow>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-gray-400 uppercase">Traffic Growth (MoM)</span>
+                <span className="text-xs font-bold text-slate-500 uppercase">Traffic Growth (MoM)</span>
                 <BarChart3 className="w-5 h-5 text-neon-cyan" />
               </div>
               <div className="flex items-end justify-between h-28 pt-4">
                 {[30, 42, 38, 55, 70, 95, 120].map((val, idx) => (
                   <div key={idx} className="w-[10%] flex flex-col items-center gap-2">
-                    <span className="text-[8px] text-gray-500">{val}%</span>
+                    <span className="text-[8px] text-slate-500">{val}%</span>
                     <div
                       className="w-full bg-gradient-to-t from-neon-blue to-neon-cyan rounded-t"
                       style={{ height: `${val / 1.3}px` }}
@@ -195,59 +195,59 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Aggregated statistics demonstrate an average <strong>3.2x increase</strong> in organic page traffic within 6 months.
+              <p className="text-xs text-slate-650 leading-relaxed font-medium">
+                Aggregated statistics demonstrate an average <strong className="text-slate-800">3.2x increase</strong> in organic page traffic within 6 months.
               </p>
             </GlassCard>
 
             {/* Lead Growth Card */}
             <GlassCard className="flex flex-col gap-6" hoverGlow>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-gray-400 uppercase">Lead Growth Ratio</span>
+                <span className="text-xs font-bold text-slate-500 uppercase">Lead Growth Ratio</span>
                 <TrendingUp className="w-5 h-5 text-neon-purple" />
               </div>
               <div className="flex flex-col gap-4 py-2">
                 <div>
-                  <div className="flex justify-between text-xs text-gray-400 mb-1">
+                  <div className="flex justify-between text-xs text-slate-500 mb-1">
                     <span>Legacy Conversion</span>
                     <span>1.2%</span>
                   </div>
-                  <div className="w-full h-2 rounded bg-glass-card border border-glass-border overflow-hidden">
-                    <div className="h-full bg-gray-600 rounded" style={{ width: "25%" }} />
+                  <div className="w-full h-2 rounded bg-slate-100 border border-slate-200 overflow-hidden">
+                    <div className="h-full bg-slate-400 rounded" style={{ width: "25%" }} />
                   </div>
                 </div>
                 <div>
-                  <div className="flex justify-between text-xs text-neon-cyan font-bold mb-1">
+                  <div className="flex justify-between text-xs text-neon-blue font-bold mb-1">
                     <span>Snapix Media Core Optimizations</span>
                     <span>4.6%</span>
                   </div>
-                  <div className="w-full h-2 rounded bg-glass-card border border-glass-border overflow-hidden">
+                  <div className="w-full h-2 rounded bg-slate-100 border border-slate-200 overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-neon-blue to-neon-purple rounded" style={{ width: "85%" }} />
                   </div>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                By rewriting visual funnels, speeding page loads, and refining copy, average leads scale <strong>+280%</strong>.
+              <p className="text-xs text-slate-650 leading-relaxed font-medium">
+                By rewriting visual funnels, speeding page loads, and refining copy, average leads scale <strong className="text-slate-800">+280%</strong>.
               </p>
             </GlassCard>
 
             {/* ROI Metrics Card */}
             <GlassCard className="flex flex-col gap-6" hoverGlow>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-gray-400 uppercase">Ad Capital Efficiency</span>
+                <span className="text-xs font-bold text-slate-500 uppercase">Ad Capital Efficiency</span>
                 <Users2 className="w-5 h-5 text-neon-magenta" />
               </div>
               <div className="grid grid-cols-2 gap-4 py-4">
-                <div className="p-3 bg-glass-card border border-glass-border rounded-xl">
-                  <span className="text-[9px] text-gray-500 uppercase">Cost Per Lead</span>
-                  <p className="text-lg font-bold text-white mt-1">-34%</p>
+                <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                  <span className="text-[9px] text-slate-500 uppercase">Cost Per Lead</span>
+                  <p className="text-lg font-bold text-slate-900 mt-1">-34%</p>
                 </div>
-                <div className="p-3 bg-glass-card border border-glass-border rounded-xl">
-                  <span className="text-[9px] text-gray-500 uppercase">Sales Closing</span>
+                <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                  <span className="text-[9px] text-slate-500 uppercase">Sales Closing</span>
                   <p className="text-lg font-bold text-neon-cyan mt-1">+18%</p>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-slate-650 leading-relaxed font-medium">
                 Paid strategy integration lowers acquisition cost while accelerating pipeline quality.
               </p>
             </GlassCard>

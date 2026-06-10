@@ -41,7 +41,7 @@ export default function WhatsAppChat() {
           <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" />
           
           {/* Active online pulse dot */}
-          <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-emerald-300 border-2 border-space-dark rounded-full animate-pulse" />
+          <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-emerald-300 border-2 border-white rounded-full animate-pulse" />
         </button>
 
         {/* Attention Grabber Notification Bubble */}
@@ -51,25 +51,25 @@ export default function WhatsAppChat() {
               initial={{ opacity: 0, scale: 0.8, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute bottom-16 right-0 w-64 p-4 rounded-2xl bg-glass-card border border-glass-border backdrop-blur-md shadow-2xl flex flex-col gap-2 pointer-events-auto cursor-pointer"
+              className="absolute bottom-16 right-0 w-64 p-4 rounded-2xl bg-white border border-slate-250/80 shadow-2xl flex flex-col gap-2 pointer-events-auto cursor-pointer"
               onClick={handleOpenChat}
             >
               <div className="flex justify-between items-start">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                  <span className="text-xs font-semibold uppercase text-emerald-400 tracking-wider">Support Online</span>
+                  <span className="text-xs font-semibold uppercase text-emerald-600 tracking-wider">Support Online</span>
                 </div>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     setShowNotification(false);
                   }}
-                  className="text-gray-500 hover:text-white"
+                  className="text-slate-400 hover:text-slate-700 cursor-pointer"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
-              <p className="text-xs text-gray-300 font-medium">
+              <p className="text-xs text-slate-650 font-semibold leading-relaxed">
                 👋 Hello! How can we assist with your development or marketing goals today?
               </p>
             </motion.div>
@@ -84,13 +84,13 @@ export default function WhatsAppChat() {
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
-            className="absolute bottom-18 right-0 w-80 rounded-3xl bg-[#09061c]/95 border border-glass-border backdrop-blur-lg shadow-2xl overflow-hidden"
+            className="absolute bottom-18 right-0 w-80 rounded-3xl bg-white/95 border border-slate-200/80 backdrop-blur-lg shadow-2xl overflow-hidden"
           >
             {/* Header */}
             <div className="bg-emerald-600 px-5 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-400 flex items-center justify-center font-bold text-black text-sm">
-                  AG
+                  SM
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-white">Snapix Media Support</h4>
@@ -102,25 +102,25 @@ export default function WhatsAppChat() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1 rounded-lg text-emerald-100 hover:bg-emerald-500 hover:text-white transition-colors"
+                className="p-1 rounded-lg text-emerald-100 hover:bg-emerald-500 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-4.5 h-4.5" />
               </button>
             </div>
 
             {/* Chat Body */}
-            <div className="p-5 flex flex-col gap-3 min-h-[160px] bg-slate-950/20 max-h-60 overflow-y-auto">
-              <div className="bg-glass-card border border-glass-border p-3 rounded-2xl rounded-tl-none max-w-[85%]">
-                <p className="text-xs text-gray-400 font-semibold mb-1">Support Agent</p>
-                <p className="text-xs text-gray-200 leading-relaxed">
+            <div className="p-5 flex flex-col gap-3 min-h-[160px] bg-slate-50/40 max-h-60 overflow-y-auto">
+              <div className="bg-slate-50 border border-slate-200/60 p-3 rounded-2xl rounded-tl-none max-w-[85%]">
+                <p className="text-xs text-slate-500 font-semibold mb-1">Support Agent</p>
+                <p className="text-xs text-slate-700 leading-relaxed">
                   Hi! Thanks for checking out Snapix Media. Let me know what you are looking to build or grow!
                 </p>
-                <span className="text-[9px] text-gray-500 float-right mt-1">Just now</span>
+                <span className="text-[9px] text-slate-400 float-right mt-1">Just now</span>
               </div>
             </div>
 
             {/* Footer Form Input */}
-            <div className="p-4 border-t border-glass-border flex gap-2 bg-[#060413]">
+            <div className="p-4 border-t border-slate-200/80 flex gap-2 bg-slate-50">
               <button
                 onClick={handleWhatsAppRedirect}
                 className="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs transition-all duration-300 flex items-center justify-center gap-1.5"

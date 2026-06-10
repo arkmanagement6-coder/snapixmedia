@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable} dark scroll-smooth`}
+      className={`${inter.variable} ${outfit.variable} scroll-smooth`}
     >
-      <body className="bg-[#030014] text-[#ededed] font-sans selection:bg-purple-600/30 selection:text-white overflow-x-hidden min-h-screen flex flex-col">
+      <body className="bg-[#f8fafc] text-[#334155] font-sans selection:bg-indigo-600/10 selection:text-indigo-900 overflow-x-hidden min-h-screen flex flex-col">
         {children}
       </body>
     </html>

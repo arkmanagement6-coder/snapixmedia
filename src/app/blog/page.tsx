@@ -69,7 +69,7 @@ export default function Blog() {
   });
 
   return (
-    <div className="relative min-h-screen bg-[#030014] text-[#ededed] overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-[#f8fafc] text-[#334155] overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
@@ -81,18 +81,18 @@ export default function Blog() {
             <Sparkles className="w-3.5 h-3.5" />
             <span>Snapix Media Insights</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-display">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 font-display">
             Engineering & Marketing{" "}
             <span className="text-gradient-purple-cyan">Insights</span>
           </h1>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
             Technical tutorials, marketing breakdowns, and strategic industry findings curated by our core expert panel.
           </p>
         </div>
       </section>
 
       {/* Search & Categories Bar */}
-      <section className="py-6 px-6 border-y border-glass-border bg-space-black/30">
+      <section className="py-6 px-6 border-y border-glass-border bg-slate-50/50">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
           {/* Category Tabs */}
           <div className="flex flex-wrap gap-2.5 justify-center md:justify-start">
@@ -102,8 +102,8 @@ export default function Blog() {
                 onClick={() => setActiveCategory(cat.value)}
                 className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase border transition-all duration-300 cursor-pointer ${
                   activeCategory === cat.value
-                    ? "bg-white text-black border-white"
-                    : "bg-glass-card border-glass-border text-gray-400 hover:text-white"
+                    ? "bg-gradient-to-r from-neon-blue to-neon-purple text-white border-transparent shadow-sm"
+                    : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
                 }`}
               >
                 {cat.name}
@@ -118,9 +118,9 @@ export default function Blog() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-glass-card border border-glass-border rounded-full text-xs text-white placeholder-gray-500 focus:outline-none focus:border-neon-cyan transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-full text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-blue transition-colors"
             />
-            <Search className="absolute left-3.5 top-3 w-4 h-4 text-gray-500" />
+            <Search className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
           </div>
         </div>
       </section>
@@ -133,25 +133,25 @@ export default function Blog() {
               {filteredArticles.map((post, idx) => (
                 <GlassCard
                   key={idx}
-                  className={`flex flex-col justify-between h-[280px] border-glass-border hover:border-white/10 bg-gradient-to-br ${post.bgClass} relative group`}
+                  className={`flex flex-col justify-between h-[280px] border-slate-200/80 hover:border-neon-cyan/40 bg-gradient-to-br ${post.bgClass} relative group`}
                   hoverGlow
                 >
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center justify-between text-[10px] font-bold text-neon-cyan uppercase tracking-wider">
                       <span>{post.categoryLabel}</span>
-                      <div className="flex items-center gap-2 text-gray-500">
+                      <div className="flex items-center gap-2 text-slate-450">
                         <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-extrabold text-white group-hover:text-neon-cyan transition-colors duration-300 leading-tight">
+                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300 leading-tight">
                       {post.title}
                     </h3>
-                    <p className="text-xs text-gray-400 leading-relaxed line-clamp-3">{post.desc}</p>
+                    <p className="text-xs text-slate-650 leading-relaxed line-clamp-3 font-medium">{post.desc}</p>
                   </div>
 
                   <div className="flex justify-end mt-4">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-400 group-hover:text-white flex items-center gap-1 cursor-pointer">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-900 flex items-center gap-1 cursor-pointer">
                       Read Article
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -160,8 +160,8 @@ export default function Blog() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-20 border border-dashed border-glass-border rounded-3xl bg-glass-card max-w-xl mx-auto">
-              <p className="text-gray-400 text-sm font-semibold">No articles found matching search query.</p>
+            <div className="text-center py-20 border border-dashed border-slate-250 rounded-3xl bg-white max-w-xl mx-auto">
+              <p className="text-slate-500 text-sm font-semibold">No articles found matching search query.</p>
               <button
                 onClick={() => {
                   setSearchQuery("");

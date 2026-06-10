@@ -129,12 +129,12 @@ export default function FeaturedProjects() {
                 {project.metrics}
               </span>
             </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-neon-cyan transition-colors duration-300">
+            <h3 className="text-xl font-bold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300">
               {project.title}
             </h3>
             <div className="flex flex-wrap gap-1.5 mt-1">
               {project.tech.map((t) => (
-                <span key={t} className="text-[9px] text-gray-400 font-medium px-2 py-0.5 rounded-full border border-glass-border bg-glass-card">
+                <span key={t} className="text-[9px] text-slate-600 font-semibold px-2 py-0.5 rounded-full border border-slate-200 bg-white shadow-xs">
                   {t}
                 </span>
               ))}
@@ -142,7 +142,7 @@ export default function FeaturedProjects() {
           </div>
 
           {/* Interactive visual mockup */}
-          <div className={`relative w-full h-[220px] rounded-xl overflow-hidden mt-6 bg-gradient-to-tr ${project.bgClass} border border-glass-border flex items-center justify-center`}>
+          <div className={`relative w-full h-[220px] rounded-xl overflow-hidden mt-6 bg-gradient-to-tr ${project.bgClass} border border-slate-200/60 flex items-center justify-center`}>
             {project.visual}
           </div>
 
@@ -150,7 +150,7 @@ export default function FeaturedProjects() {
           <div className="flex justify-end mt-4 relative z-20">
             <Link
               href={`/portfolio/${project.slug}`}
-              className="text-xs font-semibold uppercase tracking-wider text-gray-400 group-hover:text-white flex items-center gap-1 transition-colors duration-300"
+              className="text-xs font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-900 flex items-center gap-1 transition-colors duration-300"
             >
               View Case Study
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

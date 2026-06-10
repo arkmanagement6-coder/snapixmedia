@@ -13,7 +13,7 @@ const serviceCategories = [
     desc: "Scale your customer acquisition and build brand equity with precise multi-channel campaigns.",
     metric: "+320% Average ROI",
     icon: Target,
-    color: "from-amber-400/20 to-orange-500/20 text-amber-400 border-amber-400/20",
+    color: "from-amber-500/10 to-orange-600/10 text-amber-700 border-amber-500/20",
     services: [
       "Social Media Marketing",
       "Meta Ads Management",
@@ -29,7 +29,7 @@ const serviceCategories = [
     desc: "Boost your search engine keyword visibility and accelerate high-intent organic user visits.",
     metric: "10x Traffic Growth",
     icon: Search,
-    color: "from-cyan-400/20 to-blue-500/20 text-cyan-400 border-cyan-400/20",
+    color: "from-cyan-500/10 to-blue-600/10 text-cyan-700 border-cyan-500/20",
     services: [
       "Local Search Optimization",
       "Technical Page Audits",
@@ -45,7 +45,7 @@ const serviceCategories = [
     desc: "Deploy lightning-fast, production-ready systems and web applications engineered to scale.",
     metric: "100/100 Lighthouse Speed",
     icon: Monitor,
-    color: "from-purple-400/20 to-indigo-500/20 text-purple-400 border-purple-400/20",
+    color: "from-purple-500/10 to-indigo-600/10 text-indigo-700 border-indigo-500/20",
     services: [
       "Headless E-commerce Stores",
       "Enterprise Custom Web Apps",
@@ -61,7 +61,7 @@ const serviceCategories = [
     desc: "Craft visual designs that communicate premium brand values and optimize conversions.",
     metric: "+35% Conversion Jump",
     icon: Sparkles,
-    color: "from-pink-400/20 to-neon-magenta/20 text-pink-400 border-pink-400/20",
+    color: "from-pink-500/10 to-pink-600/10 text-pink-700 border-pink-500/20",
     services: [
       "Interactive Wireframing",
       "High-Fidelity Prototyping",
@@ -75,7 +75,7 @@ const serviceCategories = [
 
 export default function Services() {
   return (
-    <div className="relative min-h-screen bg-[#030014] text-[#ededed] overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-[#f8fafc] text-[#334155] overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
@@ -87,11 +87,11 @@ export default function Services() {
             <TrendingUp className="w-3.5 h-3.5" />
             <span>Scale Velocity</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-display">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 font-display">
             Innovative Digital Offerings{" "}
             <span className="text-gradient-purple-cyan">Built For Growth</span>
           </h1>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
             We deliver enterprise-level web engineering, pixel-perfect user experiences, and strategic growth campaigns that maximize customer lifecycle value.
           </p>
         </div>
@@ -119,22 +119,22 @@ export default function Services() {
                     hoverGlow
                   >
                     <div className="flex justify-between items-start">
-                      <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center bg-glass-card ${cat.color.split(" ")[2]}`}>
+                      <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center bg-slate-50 ${cat.color.split(" ")[2]}`}>
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-xs font-bold font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white uppercase tracking-wider">
+                      <span className="text-xs font-bold font-mono px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 uppercase tracking-wider">
                         {cat.metric}
                       </span>
                     </div>
 
                     <div>
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 font-display">{cat.title}</h2>
-                      <p className="text-sm text-gray-400 leading-relaxed">{cat.desc}</p>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3 font-display">{cat.title}</h2>
+                      <p className="text-sm text-slate-600 leading-relaxed font-medium">{cat.desc}</p>
                     </div>
 
                     <Link
                       href="/contact"
-                      className="mt-4 px-6 py-3 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-gray-200 transition-colors w-fit flex items-center gap-1.5"
+                      className="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 shadow-sm transition-all duration-300 w-fit flex items-center gap-1.5 cursor-pointer"
                     >
                       Request Free Audit
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -144,14 +144,14 @@ export default function Services() {
 
                 {/* Sub-services list */}
                 <div className="w-full lg:w-1/2 flex flex-col gap-6 justify-center">
-                  <h3 className="text-lg font-bold text-white uppercase tracking-wider border-b border-glass-border pb-3">
+                  <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider border-b border-glass-border pb-3 font-display">
                     Sub-Domain Capabilities
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {cat.services.map((sub, j) => (
-                      <div key={j} className="flex items-start gap-3 p-3 rounded-xl bg-glass-card/40 border border-glass-border hover:border-white/5 transition-colors duration-300">
+                      <div key={j} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-200/60 hover:border-neon-cyan/35 transition-colors duration-300">
                         <CheckCircle2 className="w-4 h-4 text-neon-cyan mt-0.5 shrink-0" />
-                        <span className="text-sm text-gray-300 font-medium">{sub}</span>
+                        <span className="text-sm text-slate-700 font-semibold">{sub}</span>
                       </div>
                     ))}
                   </div>
