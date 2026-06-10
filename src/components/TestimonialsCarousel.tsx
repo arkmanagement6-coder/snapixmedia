@@ -7,7 +7,7 @@ import GlassCard from "./GlassCard";
 
 const reviews = [
   {
-    quote: "Agenius transformed our legacy systems into a blazing-fast, modern App Router application. Their attention to software engineering standards is elite, and our client retention rate climbed by 22% within three months of deployment.",
+    quote: "Snapix Media transformed our legacy systems into a blazing-fast, modern App Router application. Their attention to software engineering standards is elite, and our client retention rate climbed by 22% within three months of deployment.",
     author: "Sarah Jenkins",
     role: "VP of Engineering, Apex Analytics",
     initials: "SJ",

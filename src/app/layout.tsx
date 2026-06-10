@@ -15,10 +15,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Agenius | Premium IT & Digital Marketing Agency",
+  title: "Snapix Media | Premium IT & Digital Marketing Agency",
   description: "Transform your business through premium technology & data-driven digital growth. We build high-performance websites, scalable custom applications, and campaigns that accelerate conversion.",
   keywords: ["Digital Marketing", "SEO Optimization", "Web Development", "UI/UX Design", "IT Agency", "E-commerce Development"],
-  authors: [{ name: "Agenius Team" }],
+  authors: [{ name: "Snapix Media Team" }],
 };
 
 export default function RootLayout({

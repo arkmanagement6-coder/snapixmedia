@@ -124,8 +124,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] text-gray-500 uppercase font-semibold">Write to us</span>
-                  <a href="mailto:hello@agenius.agency" className="block text-sm text-gray-300 hover:text-white mt-0.5">
-                    hello@agenius.agency
+                  <a href="mailto:hello@snapixmedia.com" className="block text-sm text-gray-300 hover:text-white mt-0.5">
+                    hello@snapixmedia.com
                   </a>
                 </div>
               </div>
@@ -180,7 +180,7 @@ export default function Contact() {
               <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <span className="w-3.5 h-3.5 bg-neon-cyan border-2 border-space-dark rounded-full animate-ping absolute" />
                 <span className="w-3 h-3 bg-neon-cyan border-2 border-space-dark rounded-full relative z-10" />
-                <span className="text-[9px] font-bold font-mono px-2 py-0.5 rounded bg-space-dark/80 text-white mt-1 border border-glass-border">Agenius HQ</span>
+                <span className="text-[9px] font-bold font-mono px-2 py-0.5 rounded bg-space-dark/80 text-white mt-1 border border-glass-border">Snapix Media HQ</span>
               </div>
             </div>
           </div>

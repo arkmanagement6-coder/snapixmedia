@@ -218,7 +218,7 @@ export default function Portfolio() {
                 </div>
                 <div>
                   <div className="flex justify-between text-xs text-neon-cyan font-bold mb-1">
-                    <span>Agenius Core Optimizations</span>
+                    <span>Snapix Media Core Optimizations</span>
                     <span>4.6%</span>
                   </div>
                   <div className="w-full h-2 rounded bg-glass-card border border-glass-border overflow-hidden">

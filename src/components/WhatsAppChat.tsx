@@ -24,7 +24,7 @@ export default function WhatsAppChat() {
   const handleWhatsAppRedirect = () => {
     const phoneNumber = "18005550199"; // Mock Phone Number
     const text = encodeURIComponent(
-      "Hello Agenius! I am interested in building a project/scaling my marketing campaign. Let's talk!"
+      "Hello Snapix Media! I am interested in building a project/scaling my marketing campaign. Let's talk!"
     );
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
   };
@@ -93,7 +93,7 @@ export default function WhatsAppChat() {
                   AG
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-white">Agenius Support</h4>
+                  <h4 className="text-sm font-semibold text-white">Snapix Media Support</h4>
                   <p className="text-[10px] text-emerald-100 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
                     Typically replies in minutes
@@ -113,7 +113,7 @@ export default function WhatsAppChat() {
               <div className="bg-glass-card border border-glass-border p-3 rounded-2xl rounded-tl-none max-w-[85%]">
                 <p className="text-xs text-gray-400 font-semibold mb-1">Support Agent</p>
                 <p className="text-xs text-gray-200 leading-relaxed">
-                  Hi! Thanks for checking out Agenius. Let me know what you are looking to build or grow!
+                  Hi! Thanks for checking out Snapix Media. Let me know what you are looking to build or grow!
                 </p>
                 <span className="text-[9px] text-gray-500 float-right mt-1">Just now</span>
               </div>

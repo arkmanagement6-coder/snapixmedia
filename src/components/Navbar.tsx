@@ -45,7 +45,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="relative flex items-center gap-2 group">
           <span className="text-2xl font-bold font-display tracking-tight text-white">
-            A<span className="text-neon-cyan group-hover:text-neon-magenta transition-colors duration-300">genius</span>
+            Snapix<span className="text-neon-cyan group-hover:text-neon-magenta transition-colors duration-300"> Media</span>
           </span>
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-neon-cyan to-neon-purple group-hover:w-full transition-all duration-300" />
         </Link>

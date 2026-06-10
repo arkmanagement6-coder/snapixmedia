@@ -34,7 +34,7 @@ const studies: Record<string, CaseStudyData> = {
       { label: "System API Lag", val: "<50ms Average" },
       { label: "Revenue Accelerated", val: "+320% MoM" },
     ],
-    clientQuote: "Agenius delivered a custom React layout that exceeds FAANG speed standards. The new system is clean, secure, and has completely halted our user churn issues.",
+    clientQuote: "Snapix Media delivered a custom React layout that exceeds FAANG speed standards. The new system is clean, secure, and has completely halted our user churn issues.",
     clientAuthor: "Sarah Jenkins",
     clientRole: "VP of Engineering, Apex Analytics",
   },

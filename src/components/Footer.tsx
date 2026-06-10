@@ -45,7 +45,7 @@ export default function Footer() {
           {/* Company Brief */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="text-2xl font-bold font-display tracking-tight text-white">
-              A<span className="text-neon-cyan">genius</span>
+              Snapix<span className="text-neon-cyan"> Media</span>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
               We design, build, and optimize premium digital experiences that accelerate growth for enterprise systems, fast-growing SaaS brands, and creative start-ups.
@@ -165,8 +165,8 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-gray-500">Email us</p>
-              <a href="mailto:hello@agenius.agency" className="text-sm text-gray-300 hover:text-white transition-colors">
-                hello@agenius.agency
+              <a href="mailto:hello@snapixmedia.com" className="text-sm text-gray-300 hover:text-white transition-colors">
+                hello@snapixmedia.com
               </a>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function Footer() {
 
         {/* Legal Disclaimer */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-glass-border text-xs text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Agenius Agency. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Snapix Media. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gray-300 transition-colors">Terms of Service</Link>

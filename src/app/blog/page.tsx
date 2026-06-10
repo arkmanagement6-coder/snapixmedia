@@ -79,7 +79,7 @@ export default function Blog() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-xs font-bold tracking-wider mb-6 uppercase">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Agenius Insights</span>
+            <span>Snapix Media Insights</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-display">
             Engineering & Marketing{" "}
