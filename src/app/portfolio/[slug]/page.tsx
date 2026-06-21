@@ -103,7 +103,7 @@ export default async function CaseStudy({ params }: PageProps) {
 
         {/* Title Header */}
         <div className="flex flex-col gap-4 border-b border-slate-200/60 pb-8 mb-10">
-          <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest">{study.industry}</span>
+          <span className="text-xs font-bold text-neon-purple uppercase tracking-widest">{study.industry}</span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
             {study.title}
           </h1>
@@ -112,16 +112,16 @@ export default async function CaseStudy({ params }: PageProps) {
 
         {/* Challenge & Solution Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <GlassCard className="flex flex-col gap-4" hoverGlow>
-            <div className="flex items-center gap-2 text-neon-magenta">
+          <GlassCard className="flex flex-col gap-4 hover:border-neon-purple/30" hoverGlow>
+            <div className="flex items-center gap-2 text-neon-purple">
               <HelpCircle className="w-5 h-5" />
               <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider font-display">The Challenge</h3>
             </div>
             <p className="text-sm text-slate-650 leading-relaxed font-medium">{study.challenge}</p>
           </GlassCard>
 
-          <GlassCard className="flex flex-col gap-4" hoverGlow>
-            <div className="flex items-center gap-2 text-emerald-600">
+          <GlassCard className="flex flex-col gap-4 hover:border-neon-purple/30" hoverGlow>
+            <div className="flex items-center gap-2 text-neon-blue">
               <CheckCircle2 className="w-5 h-5" />
               <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider font-display">The Solution</h3>
             </div>
@@ -151,13 +151,13 @@ export default async function CaseStudy({ params }: PageProps) {
 
           {/* Results Grid */}
           <GlassCard className="flex flex-col gap-6 md:col-span-2" hoverGlow>
-            <div className="flex items-center gap-2 text-neon-cyan">
+            <div className="flex items-center gap-2 text-neon-purple">
               <BarChart3 className="w-5 h-5" />
               <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider font-display">Key Metrics Delivered</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               {study.metrics.map((m, idx) => (
-                <div key={idx} className="border-l border-neon-cyan/20 pl-4 py-1">
+                <div key={idx} className="border-l border-neon-purple/30 pl-4 py-1">
                   <span className="text-[10px] text-slate-450 uppercase font-semibold">{m.label}</span>
                   <p className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">{m.val}</p>
                 </div>
@@ -172,7 +172,7 @@ export default async function CaseStudy({ params }: PageProps) {
             "{study.clientQuote}"
           </p>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-neon-cyan flex items-center justify-center font-bold text-white text-xs">
+            <div className="w-10 h-10 rounded-full bg-neon-purple flex items-center justify-center font-bold text-white text-xs shadow-md">
               {study.clientAuthor.split(" ").map(w => w[0]).join("")}
             </div>
             <div>

@@ -44,8 +44,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Company Brief */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="text-2xl font-bold font-display tracking-tight text-slate-900">
-              Snapix<span className="text-neon-cyan"> Media</span>
+            <Link href="/" className="inline-block cursor-pointer">
+              <img src="/logo.png" alt="Snapix Media Logo" className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-sm text-slate-600 leading-relaxed">
               We design, build, and optimize premium digital experiences that accelerate growth for enterprise systems, fast-growing SaaS brands, and creative start-ups.
@@ -165,8 +165,8 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-slate-400">Email us</p>
-              <a href="mailto:hello@snapixmedia.com" className="text-sm text-slate-700 hover:text-slate-900 transition-colors">
-                hello@snapixmedia.com
+              <a href="mailto:snapixmediaofficial@gmail.com" className="text-sm text-slate-700 hover:text-slate-900 transition-colors font-semibold">
+                snapixmediaofficial@gmail.com
               </a>
             </div>
           </div>
@@ -177,8 +177,8 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-slate-400">Call us</p>
-              <a href="tel:+18005550199" className="text-sm text-slate-700 hover:text-slate-900 transition-colors">
-                +1 (800) 555-0199
+              <a href="tel:+919675818088" className="text-sm text-slate-700 hover:text-slate-900 transition-colors font-semibold">
+                +91 9675818088
               </a>
             </div>
           </div>
@@ -189,8 +189,8 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-slate-400">Visit us</p>
-              <span className="text-sm text-slate-700">
-                100 Innovation Way, Suite 400
+              <span className="text-sm text-slate-700 font-semibold leading-relaxed">
+                17 Kamla Kunj Kamla Nagar Tej Nagar Agra 282005
               </span>
             </div>
           </div>
@@ -199,10 +199,11 @@ export default function Footer() {
         {/* Legal Disclaimer */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-glass-border text-xs text-slate-400">
           <p>&copy; {new Date().getFullYear()} Snapix Media. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-slate-800 transition-colors">Terms of Service</Link>
-          </div>
+            <div className="flex gap-6 flex-wrap justify-center sm:justify-end">
+              <Link href="/privacy" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-slate-800 transition-colors">Terms of Service</Link>
+              <Link href="/refund" className="hover:text-slate-800 transition-colors">Refund & Cancellation Policy</Link>
+            </div>
         </div>
       </div>
     </footer>

@@ -22,7 +22,7 @@ export default function WhatsAppChat() {
   };
 
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "18005550199"; // Mock Phone Number
+    const phoneNumber = "919675818088"; // Active WhatsApp Number
     const text = encodeURIComponent(
       "Hello Snapix Media! I am interested in building a project/scaling my marketing campaign. Let's talk!"
     );

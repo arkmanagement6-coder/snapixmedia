@@ -112,7 +112,7 @@ export default function Portfolio() {
               className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase border transition-all duration-300 cursor-pointer ${
                 activeFilter === filter.value
                   ? "bg-gradient-to-r from-neon-blue to-neon-purple text-white border-transparent shadow-sm"
-                  : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
+                  : "bg-white border-slate-200 text-slate-600 hover:text-neon-purple hover:border-neon-purple/40"
               }`}
             >
               {filter.name}
@@ -128,17 +128,17 @@ export default function Portfolio() {
             {filteredStudies.map((study) => (
               <GlassCard
                 key={study.slug}
-                className={`h-[320px] flex flex-col justify-between border-slate-200/80 hover:border-neon-cyan/40 bg-gradient-to-br ${study.bgGradient} relative group`}
+                className={`h-[320px] flex flex-col justify-between border-slate-200/80 hover:border-neon-purple/45 bg-gradient-to-br ${study.bgGradient} relative group`}
                 hoverGlow
               >
                 <div className="flex flex-col gap-3">
-                  <span className="text-[10px] font-bold text-neon-cyan uppercase tracking-wider">
+                  <span className="text-[10px] font-bold text-neon-purple uppercase tracking-wider">
                     {study.categoryLabel}
                   </span>
-                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300">
+                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-neon-purple transition-colors duration-300">
                     {study.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">{study.desc}</p>
+                  <p className="text-xs text-slate-650 leading-relaxed font-medium">{study.desc}</p>
                 </div>
 
                 {/* Key Metrics Highlight Block */}
@@ -149,7 +149,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <span className="text-[9px] text-slate-400 uppercase font-semibold">Value Delivered</span>
-                    <p className="text-sm font-bold text-neon-cyan mt-0.5">{study.roi}</p>
+                    <p className="text-sm font-bold text-neon-purple mt-0.5">{study.roi}</p>
                   </div>
                 </div>
 
@@ -182,14 +182,14 @@ export default function Portfolio() {
             <GlassCard className="flex flex-col gap-6" hoverGlow>
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-500 uppercase">Traffic Growth (MoM)</span>
-                <BarChart3 className="w-5 h-5 text-neon-cyan" />
+                <BarChart3 className="w-5 h-5 text-neon-purple" />
               </div>
               <div className="flex items-end justify-between h-28 pt-4">
                 {[30, 42, 38, 55, 70, 95, 120].map((val, idx) => (
                   <div key={idx} className="w-[10%] flex flex-col items-center gap-2">
                     <span className="text-[8px] text-slate-500">{val}%</span>
                     <div
-                      className="w-full bg-gradient-to-t from-neon-blue to-neon-cyan rounded-t"
+                      className="w-full bg-gradient-to-t from-neon-blue to-neon-purple rounded-t"
                       style={{ height: `${val / 1.3}px` }}
                     />
                   </div>
@@ -244,7 +244,7 @@ export default function Portfolio() {
                 </div>
                 <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
                   <span className="text-[9px] text-slate-500 uppercase">Sales Closing</span>
-                  <p className="text-lg font-bold text-neon-cyan mt-1">+18%</p>
+                  <p className="text-lg font-bold text-neon-purple mt-1">+18%</p>
                 </div>
               </div>
               <p className="text-xs text-slate-650 leading-relaxed font-medium">

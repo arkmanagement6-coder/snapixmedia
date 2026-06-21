@@ -52,7 +52,7 @@ export default function ProcessTimeline() {
   return (
     <div className="relative max-w-4xl mx-auto px-4 py-10 font-sans">
       {/* Central timeline background connector line */}
-      <div className="absolute left-[34px] md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-neon-cyan via-neon-purple to-emerald-400 opacity-20 pointer-events-none" />
+      <div className="absolute left-[34px] md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-neon-purple via-neon-blue to-neon-magenta opacity-40 pointer-events-none" />
 
       <div className="flex flex-col gap-16">
         {steps.map((step, i) => {
@@ -71,8 +71,8 @@ export default function ProcessTimeline() {
               }`}
             >
               {/* Timeline Connector node */}
-              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-[34px] h-[34px] flex items-center justify-center rounded-full bg-space-dark border-2 border-glass-border z-10">
-                <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan" />
+              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-[34px] h-[34px] flex items-center justify-center rounded-full bg-white border-2 border-neon-purple/20 z-10">
+                <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
               </div>
 
               {/* Text Content block */}
@@ -82,8 +82,8 @@ export default function ProcessTimeline() {
                 } ${step.color.split(" ")[0]} ${step.color.split(" ")[1]}`}>
                   <span>Phase {step.phase}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{step.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display">{step.title}</h3>
+                <p className="text-sm text-slate-650 leading-relaxed font-semibold">{step.desc}</p>
               </div>
 
               {/* Icon / graphic visual block */}

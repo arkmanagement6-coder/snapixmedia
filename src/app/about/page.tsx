@@ -7,11 +7,11 @@ import GlassCard from "@/components/GlassCard";
 
 const teamMembers = [
   {
-    name: "Alex Sterling",
-    role: "Founder & Lead Architect",
-    initials: "AS",
-    gradient: "from-blue-400 to-indigo-500",
-    bio: "Ex-FAANG engineer with 12+ years of experience building enterprise web systems and cloud databases.",
+    name: "Harsh Khubchandani",
+    role: "Founder & Owner",
+    initials: "HK",
+    gradient: "from-purple-500 to-indigo-600",
+    bio: "Founder & Owner of Snapix Media, leading strategy, web engineering deployments, and result-oriented growth marketing campaigns.",
   },
   {
     name: "Diana Chen",
@@ -82,7 +82,7 @@ export default function About() {
       <section className="py-20 px-6 relative border-t border-glass-border">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <GlassCard className="flex flex-col gap-4" hoverGlow>
-            <div className="w-10 h-10 rounded-xl bg-neon-cyan/5 border border-neon-cyan/15 flex items-center justify-center text-neon-cyan">
+            <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-neon-purple">
               <Compass className="w-5 h-5" />
             </div>
             <h3 className="text-xl font-bold text-slate-900">Our Mission</h3>
@@ -90,9 +90,9 @@ export default function About() {
               To engineer premium software solutions and deploy data-backed campaigns that enable fast-scaling brands to convert users and accelerate organic sales.
             </p>
           </GlassCard>
-
+ 
           <GlassCard className="flex flex-col gap-4" hoverGlow>
-            <div className="w-10 h-10 rounded-xl bg-neon-purple/5 border border-neon-purple/15 flex items-center justify-center text-neon-purple">
+            <div className="w-10 h-10 rounded-xl bg-violet-50 border border-violet-200 flex items-center justify-center text-neon-purple">
               <Sparkles className="w-5 h-5" />
             </div>
             <h3 className="text-xl font-bold text-slate-900">Our Vision</h3>
@@ -100,9 +100,9 @@ export default function About() {
               To be the premier engineering and growth partner globally, recognized for high speedups, design aesthetic integrity, and transparent conversion reporting.
             </p>
           </GlassCard>
-
+ 
           <GlassCard className="flex flex-col gap-4" hoverGlow>
-            <div className="w-10 h-10 rounded-xl bg-neon-magenta/5 border border-neon-magenta/15 flex items-center justify-center text-neon-magenta">
+            <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-neon-blue">
               <Heart className="w-5 h-5" />
             </div>
             <h3 className="text-xl font-bold text-slate-900">Our Values</h3>
@@ -131,7 +131,7 @@ export default function About() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
-                    <p className="text-xs text-neon-cyan uppercase tracking-wider mt-1">{member.role}</p>
+                    <p className="text-xs text-neon-purple uppercase tracking-wider mt-1">{member.role}</p>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed mt-2">{member.bio}</p>
                 </div>
@@ -161,11 +161,11 @@ export default function About() {
             {milestones.map((item, i) => (
               <div key={i} className="relative">
                 {/* Timeline node */}
-                <span className="absolute -left-[41px] top-1.5 w-[18px] h-[18px] rounded-full bg-slate-50 border-2 border-neon-cyan flex items-center justify-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan" />
+                <span className="absolute -left-[41px] top-1.5 w-[18px] h-[18px] rounded-full bg-slate-50 border-2 border-neon-purple flex items-center justify-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
                 </span>
 
-                <span className="text-xs font-bold font-mono text-neon-cyan uppercase tracking-widest">{item.year}</span>
+                <span className="text-xs font-bold font-mono text-neon-purple uppercase tracking-widest">{item.year}</span>
                 <h3 className="text-lg font-bold text-slate-900 mt-1 mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed max-w-2xl">{item.desc}</p>
               </div>

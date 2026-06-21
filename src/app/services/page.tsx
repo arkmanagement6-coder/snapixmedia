@@ -13,7 +13,7 @@ const serviceCategories = [
     desc: "Scale your customer acquisition and build brand equity with precise multi-channel campaigns.",
     metric: "+320% Average ROI",
     icon: Target,
-    color: "from-amber-500/10 to-orange-600/10 text-amber-700 border-amber-500/20",
+    color: "from-purple-500/10 to-indigo-600/10 text-purple-700 border-purple-500/20",
     services: [
       "Social Media Marketing",
       "Meta Ads Management",
@@ -29,7 +29,7 @@ const serviceCategories = [
     desc: "Boost your search engine keyword visibility and accelerate high-intent organic user visits.",
     metric: "10x Traffic Growth",
     icon: Search,
-    color: "from-cyan-500/10 to-blue-600/10 text-cyan-700 border-cyan-500/20",
+    color: "from-violet-500/10 to-fuchsia-600/10 text-violet-750 border-violet-500/20",
     services: [
       "Local Search Optimization",
       "Technical Page Audits",
@@ -45,7 +45,7 @@ const serviceCategories = [
     desc: "Deploy lightning-fast, production-ready systems and web applications engineered to scale.",
     metric: "100/100 Lighthouse Speed",
     icon: Monitor,
-    color: "from-purple-500/10 to-indigo-600/10 text-indigo-700 border-indigo-500/20",
+    color: "from-indigo-500/10 to-purple-600/10 text-indigo-700 border-indigo-500/20",
     services: [
       "Headless E-commerce Stores",
       "Enterprise Custom Web Apps",
@@ -61,7 +61,7 @@ const serviceCategories = [
     desc: "Craft visual designs that communicate premium brand values and optimize conversions.",
     metric: "+35% Conversion Jump",
     icon: Sparkles,
-    color: "from-pink-500/10 to-pink-600/10 text-pink-700 border-pink-500/20",
+    color: "from-fuchsia-500/10 to-pink-600/10 text-fuchsia-700 border-fuchsia-500/20",
     services: [
       "Interactive Wireframing",
       "High-Fidelity Prototyping",
@@ -149,8 +149,8 @@ export default function Services() {
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {cat.services.map((sub, j) => (
-                      <div key={j} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-200/60 hover:border-neon-cyan/35 transition-colors duration-300">
-                        <CheckCircle2 className="w-4 h-4 text-neon-cyan mt-0.5 shrink-0" />
+                      <div key={j} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-200/60 hover:border-neon-purple/35 transition-colors duration-300">
+                        <CheckCircle2 className="w-4 h-4 text-neon-purple mt-0.5 shrink-0" />
                         <span className="text-sm text-slate-700 font-semibold">{sub}</span>
                       </div>
                     ))}

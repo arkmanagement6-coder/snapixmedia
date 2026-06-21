@@ -43,11 +43,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative flex items-center gap-2 group">
-          <span className="text-2xl font-bold font-display tracking-tight text-slate-900">
-            Snapix<span className="text-neon-cyan group-hover:text-neon-magenta transition-colors duration-300"> Media</span>
-          </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-neon-cyan to-neon-purple group-hover:w-full transition-all duration-300" />
+        <Link href="/" className="relative flex items-center gap-2.5 group cursor-pointer">
+          <img src="/logo.png" alt="Snapix Media Logo" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         </Link>
 
         {/* Desktop Nav Links */}
@@ -77,7 +74,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link
             href="/contact"
-            className="relative inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-700 border border-glass-border bg-white hover:bg-slate-950 hover:text-white transition-all duration-300 overflow-hidden group shadow-xs"
+            className="relative inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-neon-purple to-neon-blue hover:from-neon-blue hover:to-neon-purple transition-all duration-300 overflow-hidden group shadow-md hover:shadow-neon-purple/20 cursor-pointer"
           >
             Start Project
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
@@ -112,7 +109,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     className={`text-lg font-medium tracking-wide transition-colors py-2 ${
-                      isActive ? "text-neon-cyan" : "text-slate-600 hover:text-slate-900"
+                      isActive ? "text-neon-purple font-bold" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {link.name}
@@ -121,7 +118,7 @@ export default function Navbar() {
               })}
               <Link
                 href="/contact"
-                className="mt-4 flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold uppercase tracking-wider text-slate-700 border border-glass-border bg-white hover:bg-slate-950 hover:text-white transition-all duration-300"
+                className="mt-4 flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-neon-purple to-neon-blue hover:from-neon-blue hover:to-neon-purple transition-all duration-300 cursor-pointer shadow-md hover:shadow-neon-purple/20"
               >
                 Start Project
                 <ArrowUpRight className="w-4 h-4" />

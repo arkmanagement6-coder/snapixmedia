@@ -45,25 +45,25 @@ const benefits = [
     title: "100% Remote Flexibility",
     desc: "Work from anywhere in the world. We operate asynchronously to respect focused scheduling.",
     icon: MapPin,
-    color: "text-cyan-600 bg-cyan-50",
+    color: "text-purple-600 bg-purple-50",
   },
   {
     title: "Learning Stipend",
     desc: "$2,000 yearly allocation for textbooks, conferences, cloud certifications, and hardware upgrades.",
     icon: Sparkles,
-    color: "text-purple-600 bg-purple-50",
+    color: "text-violet-600 bg-violet-50",
   },
   {
     title: "Health & Wellness",
     desc: "Premium medical coverage, global dental insurance, and monthly gym memberships.",
     icon: Heart,
-    color: "text-pink-600 bg-pink-50",
+    color: "text-indigo-600 bg-indigo-50",
   },
   {
     title: "Equity & Shared Profit",
     desc: "Competitive employee stock options and quarterly performance profits allocations.",
     icon: ShieldCheck,
-    color: "text-emerald-600 bg-emerald-50",
+    color: "text-fuchsia-600 bg-fuchsia-50",
   },
 ];
 
@@ -157,13 +157,13 @@ export default function Careers() {
             {openings.map((job, idx) => (
               <div
                 key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200 hover:border-neon-cyan/40 hover:bg-slate-50/50 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs"
+                className="group p-6 rounded-2xl bg-white border border-slate-200 hover:border-neon-purple/45 hover:bg-slate-50/50 hover:shadow-[0_10px_25px_-5px_rgba(124,58,237,0.08)] transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs"
               >
                 <div className="flex flex-col gap-2">
-                  <span className="text-[10px] font-bold text-neon-cyan uppercase tracking-wider font-mono">
+                  <span className="text-[10px] font-bold text-neon-purple uppercase tracking-wider font-mono">
                     {job.dept}
                   </span>
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300">
+                   <h3 className="text-lg font-bold text-slate-900 group-hover:text-neon-purple transition-colors duration-300">
                     {job.title}
                   </h3>
                   <div className="flex flex-wrap gap-4 text-xs text-slate-550 font-semibold mt-1">
@@ -210,7 +210,7 @@ export default function Careers() {
               <div className="flex flex-col gap-6">
                 <div>
                   <h3 className="text-xl font-extrabold text-slate-900 font-display">Job Application</h3>
-                  <p className="text-xs text-slate-500 mt-1 font-semibold">Applying for: <strong className="text-neon-cyan">{selectedJob}</strong></p>
+                  <p className="text-xs text-slate-500 mt-1 font-semibold">Applying for: <strong className="text-neon-purple">{selectedJob}</strong></p>
                 </div>
 
                 <form onSubmit={handleApply} className="flex flex-col gap-4">
@@ -223,7 +223,7 @@ export default function Careers() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-blue"
+                        className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all"
                       />
                       <User className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-450" />
                     </div>
@@ -238,7 +238,7 @@ export default function Careers() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-blue"
+                        className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all"
                       />
                       <Send className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-450" />
                     </div>
@@ -252,7 +252,7 @@ export default function Careers() {
                       required
                       value={formData.resume}
                       onChange={(e) => setFormData({ ...formData, resume: e.target.value })}
-                      className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-blue"
+                      className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all"
                     />
                   </div>
 
@@ -263,7 +263,7 @@ export default function Careers() {
                       rows={3}
                       value={formData.note}
                       onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                      className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-blue resize-none"
+                      className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all resize-none"
                     />
                   </div>
 

@@ -118,7 +118,7 @@ export default function Blog() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-full text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-blue transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-full text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all"
             />
             <Search className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
           </div>
@@ -133,18 +133,18 @@ export default function Blog() {
               {filteredArticles.map((post, idx) => (
                 <GlassCard
                   key={idx}
-                  className={`flex flex-col justify-between h-[280px] border-slate-200/80 hover:border-neon-cyan/40 bg-gradient-to-br ${post.bgClass} relative group`}
+                  className={`flex flex-col justify-between h-[280px] border-slate-200/80 hover:border-neon-purple/45 bg-gradient-to-br ${post.bgClass} relative group`}
                   hoverGlow
                 >
                   <div className="flex flex-col gap-3">
-                    <div className="flex items-center justify-between text-[10px] font-bold text-neon-cyan uppercase tracking-wider">
+                    <div className="flex items-center justify-between text-[10px] font-bold text-neon-purple uppercase tracking-wider">
                       <span>{post.categoryLabel}</span>
                       <div className="flex items-center gap-2 text-slate-450">
                         <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300 leading-tight">
+                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-neon-purple transition-colors duration-300 leading-tight">
                       {post.title}
                     </h3>
                     <p className="text-xs text-slate-650 leading-relaxed line-clamp-3 font-medium">{post.desc}</p>
@@ -167,7 +167,7 @@ export default function Blog() {
                   setSearchQuery("");
                   setActiveCategory("all");
                 }}
-                className="mt-4 text-xs font-semibold text-neon-cyan hover:underline cursor-pointer"
+                className="mt-4 text-xs font-semibold text-neon-purple hover:underline cursor-pointer"
               >
                 Clear Filters
               </button>

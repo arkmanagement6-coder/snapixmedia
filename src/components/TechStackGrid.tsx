@@ -111,13 +111,13 @@ export default function TechStackGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.4, delay: i * 0.05 }}
-          className={`group flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-xs ${tech.glow}`}
+          className="group flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-xs group-hover:shadow-[0_0_20px_rgba(124,58,237,0.22)] group-hover:border-neon-purple/45"
         >
           <div className={`${tech.iconColor} p-3 rounded-xl bg-slate-50 border border-slate-200 group-hover:scale-110 transition-transform duration-300`}>
             {tech.icon}
           </div>
           <div>
-            <h4 className="text-sm font-bold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300">
+            <h4 className="text-sm font-bold text-slate-900 group-hover:text-neon-purple transition-colors duration-300">
               {tech.name}
             </h4>
             <p className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase mt-0.5">
