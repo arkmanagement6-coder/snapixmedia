@@ -44,7 +44,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative flex items-center gap-2.5 group cursor-pointer">
-          <img src="/logo.png" alt="Snapix Media Logo" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+          <img src="/logo.png" alt="Snapix Media Logo" className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         </Link>
 
         {/* Desktop Nav Links */}
