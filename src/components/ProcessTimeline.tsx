@@ -71,7 +71,7 @@ export default function ProcessTimeline() {
               }`}
             >
               {/* Timeline Connector node */}
-              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-[34px] h-[34px] flex items-center justify-center rounded-full bg-white border-2 border-neon-purple/20 z-10">
+              <div className="absolute left-[17px] md:left-1/2 md:-translate-x-1/2 w-[34px] h-[34px] flex items-center justify-center rounded-full bg-white border-2 border-neon-purple/20 z-10">
                 <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
               </div>
 

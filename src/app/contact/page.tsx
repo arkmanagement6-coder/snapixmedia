@@ -318,13 +318,13 @@ export default function Contact() {
                     <span className="text-xs text-slate-600 font-bold uppercase flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" /> Select Day (June)
                     </span>
-                    <div className="grid grid-cols-5 gap-2.5">
+                    <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5">
                       {days.map((day) => (
                         <button
                           key={day.date}
                           type="button"
                           onClick={() => setSelectedDay(day.date)}
-                          className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 cursor-pointer transition-all duration-300 ${
+                          className={`p-1.5 sm:p-3 rounded-lg sm:rounded-xl border flex flex-col items-center justify-center gap-1 cursor-pointer transition-all duration-300 ${
                             selectedDay === day.date
                               ? "bg-gradient-to-r from-neon-blue to-neon-purple text-white border-transparent shadow-sm"
                               : "bg-white border-slate-200 text-slate-600 hover:text-neon-purple hover:border-neon-purple/40"

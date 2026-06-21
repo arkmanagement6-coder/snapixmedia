@@ -44,8 +44,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Company Brief */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="inline-block cursor-pointer">
-              <img src="/logo.png" alt="Snapix Media Logo" className="h-14 sm:h-16 w-auto object-contain" />
+            <Link href="/" className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-slate-900 inline-block cursor-pointer select-none">
+              Snapix<span className="text-neon-cyan"> Media</span>
             </Link>
             <p className="text-sm text-slate-600 leading-relaxed">
               We design, build, and optimize premium digital experiences that accelerate growth for enterprise systems, fast-growing SaaS brands, and creative start-ups.
