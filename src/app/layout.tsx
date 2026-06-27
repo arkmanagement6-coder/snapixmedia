@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description: "Transform your business through premium technology & data-driven digital growth. We build high-performance websites, scalable custom applications, and campaigns that accelerate conversion.",
   keywords: ["Digital Marketing", "SEO Optimization", "Web Development", "UI/UX Design", "IT Agency", "E-commerce Development"],
   authors: [{ name: "Snapix Media Team" }],
+  verification: {
+    google: "8RrQ49V3pAMLUk5snTFE32CGRZwev06IvK2v75rz9DQ",
+  },
 };
 
 export default function RootLayout({
