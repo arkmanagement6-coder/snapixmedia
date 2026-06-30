@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Sparkles, Paintbrush } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MouseFollower from "@/components/MouseFollower";
@@ -79,9 +79,9 @@ export default function Home() {
                 color: "text-purple-600 bg-purple-50 border-purple-200",
               },
               {
-                title: "Custom App Dev",
-                desc: "Full-stack cloud-native applications for Android, iOS, and complex dashboard systems.",
-                icon: ArrowRight,
+                title: "Graphic Design & Video Ads",
+                desc: "Stunning brand designs, social media graphics, custom logo kits, and high-converting video advertisements.",
+                icon: Paintbrush,
                 color: "text-indigo-600 bg-indigo-50 border-indigo-200",
               },
             ].map((service, i) => {

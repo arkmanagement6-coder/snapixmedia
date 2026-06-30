@@ -32,7 +32,7 @@ const navLinks: NavLink[] = [
     name: "Services",
     subLinks: [
       { name: "Website Design & Development", href: "/services/web-design-development", desc: "Next.js storefronts & responsive web systems." },
-      { name: "Software Development", href: "/services/software-development", desc: "Custom SaaS dashboards, ERPs, and databases." },
+      { name: "Graphic Design & Video Ads", href: "/services/graphic-design-video-ads", desc: "Stunning brand graphics, social creatives, and video ads." },
       { name: "Social Media Marketing", href: "/services/social-media-marketing", desc: "Organic campaigns, branding, and graphics." },
       { name: "Google & Meta Paid Ads", href: "/services/paid-ads", desc: "Audience targeting, PPC, and campaign audits." },
       { name: "SEO/AEO", href: "/services/seo-aeo", desc: "Organic page search optimization & LLM visibility." },

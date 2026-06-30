@@ -131,7 +131,7 @@ export default function Footer() {
                 { name: "Digital Marketing", href: "/services/paid-ads" },
                 { name: "UI/UX Architecture", href: "/services#design" },
                 { name: "E-commerce Stores", href: "/services/web-design-development" },
-                { name: "Custom App Dev", href: "/services/software-development" },
+                { name: "Graphic Design & Video Ads", href: "/services/graphic-design-video-ads" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link

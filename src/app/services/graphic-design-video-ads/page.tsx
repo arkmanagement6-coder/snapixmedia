@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck, ArrowLeft, ArrowUpRight, Cpu, Database, Blocks, HardDrive } from "lucide-react";
+import { ShieldCheck, ArrowLeft, ArrowUpRight, Layout, Globe, Monitor, Paintbrush, Sparkles, Video, Image } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MouseFollower from "@/components/MouseFollower";
@@ -10,25 +10,25 @@ import Link from "next/link";
 
 const categories = [
   {
-    title: "SaaS Architecture & Portals",
-    desc: "Multi-tenant platforms, customized secure dashboards, authorization protocols (OAuth, JWT), and webhook services.",
-    icon: Cpu,
+    title: "Brand Identity & Logo Design",
+    desc: "Crafting iconic logos, custom typography, unified color palettes, and full corporate branding identity kits that build immediate consumer trust.",
+    icon: Paintbrush,
   },
   {
-    title: "CRM & ERP Custom Panels",
-    desc: "Centralize business parameters, customer tracking logs, resource planning modules, and customized sales pipelines.",
-    icon: Blocks,
+    title: "Social Media Graphics & Creatives",
+    desc: "Custom Instagram post grids, engaging carousel templates, story layouts, and promotional flyers optimized for organic reach and high shares.",
+    icon: Layout,
   },
   {
-    title: "Database Sync & APIs",
-    desc: "PostgreSQL, MongoDB, Redis storage layers, microservices structures, secure API routes, and high-performance serverless endpoints.",
-    icon: Database,
+    title: "High-Converting Video Ads",
+    desc: "High-definition video commercials, short-form Reels & TikTok ads, animated explainers, and product showcase edits that scale paid social ROI.",
+    icon: Video,
   },
 ];
 
-export default function SoftwareDevelopment() {
+export default function GraphicDesignVideoAds() {
   return (
-    <div className="relative min-h-screen bg-transparent text-slate-655 overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-transparent text-slate-700 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
@@ -43,18 +43,21 @@ export default function SoftwareDevelopment() {
         </Link>
 
         {/* Hero Header */}
-        <section className="flex flex-col lg:flex-row gap-12 items-center mb-16">
-          <div className="w-full lg:w-1/2 flex flex-col gap-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-xs font-bold tracking-wider w-fit uppercase">
-              <HardDrive className="w-3.5 h-3.5" />
-              <span>SaaS & Business Systems</span>
+        <section className="flex flex-col lg:flex-row gap-12 items-center mb-24">
+          <div className="w-full lg:w-1/2 flex flex-col gap-6">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-xs font-bold tracking-widest w-fit uppercase">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Creative & Visual Media</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
-              Custom Software{" "}
-              <span className="text-gradient-purple-cyan">Development</span>
+              Graphic Design &{" "}
+              <span className="text-gradient-purple-cyan">Video Ads</span>
             </h1>
             <p className="text-slate-600 text-sm sm:text-base font-semibold leading-relaxed">
-              We architect secure, scalable software engines and API databases designed to automate internal workflows and support multi-tenant SaaS dashboards.
+              Elevate your brand presence, attract customer attention, and double your ad Click-Through Rates (CTR) with high-fidelity graphic designs and video commercials custom-crafted by Snapix Media.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Visual elements are the cornerstone of digital communication. Our talented visual designers and video editors combine aesthetic brilliance with marketing strategy to produce assets that not only look spectacular but support direct commercial goals: boosting leads, conversions, and retention.
             </p>
           </div>
 
@@ -62,19 +65,19 @@ export default function SoftwareDevelopment() {
             <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-lg shadow-slate-200/20 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-radial from-neon-cyan/10 to-transparent blur-2xl pointer-events-none" />
               <div className="flex flex-col gap-4">
-                <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest font-mono">Workflow Automation</span>
-                <h3 className="text-2xl font-extrabold text-slate-900 leading-tight">Reduce Manual Bottlenecks</h3>
+                <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest font-mono">Creative Performance</span>
+                <h3 className="text-2xl font-extrabold text-slate-900 leading-tight">Visuals Made to Convert</h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-semibold">
-                  Custom software systems consolidate user logins, sync CRM metrics, and decrease operating bottlenecks by automating repeatable reports and tasks.
+                  A high-converting ad requires storyboards that immediately hook users in the first 3 seconds. We specialize in producing thumb-stopping visuals that reduce CPC and optimize acquisition.
                 </p>
                 <div className="flex items-center gap-6 border-t border-slate-100 pt-4 mt-2">
                   <div>
-                    <span className="block text-2xl font-extrabold text-slate-900">99.99%</span>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase">Edge System Uptime</span>
+                    <span className="block text-2xl font-extrabold text-slate-900">2.4x</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase">Average CTR Boost</span>
                   </div>
                   <div>
-                    <span className="block text-2xl font-extrabold text-slate-900">40%+</span>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase">Efficiency Boost</span>
+                    <span className="block text-2xl font-extrabold text-slate-900">100%</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase">Custom Visual Layouts</span>
                   </div>
                 </div>
               </div>
@@ -82,11 +85,11 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {/* Modules Grid */}
+        {/* Capabilities Grid */}
         <section className="py-12 border-t border-slate-200/50">
           <div className="text-center max-w-xl mx-auto mb-12">
             <span className="text-xs font-bold text-neon-purple uppercase tracking-widest">Capabilities</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2 font-display">System Architectures</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2 font-display">Creative Visual Services</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -107,15 +110,15 @@ export default function SoftwareDevelopment() {
 
         {/* Action CTA */}
         <section className="mt-16 p-8 rounded-3xl bg-slate-50 border border-slate-200 text-center">
-          <h2 className="text-2xl font-extrabold text-slate-900 mb-3 font-display">Need a tailored software dashboard?</h2>
+          <h2 className="text-2xl font-extrabold text-slate-900 mb-3 font-display">Ready to launch your creative campaign?</h2>
           <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-semibold mb-8">
-            Our full-stack engineers design secure interfaces, deploy databases, and integrate API endpoints.
+            Request a design catalog audit or consult with our creative design lead for custom pricing options.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-neon-purple to-neon-cyan hover:opacity-90 shadow-md transition-all cursor-pointer"
           >
-            Request System Audit
+            Get Creative Quote
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </section>
