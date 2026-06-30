@@ -99,13 +99,13 @@ export default function Navbar() {
                 >
                   <button
                     className={`flex items-center gap-1 text-[17px] font-extrabold tracking-wide transition-colors duration-300 cursor-pointer ${
-                      isDropdownActive || isPathInSublinks ? "text-neon-purple font-black" : "text-neon-purple/75 hover:text-neon-purple"
+                      isDropdownActive || isPathInSublinks ? "text-slate-900 font-black" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {link.name}
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-300 ${
-                        isDropdownActive ? "rotate-180 text-neon-purple" : "text-neon-purple/65"
+                        isDropdownActive ? "rotate-180 text-slate-900" : "text-slate-400"
                       }`}
                     />
                   </button>
@@ -164,7 +164,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href || "/"}
                 className={`relative text-[17px] font-extrabold tracking-wide transition-colors duration-300 py-1 ${
-                  isActive ? "text-neon-purple font-black" : "text-neon-purple/75 hover:text-neon-purple"
+                  isActive ? "text-slate-900 font-black" : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {link.name}
@@ -268,7 +268,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href || "/"}
                     className={`text-xl font-extrabold tracking-wide border-b border-slate-100 pb-2 transition-colors py-2 ${
-                      isActive ? "text-neon-purple font-black" : "text-neon-purple/80 hover:text-neon-purple"
+                      isActive ? "text-slate-900 font-bold" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {link.name}
