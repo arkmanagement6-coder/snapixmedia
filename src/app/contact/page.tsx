@@ -251,22 +251,21 @@ export default function Contact() {
                         <option value="seo" className="bg-white text-slate-800">SEO Optimization</option>
                         <option value="marketing" className="bg-white text-slate-800">Digital Marketing</option>
                         <option value="design" className="bg-white text-slate-800">UI/UX Architecture</option>
-                        <option value="other" className="bg-white text-slate-800">Multiple / Full Retainer</option>
+                        <option value="retainer" className="bg-white text-slate-800">Multiple / Full Retainer</option>
+                        <option value="other" className="bg-white text-slate-800">Other</option>
                       </select>
                     </div>
 
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs text-slate-500 font-bold uppercase">Budget Range</label>
-                      <select
+                      <input
+                        type="text"
+                        placeholder="e.g. $10k - $25k"
+                        required
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3 bg-white border border-slate-200 text-slate-850 rounded-xl text-xs focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all"
-                      >
-                        <option value="$5k-$10k" className="bg-white text-slate-800">$5k - $10k</option>
-                        <option value="$10k-$25k" className="bg-white text-slate-800">$10k - $25k</option>
-                        <option value="$25k-$50k" className="bg-white text-slate-800">$25k - $50k</option>
-                        <option value="$50k+" className="bg-white text-slate-800">$50k+ Enterprise</option>
-                      </select>
+                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all"
+                      />
                     </div>
                   </div>
 

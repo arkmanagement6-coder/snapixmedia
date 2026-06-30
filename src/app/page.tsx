@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Sparkles, Paintbrush } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Sparkles, Paintbrush, Share2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MouseFollower from "@/components/MouseFollower";
@@ -53,36 +53,42 @@ export default function Home() {
                 desc: "Grow your brand with strategic social, search, and content campaigns that drive leads.",
                 icon: Zap,
                 color: "text-purple-600 bg-purple-50 border-purple-200",
+                href: "/services/paid-ads",
               },
               {
                 title: "SEO Optimization",
                 desc: "Increase organic visibility, audit core web vitals, and rank #1 for high-value search queries.",
                 icon: ShieldCheck,
                 color: "text-violet-600 bg-violet-50 border-violet-200",
+                href: "/services/seo-aeo",
               },
               {
                 title: "Web Development",
                 desc: "High-performance websites built using React, Next.js, and modern jamstack structures.",
                 icon: Sparkles,
                 color: "text-indigo-600 bg-indigo-50 border-indigo-200",
+                href: "/services/web-design-development",
               },
               {
-                title: "E-commerce Stores",
-                desc: "Tailored Shopify Plus and Headless online stores engineered for high sales conversions.",
+                title: "Performance Marketing",
+                desc: "Deploy conversion-optimized paid ad campaigns across search and social channels.",
                 icon: ArrowUpRight,
                 color: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200",
+                href: "/services/paid-ads",
               },
               {
-                title: "UI/UX Architecture",
-                desc: "Stunning wireframes, user testing, and interactive user interfaces styled for elegance.",
-                icon: CheckCircle2,
+                title: "Social Media Marketing",
+                desc: "Deploy consistent grids, reels, video scripts, and custom brand narratives built for virality.",
+                icon: Share2,
                 color: "text-purple-600 bg-purple-50 border-purple-200",
+                href: "/services/social-media-marketing",
               },
               {
                 title: "Graphic Design & Video Ads",
                 desc: "Stunning brand designs, social media graphics, custom logo kits, and high-converting video advertisements.",
                 icon: Paintbrush,
                 color: "text-indigo-600 bg-indigo-50 border-indigo-200",
+                href: "/services/graphic-design-video-ads",
               },
             ].map((service, i) => {
               const Icon = service.icon;
@@ -92,11 +98,15 @@ export default function Home() {
                     <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${service.color}`}>
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900">
+                      <Link href={service.href} className="hover:text-neon-purple transition-colors duration-300">
+                        {service.title}
+                      </Link>
+                    </h3>
                     <p className="text-sm text-slate-500 leading-relaxed font-medium">{service.desc}</p>
                   </div>
                   <Link
-                    href="/services"
+                    href={service.href}
                     className="mt-6 text-xs font-bold uppercase tracking-wider text-neon-purple flex items-center gap-1 hover:underline w-fit"
                   >
                     Learn More
