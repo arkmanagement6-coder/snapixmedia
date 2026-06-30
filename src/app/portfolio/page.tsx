@@ -81,21 +81,23 @@ export default function Portfolio() {
   return (
     <div className="relative min-h-screen bg-transparent text-slate-650 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
-      <Navbar />
+      <Navbar isDarkHero={true} />
 
-      {/* Hero Header */}
-      <section className="relative pt-36 pb-16 px-6 glow-grid">
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-radial from-neon-purple/5 to-transparent blur-[80px] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-xs font-bold tracking-wider mb-6 uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
+      {/* Dark Hero Banner */}
+      <section className="relative w-full min-h-[300px] sm:min-h-[380px] flex items-center justify-center bg-slate-950 overflow-hidden pt-28">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-neon-purple/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-neon-cyan/10 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-6xl mx-auto px-6 w-full text-center relative z-10 py-12 flex flex-col items-center gap-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 text-slate-300 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
+            <Sparkles className="w-3.5 h-3.5 text-neon-cyan" />
             <span>Proven Case Studies</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 font-display">
-            Premium Work,{" "}
-            <span className="text-gradient-purple-cyan">Measurable Results</span>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl font-display">
+            Premium Work, <span className="text-gradient-purple-cyan">Measurable Results</span>
           </h1>
-          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed font-medium">
             Review how we align technical web systems engineering with targeted digital acquisition funnels to deliver enterprise scaling.
           </p>
         </div>
