@@ -130,7 +130,7 @@ export default function HeroSlider() {
       <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-between relative min-h-fit">
         
         {/* Left Column: Copywriting content */}
-        <div className="w-full lg:w-[52%] flex flex-col gap-5 text-center lg:text-left items-center lg:items-start order-2 lg:order-1 mt-6 lg:mt-0">
+        <div className="w-full lg:w-[52%] flex flex-col gap-5 text-center lg:text-left items-center lg:items-start order-1 lg:order-1">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -166,7 +166,7 @@ export default function HeroSlider() {
               </h1>
 
               {/* Description */}
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl font-semibold">
+              <p className="text-slate-655 text-sm sm:text-base leading-relaxed max-w-xl font-semibold">
                 {slides[current].desc}
               </p>
 
@@ -191,7 +191,7 @@ export default function HeroSlider() {
         </div>
 
         {/* Right Column: 3D Illustration Graphic */}
-        <div className="w-full lg:w-[45%] max-w-[480px] h-[220px] sm:h-[300px] lg:h-[340px] relative flex items-center justify-center order-1 lg:order-2 px-4 sm:px-0">
+        <div className="w-full lg:w-[45%] max-w-[480px] h-[220px] sm:h-[300px] lg:h-[340px] relative flex items-center justify-center order-2 lg:order-2 mt-6 lg:mt-0 px-4 sm:px-0">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
