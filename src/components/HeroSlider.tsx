@@ -11,18 +11,23 @@ const slides = [
     icon: Cpu,
     titleColor: "from-neon-purple to-neon-cyan",
     title: "Transform Business with Custom Web Systems",
-    desc: "We engineer lightning-fast Next.js portals, headless Shopify storefronts, and cloud SaaS dashboards designed for performance.",
+    desc: "We engineer lightning-fast Next.js storefronts, custom APIs, and cloud SaaS dashboards designed for performance.",
     btnText: "Explore Services",
     btnLink: "/services",
     visual: (
-      <div className="w-full h-full flex items-center justify-center p-1 bg-white/40 border border-slate-200/50 rounded-3xl shadow-xl relative overflow-hidden backdrop-blur-xl animate-float-slow group">
+      <div className="w-full h-full flex items-center justify-center p-1.5 bg-white/40 border border-slate-200/50 rounded-3xl shadow-xl relative backdrop-blur-xl animate-float-slow group">
         {/* Glow Orbs */}
         <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-radial from-neon-purple/20 to-transparent blur-2xl pointer-events-none" />
         <img
           src="/web_systems_3d.png"
           alt="Web Systems 3D Mockup"
-          className="w-full h-full object-cover rounded-2xl shadow-sm group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover rounded-2xl shadow-sm group-hover:scale-102 transition-transform duration-700"
         />
+        {/* Floating 3D Badge Overlay */}
+        <div className="absolute -bottom-4 -left-4 bg-white border border-slate-200/60 shadow-xl rounded-2xl px-4 py-3 z-10 hidden sm:flex items-center gap-2.5 animate-float-medium">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+          <span className="text-[10px] font-black text-slate-800 tracking-wide uppercase font-mono">Speed latency: 38ms</span>
+        </div>
       </div>
     ),
   },
@@ -35,14 +40,18 @@ const slides = [
     btnText: "Launch Campaigns",
     btnLink: "/services/paid-ads",
     visual: (
-      <div className="w-full h-full flex items-center justify-center p-1 bg-white/40 border border-slate-200/50 rounded-3xl shadow-xl relative overflow-hidden backdrop-blur-xl animate-float-medium group">
+      <div className="w-full h-full flex items-center justify-center p-1.5 bg-white/40 border border-slate-200/50 rounded-3xl shadow-xl relative backdrop-blur-xl animate-float-medium group">
         {/* Glow Orbs */}
         <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-radial from-neon-blue/20 to-transparent blur-2xl pointer-events-none" />
         <img
           src="/digital_growth_3d.png"
           alt="Paid Ads 3D Mockup"
-          className="w-full h-full object-cover rounded-2xl shadow-sm group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover rounded-2xl shadow-sm group-hover:scale-102 transition-transform duration-700"
         />
+        {/* Floating 3D Badge Overlay */}
+        <div className="absolute -top-4 -right-4 bg-gradient-to-r from-neon-purple to-neon-cyan border border-white/20 shadow-xl rounded-2xl px-4 py-3 z-10 hidden sm:flex items-center gap-2.5 text-white animate-float-slow">
+          <span className="text-[10px] font-black tracking-wider uppercase font-mono">Meta ROAS: 5.2x</span>
+        </div>
       </div>
     ),
   },
@@ -55,14 +64,18 @@ const slides = [
     btnText: "Request SEO Audit",
     btnLink: "/services/seo-aeo",
     visual: (
-      <div className="w-full h-full flex items-center justify-center p-1 bg-white/40 border border-slate-200/50 rounded-3xl shadow-xl relative overflow-hidden backdrop-blur-xl animate-float-fast group">
+      <div className="w-full h-full flex items-center justify-center p-1.5 bg-white/40 border border-slate-200/50 rounded-3xl shadow-xl relative backdrop-blur-xl animate-float-fast group">
         {/* Glow Orbs */}
         <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-radial from-neon-purple/20 to-transparent blur-2xl pointer-events-none" />
         <img
           src="/search_authority_3d.png"
           alt="SEO Audit 3D Mockup"
-          className="w-full h-full object-cover rounded-2xl shadow-sm group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover rounded-2xl shadow-sm group-hover:scale-102 transition-transform duration-700"
         />
+        {/* Floating 3D Badge Overlay */}
+        <div className="absolute -bottom-4 -right-4 bg-white border border-slate-200/60 shadow-xl rounded-2xl px-4 py-3 z-10 hidden sm:flex items-center gap-2.5 animate-float-fast">
+          <span className="text-[10px] font-black text-slate-800 tracking-wide uppercase font-mono">AI Citations: OK</span>
+        </div>
       </div>
     ),
   },
@@ -96,7 +109,7 @@ export default function HeroSlider() {
 
   const slideVariants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? 100 : -100,
+      x: dir > 0 ? 50 : -50,
       opacity: 0,
     }),
     center: {
@@ -104,7 +117,7 @@ export default function HeroSlider() {
       opacity: 1,
     },
     exit: (dir: number) => ({
-      x: dir < 0 ? 100 : -100,
+      x: dir < 0 ? 50 : -50,
       opacity: 0,
     }),
   };
@@ -112,11 +125,12 @@ export default function HeroSlider() {
   const ActiveIcon = slides[current].icon;
 
   return (
-    <div className="w-full flex flex-col items-center relative group min-h-[500px]">
+    <div className="w-full flex flex-col items-center relative group min-h-fit py-4">
       {/* Slide Content wrapper */}
-      <div className="w-full flex flex-col lg:flex-row gap-12 items-center justify-between relative min-h-[420px]">
+      <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-between relative min-h-fit">
+        
         {/* Left Column: Copywriting content */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
+        <div className="w-full lg:w-[52%] flex flex-col gap-5 text-center lg:text-left items-center lg:items-start order-2 lg:order-1 mt-6 lg:mt-0">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -125,8 +139,8 @@ export default function HeroSlider() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="flex flex-col gap-5 items-center lg:items-start"
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="flex flex-col gap-4 items-center lg:items-start"
             >
               {/* Badge Tag */}
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-purple/20 bg-neon-purple/5 text-neon-purple text-xs font-bold tracking-wider uppercase">
@@ -135,7 +149,7 @@ export default function HeroSlider() {
               </div>
 
               {/* Slide Title */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.1] font-display">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] font-display">
                 {current === 0 ? (
                   <>
                     Transform Business with <span className="text-gradient-purple-cyan block sm:inline">Custom Web Systems</span>
@@ -157,17 +171,17 @@ export default function HeroSlider() {
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start w-full sm:w-auto mt-2">
+              <div className="flex flex-col sm:flex-row gap-3 items-center justify-center lg:justify-start w-full sm:w-auto mt-4">
                 <Link
                   href={slides[current].btnLink}
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   {slides[current].btnText}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto px-8 py-4 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                 >
                   Consultation Call
                 </Link>
@@ -176,8 +190,8 @@ export default function HeroSlider() {
           </AnimatePresence>
         </div>
 
-        {/* Right Column: Interactive CSS Graphic Visualizer */}
-        <div className="w-full lg:w-1/2 max-w-[500px] h-[340px] relative flex items-center justify-center">
+        {/* Right Column: 3D Illustration Graphic */}
+        <div className="w-full lg:w-[45%] max-w-[480px] h-[220px] sm:h-[300px] lg:h-[340px] relative flex items-center justify-center order-1 lg:order-2 px-4 sm:px-0">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -186,7 +200,7 @@ export default function HeroSlider() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
               className="w-full h-full"
             >
               {slides[current].visual}
@@ -198,19 +212,19 @@ export default function HeroSlider() {
       {/* Manual Slide Navigation Toggles */}
       <button
         onClick={handlePrev}
-        className="absolute left-[-20px] lg:left-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white/80 hover:bg-white text-slate-600 hover:text-slate-900 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
+        className="absolute left-[-20px] lg:left-[-60px] top-[40%] lg:top-[50%] -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white/80 hover:bg-white text-slate-600 hover:text-slate-900 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-[-20px] lg:right-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white/80 hover:bg-white text-slate-600 hover:text-slate-900 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
+        className="absolute right-[-20px] lg:right-[-60px] top-[40%] lg:top-[50%] -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white/80 hover:bg-white text-slate-600 hover:text-slate-900 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Active Dot Indicators */}
-      <div className="flex gap-2.5 mt-8 z-20">
+      <div className="flex gap-2.5 mt-8 lg:mt-10 z-20">
         {slides.map((_, idx) => (
           <button
             key={idx}
