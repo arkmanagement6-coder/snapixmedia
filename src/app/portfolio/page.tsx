@@ -94,7 +94,7 @@ export default function Portfolio() {
             <Sparkles className="w-3.5 h-3.5 text-neon-cyan" />
             <span>Proven Case Studies</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold !text-white tracking-tight leading-[1.1] max-w-4xl font-display">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] max-w-4xl font-display" style={{ color: "#ffffff" }}>
             Premium Work, <span className="text-gradient-purple-cyan">Measurable Results</span>
           </h1>
           <p className="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed font-medium">

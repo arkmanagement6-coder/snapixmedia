@@ -103,7 +103,7 @@ export default function PaidAds() {
             <TrendingUp className="w-3.5 h-3.5" />
             <span>PPC & Lead Generation</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold !text-white tracking-tight leading-tight font-display drop-shadow-md">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight font-display drop-shadow-md" style={{ color: "#ffffff" }}>
             Google & Meta <span className="text-gradient-purple-cyan">Paid Ads</span>
           </h1>
           <p className="!text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed font-semibold">
