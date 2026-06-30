@@ -1,5 +1,6 @@
 "use client";
 
+// Force redeploy trigger for partners page
 import { Sparkles, Network, ArrowUpRight, Zap, CheckCircle2, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
