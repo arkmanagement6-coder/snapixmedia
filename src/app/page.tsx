@@ -11,6 +11,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import TechStackGrid from "@/components/TechStackGrid";
 import GlassCard from "@/components/GlassCard";
+import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
   return (
@@ -26,37 +27,8 @@ export default function Home() {
 
         <ParticleCanvas />
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center justify-center text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-purple/20 bg-neon-purple/5 text-neon-purple text-xs font-bold tracking-wider mb-6 uppercase animate-pulse">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Digital Growth & Tech Agency</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-4xl leading-[1.1] mb-6 font-display">
-            Transform Your Business Through{" "}
-            <span className="text-gradient-purple-cyan">Technology</span> &{" "}
-            <span className="text-gradient-blue-magenta">Digital Growth</span>
-          </h1>
-
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 font-semibold">
-            We build high-performance websites, scalable applications, and data-driven marketing campaigns that accelerate growth.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-sm font-semibold uppercase tracking-wider hover:opacity-90 shadow-md transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
-            >
-              Start Project
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/portfolio"
-              className="w-full sm:w-auto px-8 py-4 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-semibold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-            >
-              View Portfolio
-            </Link>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+          <HeroSlider />
         </div>
       </section>
 
