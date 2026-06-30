@@ -166,22 +166,14 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* WhatsApp CTA Call */}
-            <GlassCard className="flex flex-col gap-4 border-emerald-250 hover:border-emerald-400 bg-white" hoverGlow>
-              <div className="flex items-center gap-3">
-                <MessageCircle className="w-6 h-6 text-emerald-550" />
-                <h3 className="text-base font-bold text-slate-900">Direct WhatsApp Text</h3>
-              </div>
-              <p className="text-xs text-slate-605 leading-relaxed font-medium">
-                Prefer real-time messaging? Skip the email queue and connect directly with our engineering triage representative on WhatsApp.
-              </p>
-              <button
-                onClick={handleWhatsAppRedirect}
-                className="w-full py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-              >
-                Send WhatsApp Message
-              </button>
-            </GlassCard>
+            {/* WhatsApp CTA Button */}
+            <button
+              onClick={handleWhatsAppRedirect}
+              className="w-full py-4 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-lg shadow-emerald-500/10"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Send WhatsApp Message
+            </button>
 
             {/* Google Map Embed */}
             <div className="rounded-3xl border border-slate-200 bg-white h-56 overflow-hidden relative shadow-sm">
