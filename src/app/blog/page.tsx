@@ -69,30 +69,30 @@ export default function Blog() {
   });
 
   return (
-    <div className="relative min-h-screen bg-[#f8fafc] text-[#334155] overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-transparent text-slate-300 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
       {/* Hero Header */}
       <section className="relative pt-36 pb-16 px-6 glow-grid">
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-radial from-neon-purple/5 to-transparent blur-[80px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-radial from-neon-purple/10 to-transparent blur-[80px] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-xs font-bold tracking-wider mb-6 uppercase">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Snapix Media Insights</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 font-display">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-display">
             Engineering & Marketing{" "}
             <span className="text-gradient-purple-cyan">Insights</span>
           </h1>
-          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-350 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
             Technical tutorials, marketing breakdowns, and strategic industry findings curated by our core expert panel.
           </p>
         </div>
       </section>
 
       {/* Search & Categories Bar */}
-      <section className="py-6 px-6 border-y border-glass-border bg-slate-50/50">
+      <section className="py-6 px-6 border-y border-white/5 bg-slate-950/20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
           {/* Category Tabs */}
           <div className="flex flex-wrap gap-2.5 justify-center md:justify-start">
@@ -103,7 +103,7 @@ export default function Blog() {
                 className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase border transition-all duration-300 cursor-pointer ${
                   activeCategory === cat.value
                     ? "bg-gradient-to-r from-neon-blue to-neon-purple text-white border-transparent shadow-sm"
-                    : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
+                    : "bg-slate-900/60 border-white/10 text-slate-300 hover:text-white"
                 }`}
               >
                 {cat.name}
@@ -118,7 +118,7 @@ export default function Blog() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-full text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-white/10 rounded-full text-xs text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all shadow-md"
             />
             <Search className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
           </div>
@@ -133,7 +133,7 @@ export default function Blog() {
               {filteredArticles.map((post, idx) => (
                 <GlassCard
                   key={idx}
-                  className={`flex flex-col justify-between h-[280px] border-slate-200/80 hover:border-neon-purple/45 bg-gradient-to-br ${post.bgClass} relative group`}
+                  className={`flex flex-col justify-between h-[280px] border-white/5 hover:border-neon-purple/45 bg-gradient-to-br ${post.bgClass} relative group`}
                   hoverGlow
                 >
                   <div className="flex flex-col gap-3">
@@ -144,14 +144,14 @@ export default function Blog() {
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-neon-purple transition-colors duration-300 leading-tight">
+                    <h3 className="text-xl font-extrabold text-white group-hover:text-neon-purple transition-colors duration-300 leading-tight">
                       {post.title}
                     </h3>
-                    <p className="text-xs text-slate-650 leading-relaxed line-clamp-3 font-medium">{post.desc}</p>
+                    <p className="text-xs text-slate-400 leading-relaxed line-clamp-3 font-medium">{post.desc}</p>
                   </div>
 
                   <div className="flex justify-end mt-4">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-900 flex items-center gap-1 cursor-pointer">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 group-hover:text-white flex items-center gap-1 cursor-pointer">
                       Read Article
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -160,8 +160,8 @@ export default function Blog() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-20 border border-dashed border-slate-250 rounded-3xl bg-white max-w-xl mx-auto">
-              <p className="text-slate-500 text-sm font-semibold">No articles found matching search query.</p>
+            <div className="text-center py-20 border border-dashed border-white/10 rounded-3xl bg-slate-900/30 max-w-xl mx-auto">
+              <p className="text-slate-400 text-sm font-semibold">No articles found matching search query.</p>
               <button
                 onClick={() => {
                   setSearchQuery("");

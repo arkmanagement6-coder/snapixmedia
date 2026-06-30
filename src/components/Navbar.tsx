@@ -37,14 +37,14 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "py-4 bg-white/80 backdrop-blur-md border-b border-glass-border shadow-sm"
+          ? "py-4 bg-[#090514]/85 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/10"
           : "py-6 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative flex items-center gap-2 group cursor-pointer select-none">
-          <span className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-slate-900">
+          <span className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-white">
             Snapix<span className="text-neon-purple group-hover:text-neon-blue transition-colors duration-300"> Media</span>
           </span>
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-neon-purple to-neon-blue group-hover:w-full transition-all duration-300" />
@@ -58,7 +58,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="relative text-sm font-medium tracking-wide text-slate-600 hover:text-slate-900 transition-colors duration-300 py-1"
+                className="relative text-sm font-medium tracking-wide text-slate-300 hover:text-white transition-colors duration-300 py-1"
               >
                 {link.name}
                 {isActive && (
@@ -87,7 +87,7 @@ export default function Navbar() {
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-slate-600 hover:text-slate-900 transition-colors"
+          className="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -102,7 +102,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden border-b border-glass-border bg-white/95 backdrop-blur-lg overflow-hidden"
+            className="md:hidden border-b border-white/5 bg-[#090514]/95 backdrop-blur-lg overflow-hidden shadow-2xl"
           >
             <div className="flex flex-col gap-4 px-6 py-8">
               {navLinks.map((link) => {
@@ -112,7 +112,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     className={`text-lg font-medium tracking-wide transition-colors py-2 ${
-                      isActive ? "text-neon-purple font-bold" : "text-slate-600 hover:text-slate-900"
+                      isActive ? "text-neon-purple font-bold" : "text-slate-350 hover:text-white"
                     }`}
                   >
                     {link.name}

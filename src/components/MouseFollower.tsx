@@ -28,7 +28,7 @@ export default function MouseFollower() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-30 h-[300px] w-[300px] rounded-full bg-radial from-neon-purple/20 via-neon-blue/10 to-transparent blur-[60px] will-change-transform hidden md:block"
+      className="pointer-events-none fixed left-0 top-0 z-30 h-[300px] w-[300px] rounded-full bg-radial from-neon-purple/25 via-neon-blue/15 to-transparent blur-[70px] will-change-transform hidden md:block"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
