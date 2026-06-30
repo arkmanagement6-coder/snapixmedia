@@ -3,32 +3,40 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Cpu, BarChart2, ShieldCheck } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Cpu, BarChart2, ShieldCheck, Megaphone } from "lucide-react";
 
 const slides = [
   {
-    tag: "Software Engineering",
-    icon: Cpu,
-    title: "Transform Business with Custom Web Systems",
-    desc: "We engineer lightning-fast Next.js storefronts, custom APIs, and cloud SaaS dashboards designed for modern enterprises.",
-    btnText: "Explore Services",
-    btnLink: "/services",
+    tag: "Digital Marketing",
+    icon: Megaphone,
+    title: "Scale Organic Brand Visibility & Lead Funnels",
+    desc: "Deploy premium copywriting grids, monthly post schedules, and creative graphic styling kits designed to maximize organic audience engagement.",
+    btnText: "WhatsApp Enquiry",
+    waText: "Hello Snapix Media, I want to enquire about Digital Marketing services.",
+  },
+  {
+    tag: "SEO Optimization",
+    icon: ShieldCheck,
+    title: "Rank #1 on Search & AI Engines",
+    desc: "Format structured schemas and optimize Core Web Vitals to command authority inside ChatGPT, Gemini, and Google indexers.",
+    btnText: "WhatsApp Enquiry",
+    waText: "Hello Snapix Media, I want to enquire about SEO and search engine optimization services.",
   },
   {
     tag: "Paid Advertising",
     icon: BarChart2,
     title: "Scale Profitable Paid Ads Campaigns",
     desc: "Deploy performance-driven bidding arrays across Google PPC and Meta CAPI to lower your Customer Acquisition Cost.",
-    btnText: "Launch Campaigns",
-    btnLink: "/services/paid-ads",
+    btnText: "WhatsApp Enquiry",
+    waText: "Hello Snapix Media, I want to enquire about Google and Meta Paid Ads campaigns.",
   },
   {
-    tag: "Search Authority",
-    icon: ShieldCheck,
-    title: "Rank #1 on Search & AI Engines",
-    desc: "Format structured schemas and optimize Core Web Vitals to command authority inside ChatGPT, Gemini, and Google indexers.",
-    btnText: "Request SEO Audit",
-    btnLink: "/services/seo-aeo",
+    tag: "Website Design & Development",
+    icon: Cpu,
+    title: "Transform Business with Custom Web Systems",
+    desc: "We engineer lightning-fast Next.js storefronts, custom APIs, and cloud SaaS dashboards designed for modern enterprises.",
+    btnText: "WhatsApp Enquiry",
+    waText: "Hello Snapix Media, I want to enquire about Website Design and Development services.",
   },
 ];
 
@@ -100,15 +108,19 @@ export default function HeroSlider() {
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black text-slate-900 tracking-tight leading-[1.1] font-display max-w-4xl">
               {current === 0 ? (
                 <>
-                  Transform Business with <span className="text-gradient-purple-cyan block sm:inline">Custom Web Systems</span>
+                  Scale Organic <span className="text-gradient-purple-cyan block sm:inline">Brand Visibility & Lead Funnels</span>
                 </>
               ) : current === 1 ? (
+                <>
+                  Rank #1 on <span className="text-gradient-purple-cyan block sm:inline">Search & AI Engines</span>
+                </>
+              ) : current === 2 ? (
                 <>
                   Scale Profitable <span className="text-gradient-blue-magenta block sm:inline">Paid Ads Campaigns</span>
                 </>
               ) : (
                 <>
-                  Rank #1 on <span className="text-gradient-purple-cyan block sm:inline">Search & AI Engines</span>
+                  Transform Business with <span className="text-gradient-purple-cyan block sm:inline">Custom Web Systems</span>
                 </>
               )}
             </h1>
@@ -120,13 +132,15 @@ export default function HeroSlider() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mt-6">
-              <Link
-                href={slides[current].btnLink}
+              <a
+                href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-9 py-4 rounded-full bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
               >
                 {slides[current].btnText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
               <Link
                 href="/contact"
                 className="w-full sm:w-auto px-9 py-4 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
