@@ -7,7 +7,7 @@ import WhatsAppChat from "@/components/WhatsAppChat";
 
 export default function RefundPolicy() {
   return (
-    <div className="relative min-h-screen bg-transparent text-slate-300 overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-transparent text-slate-655 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
@@ -15,37 +15,37 @@ export default function RefundPolicy() {
         {/* Back Link */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 hover:text-white transition-colors duration-300 mb-8"
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-colors duration-300 mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
 
         {/* Title Header */}
-        <div className="flex flex-col gap-4 border-b border-white/5 pb-8 mb-10">
+        <div className="flex flex-col gap-4 border-b border-slate-200/50 pb-8 mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-purple/20 bg-neon-purple/5 text-neon-purple text-xs font-bold tracking-wider w-fit uppercase">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Billing Document</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight font-display">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
             Refund & Cancellation Policy
           </h1>
-          <p className="text-slate-400 text-xs sm:text-sm flex items-center gap-1.5 font-semibold mt-1">
+          <p className="text-slate-550 text-xs sm:text-sm flex items-center gap-1.5 font-semibold mt-1">
             <Calendar className="w-4 h-4" /> Last Updated: June 21, 2026
           </p>
         </div>
 
         {/* Policy Content */}
-        <div className="flex flex-col gap-8 text-sm leading-relaxed text-slate-400 font-medium">
+        <div className="flex flex-col gap-8 text-sm leading-relaxed text-slate-650 font-medium">
           <section className="flex flex-col gap-3">
-            <h2 className="text-xl font-bold text-white font-display">1. Overview</h2>
+            <h2 className="text-xl font-bold text-slate-900 font-display">1. Overview</h2>
             <p>
               At <strong>Snapix Media</strong>, we aim to deliver high-quality, custom-tailored software engineering, website development, SEO optimization, and digital marketing services. Because our services are structured as customized intellectual solutions, our refund and cancellation practices are outlined below.
             </p>
           </section>
 
           <section className="flex flex-col gap-3">
-            <h2 className="text-xl font-bold text-white font-display">2. Service Cancellation</h2>
+            <h2 className="text-xl font-bold text-slate-900 font-display">2. Service Cancellation</h2>
             <p>
               Clients can request service cancellations under the following terms:
             </p>
@@ -56,7 +56,7 @@ export default function RefundPolicy() {
           </section>
 
           <section className="flex flex-col gap-3">
-            <h2 className="text-xl font-bold text-white font-display">3. Refund Policy</h2>
+            <h2 className="text-xl font-bold text-slate-900 font-display">3. Refund Policy</h2>
             <p>
               Due to the customized nature of human resource allocation and code deployment, refunds are subject to:
             </p>
@@ -68,61 +68,61 @@ export default function RefundPolicy() {
           </section>
 
           <section className="flex flex-col gap-3">
-            <h2 className="text-xl font-bold text-white font-display">4. Dispute Resolution</h2>
+            <h2 className="text-xl font-bold text-slate-900 font-display">4. Dispute Resolution</h2>
             <p>
               We believe in client satisfaction. If you are dissatisfied with any phase of website development or campaign performance, please contact our account supervisors immediately to seek revisions or setup an adjustment meeting.
             </p>
           </section>
 
           {/* Contact Details Card */}
-          <section className="mt-8 p-6 rounded-3xl bg-slate-900/40 border border-white/5 flex flex-col gap-4">
-            <h3 className="text-lg font-bold text-white font-display border-b border-white/5 pb-2">
+          <section className="mt-8 p-6 rounded-3xl bg-white border border-slate-200/80 flex flex-col gap-4 shadow-sm">
+            <h3 className="text-lg font-bold text-slate-900 font-display border-b border-slate-200/50 pb-2">
               5. Billing & Refund Support
             </h3>
-            <p className="text-xs text-slate-450 leading-relaxed font-semibold">
+            <p className="text-xs text-slate-555 leading-relaxed font-semibold">
               For any refund requests or contract cancellations, please contact our finance and billing department:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-slate-950 border border-white/5 flex items-center justify-center text-neon-purple shadow-md">
+                <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-neon-purple shadow-sm">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="text-[9px] text-slate-400 uppercase font-semibold">Email us</span>
-                  <a href="mailto:snapixmediaofficial@gmail.com" className="block text-xs font-bold text-slate-200 hover:text-white transition-colors">
+                  <span className="text-[9px] text-slate-500 uppercase font-semibold">Email us</span>
+                  <a href="mailto:snapixmediaofficial@gmail.com" className="block text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors">
                     snapixmediaofficial@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-slate-950 border border-white/5 flex items-center justify-center text-neon-blue shadow-md">
+                <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-neon-blue shadow-sm">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="text-[9px] text-slate-400 uppercase font-semibold">Call us</span>
-                  <a href="tel:+919675818088" className="block text-xs font-bold text-slate-200 hover:text-white transition-colors">
+                  <span className="text-[9px] text-slate-505 uppercase font-semibold">Call us</span>
+                  <a href="tel:+919675818088" className="block text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors">
                     +91 9675818088
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 sm:col-span-2">
-                <div className="w-8 h-8 rounded-lg bg-slate-950 border border-white/5 flex items-center justify-center text-neon-purple shadow-md shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-neon-purple shadow-sm shrink-0">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="text-[9px] text-slate-400 uppercase font-semibold">Official Address</span>
-                  <p className="text-xs font-bold text-slate-200 leading-relaxed">
+                  <span className="text-[9px] text-slate-555 uppercase font-semibold">Official Address</span>
+                  <p className="text-xs font-bold text-slate-700 leading-relaxed">
                     17 Kamla Kunj Kamla Nagar Tej Nagar Agra 282005
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="border-t border-white/5 pt-4 mt-2">
-              <p className="text-xs text-slate-400 font-semibold">
+            <div className="border-t border-slate-200/50 pt-4 mt-2">
+              <p className="text-xs text-slate-600 font-semibold">
                 <strong>Founder & Data Supervisor:</strong> Harsh Khubchandani
               </p>
             </div>

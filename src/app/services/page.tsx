@@ -75,7 +75,7 @@ const serviceCategories = [
 
 export default function Services() {
   return (
-    <div className="relative min-h-screen bg-transparent text-slate-300 overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-transparent text-slate-650 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
       <Navbar />
 
@@ -87,18 +87,18 @@ export default function Services() {
             <TrendingUp className="w-3.5 h-3.5" />
             <span>Scale Velocity</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-display">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 font-display">
             Innovative Digital Offerings{" "}
             <span className="text-gradient-purple-cyan">Built For Growth</span>
           </h1>
-          <p className="text-slate-350 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
             We deliver enterprise-level web engineering, pixel-perfect user experiences, and strategic growth campaigns that maximize customer lifecycle value.
           </p>
         </div>
       </section>
 
       {/* Detailed Services Grid */}
-      <section className="py-16 px-6 border-t border-white/5">
+      <section className="py-16 px-6 border-t border-slate-200/50">
         <div className="max-w-6xl mx-auto flex flex-col gap-24">
           {serviceCategories.map((cat, i) => {
             const Icon = cat.icon;
@@ -115,26 +115,26 @@ export default function Services() {
                 {/* Visual Card detailing category */}
                 <div className="w-full lg:w-1/2">
                   <GlassCard
-                    className="p-8 md:p-10 flex flex-col gap-6 h-full min-h-[320px] border-white/5 hover:border-neon-purple/20"
+                    className="p-8 md:p-10 flex flex-col gap-6 h-full min-h-[320px] border-slate-200/50 hover:border-neon-purple/20"
                     hoverGlow
                   >
                     <div className="flex justify-between items-start">
-                      <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center bg-slate-950 ${cat.color.split(" ")[2]}`}>
+                      <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center bg-white border-slate-200 shadow-sm ${cat.color.split(" ")[2]}`}>
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-xs font-bold font-mono px-3 py-1 rounded-full bg-slate-950 border border-white/10 text-slate-300 uppercase tracking-wider">
+                      <span className="text-xs font-bold font-mono px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-650 uppercase tracking-wider shadow-sm">
                         {cat.metric}
                       </span>
                     </div>
 
                     <div>
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 font-display">{cat.title}</h2>
-                      <p className="text-sm text-slate-400 leading-relaxed font-medium">{cat.desc}</p>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3 font-display">{cat.title}</h2>
+                      <p className="text-sm text-slate-600 leading-relaxed font-medium">{cat.desc}</p>
                     </div>
 
                     <Link
                       href="/contact"
-                      className="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 shadow-sm transition-all duration-300 w-fit flex items-center gap-1.5 cursor-pointer"
+                      className="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-cyan text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 shadow-sm transition-all duration-300 w-fit flex items-center gap-1.5 cursor-pointer"
                     >
                       Request Free Audit
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -144,14 +144,14 @@ export default function Services() {
 
                 {/* Sub-services list */}
                 <div className="w-full lg:w-1/2 flex flex-col gap-6 justify-center">
-                  <h3 className="text-lg font-bold text-white uppercase tracking-wider border-b border-white/5 pb-3 font-display">
+                  <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200/50 pb-3 font-display">
                     Sub-Domain Capabilities
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {cat.services.map((sub, j) => (
-                      <div key={j} className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/40 border border-white/5 hover:border-neon-purple/35 transition-colors duration-300">
+                      <div key={j} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-neon-purple/35 transition-colors duration-300 shadow-xs">
                         <CheckCircle2 className="w-4 h-4 text-neon-purple mt-0.5 shrink-0" />
-                        <span className="text-sm text-slate-200 font-semibold">{sub}</span>
+                        <span className="text-sm text-slate-700 font-semibold">{sub}</span>
                       </div>
                     ))}
                   </div>

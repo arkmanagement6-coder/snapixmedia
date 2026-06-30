@@ -65,9 +65,9 @@ export default function TestimonialsCarousel() {
 
   return (
     <div className="relative max-w-3xl mx-auto px-4 py-8 font-sans">
-      <Quote className="absolute top-0 left-0 w-24 h-24 text-slate-800 pointer-events-none -translate-x-6 -translate-y-8 opacity-20" />
+      <Quote className="absolute top-0 left-0 w-24 h-24 text-slate-200 pointer-events-none -translate-x-6 -translate-y-8 opacity-40 animate-pulse" />
       
-      <GlassCard className="p-8 md:p-12 relative overflow-hidden bg-slate-900/60 border border-white/10 rounded-3xl min-h-[280px] flex flex-col justify-between shadow-md" hoverGlow>
+      <GlassCard className="p-8 md:p-12 relative overflow-hidden rounded-3xl min-h-[280px] flex flex-col justify-between shadow-sm" hoverGlow>
         <div className="relative overflow-hidden flex-1">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
@@ -88,18 +88,18 @@ export default function TestimonialsCarousel() {
               </div>
 
               {/* Review Text */}
-              <p className="text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-medium italic">
+              <p className="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed font-medium italic">
                 "{current.quote}"
               </p>
 
               {/* Author Info */}
               <div className="flex items-center gap-4 mt-2">
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-tr ${current.gradient} flex items-center justify-center font-bold text-slate-950 text-sm tracking-wide shadow-md`}>
+                <div className={`w-12 h-12 rounded-full bg-gradient-to-tr ${current.gradient} flex items-center justify-center font-bold text-white text-sm tracking-wide shadow-sm`}>
                   {current.initials}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">{current.author}</h4>
-                  <p className="text-xs text-slate-400">{current.role}</p>
+                  <h4 className="text-sm font-bold text-slate-900">{current.author}</h4>
+                  <p className="text-xs text-slate-500">{current.role}</p>
                 </div>
               </div>
             </motion.div>
@@ -107,17 +107,17 @@ export default function TestimonialsCarousel() {
         </div>
 
         {/* Navigation Arrows */}
-        <div className="flex justify-end gap-3 mt-8 border-t border-white/5 pt-6">
+        <div className="flex justify-end gap-3 mt-8 border-t border-slate-200/50 pt-6">
           <button
             onClick={handlePrev}
-            className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-slate-900 text-slate-300 hover:bg-slate-950 hover:text-white hover:border-neon-cyan transition-all duration-300 cursor-pointer shadow-md"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-650 hover:bg-slate-50 hover:text-slate-900 hover:border-neon-cyan transition-all duration-300 cursor-pointer shadow-sm"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
-            className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-slate-900 text-slate-300 hover:bg-slate-950 hover:text-white hover:border-neon-cyan transition-all duration-300 cursor-pointer shadow-md"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-650 hover:bg-slate-50 hover:text-slate-900 hover:border-neon-cyan transition-all duration-300 cursor-pointer shadow-sm"
             aria-label="Next review"
           >
             <ChevronRight className="w-5 h-5" />
