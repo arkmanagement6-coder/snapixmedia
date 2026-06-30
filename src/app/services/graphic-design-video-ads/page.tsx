@@ -30,9 +30,33 @@ export default function GraphicDesignVideoAds() {
   return (
     <div className="relative min-h-screen bg-transparent text-slate-700 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
-      <Navbar />
+      <Navbar isDarkHero />
 
-      <main className="flex-1 pt-36 pb-20 px-6 max-w-6xl mx-auto w-full">
+      {/* Full-width Hero Banner */}
+      <section className="relative w-full min-h-[300px] sm:min-h-[380px] flex items-center justify-center bg-slate-950 overflow-hidden pt-28">
+        {/* Background grids & patterns */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:30px_30px]" />
+        <div className="absolute inset-0 bg-radial from-neon-purple/20 via-transparent to-transparent blur-[120px] pointer-events-none" />
+        
+        {/* Abstract decorative floating elements */}
+        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-neon-purple/10 blur-[80px] animate-pulse-slow pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-neon-cyan/10 blur-[90px] animate-pulse-slow pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-6 w-full text-center relative z-10 py-12 flex flex-col items-center gap-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-xs font-bold tracking-widest w-fit uppercase">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Creative & Visual Media</span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-extrabold !text-white tracking-tight leading-tight font-display drop-shadow-md">
+            Graphic Design & <span className="text-gradient-purple-cyan">Video Ads</span>
+          </h1>
+          <p className="!text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed font-semibold">
+            Elevate your brand presence, attract customer attention, and double your ad Click-Through Rates (CTR) with high-fidelity graphic designs and video commercials custom-crafted by Snapix Media.
+          </p>
+        </div>
+      </section>
+
+      <main className="flex-1 pt-12 pb-20 px-6 max-w-6xl mx-auto w-full">
         {/* Back navigation */}
         <Link
           href="/services"
@@ -45,18 +69,10 @@ export default function GraphicDesignVideoAds() {
         {/* Hero Header */}
         <section className="flex flex-col lg:flex-row gap-12 items-center mb-24">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-xs font-bold tracking-widest w-fit uppercase">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Creative & Visual Media</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
-              Graphic Design &{" "}
-              <span className="text-gradient-purple-cyan">Video Ads</span>
-            </h1>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
+              Our Visual Media Strategy
+            </h2>
             <p className="text-slate-600 text-sm sm:text-base font-semibold leading-relaxed">
-              Elevate your brand presence, attract customer attention, and double your ad Click-Through Rates (CTR) with high-fidelity graphic designs and video commercials custom-crafted by Snapix Media.
-            </p>
-            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
               Visual elements are the cornerstone of digital communication. Our talented visual designers and video editors combine aesthetic brilliance with marketing strategy to produce assets that not only look spectacular but support direct commercial goals: boosting leads, conversions, and retention.
             </p>
           </div>

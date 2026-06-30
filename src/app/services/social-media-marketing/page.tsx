@@ -28,11 +28,35 @@ const features = [
 
 export default function SocialMediaMarketing() {
   return (
-    <div className="relative min-h-screen bg-transparent text-slate-655 overflow-x-hidden flex flex-col font-sans">
+    <div className="relative min-h-screen bg-transparent text-slate-700 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
-      <Navbar />
+      <Navbar isDarkHero />
 
-      <main className="flex-1 pt-36 pb-20 px-6 max-w-6xl mx-auto w-full">
+      {/* Full-width Hero Banner */}
+      <section className="relative w-full min-h-[300px] sm:min-h-[380px] flex items-center justify-center bg-slate-950 overflow-hidden pt-28">
+        {/* Background grids & patterns */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:30px_30px]" />
+        <div className="absolute inset-0 bg-radial from-neon-purple/20 via-transparent to-transparent blur-[120px] pointer-events-none" />
+        
+        {/* Abstract decorative floating elements */}
+        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-neon-purple/10 blur-[80px] animate-pulse-slow pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-neon-cyan/10 blur-[90px] animate-pulse-slow pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-6 w-full text-center relative z-10 py-12 flex flex-col items-center gap-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-purple/20 bg-neon-purple/5 text-neon-purple text-xs font-bold tracking-wider uppercase">
+            <Share2 className="w-3.5 h-3.5" />
+            <span>Brand Social Engineering</span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-extrabold !text-white tracking-tight leading-tight font-display drop-shadow-md">
+            Social Media <span className="text-gradient-purple-cyan">Marketing</span>
+          </h1>
+          <p className="!text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed font-semibold">
+            We design premium social feeds, plan consistent content schedules, and deploy visual graphic kits to elevate brand equity and organic reach.
+          </p>
+        </div>
+      </section>
+
+      <main className="flex-1 pt-12 pb-20 px-6 max-w-6xl mx-auto w-full">
         {/* Back Link */}
         <Link
           href="/services"
@@ -44,17 +68,12 @@ export default function SocialMediaMarketing() {
 
         {/* Hero Header */}
         <section className="flex flex-col lg:flex-row gap-12 items-center mb-16">
-          <div className="w-full lg:w-1/2 flex flex-col gap-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-purple/20 bg-neon-purple/5 text-neon-purple text-xs font-bold tracking-wider w-fit uppercase">
-              <Share2 className="w-3.5 h-3.5" />
-              <span>Brand Social Engineering</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
-              Social Media{" "}
-              <span className="text-gradient-purple-cyan">Marketing</span>
-            </h1>
+          <div className="w-full lg:w-1/2 flex flex-col gap-6">
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
+              Our Organic Growth Approach
+            </h2>
             <p className="text-slate-600 text-sm sm:text-base font-semibold leading-relaxed">
-              We design premium social feeds, plan consistent content schedules, and deploy visual graphic kits to elevate brand equity and organic reach.
+              We design premium social feeds, plan consistent content schedules, and deploy visual graphic kits to elevate brand equity and organic reach. We align brand storytelling with viral trends.
             </p>
           </div>
 

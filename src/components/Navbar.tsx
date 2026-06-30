@@ -42,7 +42,7 @@ const navLinks: NavLink[] = [
   { name: "Contact", href: "/contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -64,6 +64,8 @@ export default function Navbar() {
     setMobileExpandedMenu(null);
   }, [pathname]);
 
+  const isTransparentDark = isDarkHero && !isScrolled;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -75,7 +77,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative flex items-center gap-2 group cursor-pointer select-none">
-          <span className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-slate-900">
+          <span className={`text-2xl sm:text-3xl font-extrabold font-display tracking-tight transition-colors duration-300 ${
+            isTransparentDark ? "text-white" : "text-slate-900"
+          }`}>
             Snapix<span className="text-neon-purple group-hover:text-neon-cyan transition-colors duration-300"> Media</span>
           </span>
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-neon-purple to-neon-cyan group-hover:w-full transition-all duration-300" />
@@ -99,13 +103,17 @@ export default function Navbar() {
                 >
                   <button
                     className={`flex items-center gap-1 text-[17px] font-extrabold tracking-wide transition-colors duration-300 cursor-pointer ${
-                      isDropdownActive || isPathInSublinks ? "text-slate-900 font-black" : "text-slate-600 hover:text-slate-900"
+                      isDropdownActive || isPathInSublinks
+                        ? (isTransparentDark ? "text-white font-black" : "text-slate-900 font-black")
+                        : (isTransparentDark ? "text-slate-300 hover:text-white" : "text-slate-600 hover:text-slate-900")
                     }`}
                   >
                     {link.name}
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-300 ${
-                        isDropdownActive ? "rotate-180 text-slate-900" : "text-slate-400"
+                        isDropdownActive
+                          ? (isTransparentDark ? "rotate-180 text-white" : "rotate-180 text-slate-900")
+                          : (isTransparentDark ? "text-slate-300/80" : "text-slate-400")
                       }`}
                     />
                   </button>
@@ -164,7 +172,9 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href || "/"}
                 className={`relative text-[17px] font-extrabold tracking-wide transition-colors duration-300 py-1 ${
-                  isActive ? "text-slate-900 font-black" : "text-slate-600 hover:text-slate-900"
+                  isActive
+                    ? (isTransparentDark ? "text-white font-black" : "text-slate-900 font-black")
+                    : (isTransparentDark ? "text-slate-300 hover:text-white" : "text-slate-600 hover:text-slate-900")
                 }`}
               >
                 {link.name}
@@ -194,7 +204,9 @@ export default function Navbar() {
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-slate-600 hover:text-slate-900 transition-colors"
+          className={`md:hidden p-2 transition-colors ${
+            isTransparentDark ? "text-white hover:text-slate-200" : "text-slate-600 hover:text-slate-900"
+          }`}
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

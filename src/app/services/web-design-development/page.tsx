@@ -125,7 +125,7 @@ export default function WebDesignDevelopment() {
   return (
     <div className="relative min-h-screen bg-transparent text-slate-700 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
-      <Navbar />
+      <Navbar isDarkHero />
 
       {/* Full-width Hero Banner */}
       <section className="relative w-full min-h-[300px] sm:min-h-[380px] flex items-center justify-center bg-slate-950 overflow-hidden pt-28">
@@ -142,10 +142,10 @@ export default function WebDesignDevelopment() {
             <Monitor className="w-3.5 h-3.5" />
             <span>Premium Web Systems</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight font-display drop-shadow-md">
+          <h1 className="text-4xl sm:text-6xl font-extrabold !text-white tracking-tight leading-tight font-display drop-shadow-md">
             Website Design & <span className="text-gradient-purple-cyan">Development</span>
           </h1>
-          <p className="text-slate-350 text-xs sm:text-sm max-w-xl leading-relaxed font-semibold">
+          <p className="!text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed font-semibold">
             Engineering lightning-fast, highly optimized storefronts and custom web architectures designed to hook users and double conversions.
           </p>
         </div>
