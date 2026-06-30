@@ -69,6 +69,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #0f172a; /* Slate 900 for high contrast headings */
 }
 
+.homepage-dark-hero {
+  background-color: #020617 !important;
+}
+
 /* Glassmorphism helpers - Light Theme */
 .glass-panel {
   background: rgba(255, 255, 255, 0.75);
