@@ -136,7 +136,7 @@ export default function HeroSlider() {
                 href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-9 py-4 rounded-full bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto px-9 py-4 rounded-full bg-gradient-to-r from-neon-purple to-purple-800 text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
               >
                 {slides[current].btnText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

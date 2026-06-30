@@ -98,14 +98,14 @@ export default function Navbar() {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <button
-                    className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-colors duration-300 cursor-pointer ${
-                      isDropdownActive || isPathInSublinks ? "text-slate-900 font-bold" : "text-slate-600 hover:text-slate-900"
+                    className={`flex items-center gap-1 text-[17px] font-extrabold tracking-wide transition-colors duration-300 cursor-pointer ${
+                      isDropdownActive || isPathInSublinks ? "text-neon-purple font-black" : "text-neon-purple/75 hover:text-neon-purple"
                     }`}
                   >
                     {link.name}
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                        isDropdownActive ? "rotate-180 text-neon-purple" : "text-slate-400"
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        isDropdownActive ? "rotate-180 text-neon-purple" : "text-neon-purple/65"
                       }`}
                     />
                   </button>
@@ -163,13 +163,15 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href || "/"}
-                className="relative text-sm font-semibold tracking-wide text-slate-600 hover:text-slate-900 transition-colors duration-300 py-1"
+                className={`relative text-[17px] font-extrabold tracking-wide transition-colors duration-300 py-1 ${
+                  isActive ? "text-neon-purple font-black" : "text-neon-purple/75 hover:text-neon-purple"
+                }`}
               >
                 {link.name}
                 {isActive && (
                   <motion.span
                     layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-neon-purple to-neon-cyan"
+                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-neon-purple"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -182,9 +184,9 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link
             href="/contact"
-            className="relative inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-neon-purple to-neon-cyan hover:opacity-90 transition-all duration-300 overflow-hidden group shadow-md hover:shadow-neon-purple/20 cursor-pointer"
+            className="relative inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-neon-purple to-purple-800 hover:opacity-95 transition-all duration-300 overflow-hidden group shadow-md hover:shadow-neon-purple/20 cursor-pointer"
           >
-            Start Project
+            Enquiry Now
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
           </Link>
         </div>
@@ -265,8 +267,8 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href || "/"}
-                    className={`text-lg font-bold tracking-wide border-b border-slate-100 pb-2 transition-colors py-2 ${
-                      isActive ? "text-neon-purple" : "text-slate-800 hover:text-slate-950"
+                    className={`text-xl font-extrabold tracking-wide border-b border-slate-100 pb-2 transition-colors py-2 ${
+                      isActive ? "text-neon-purple font-black" : "text-neon-purple/80 hover:text-neon-purple"
                     }`}
                   >
                     {link.name}
@@ -276,9 +278,9 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className="mt-4 flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-neon-purple to-neon-cyan hover:opacity-90 transition-all duration-300 cursor-pointer shadow-md hover:shadow-neon-purple/20"
+                className="mt-4 flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-neon-purple to-purple-800 hover:opacity-95 transition-all duration-300 cursor-pointer shadow-md hover:shadow-neon-purple/20"
               >
-                Start Project
+                Enquiry Now
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
