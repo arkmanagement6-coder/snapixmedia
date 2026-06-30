@@ -104,7 +104,7 @@ export default function PaidAds() {
             <span>PPC & Lead Generation</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-extrabold !text-white tracking-tight leading-tight font-display drop-shadow-md">
-            PPC <span className="text-gradient-purple-cyan">Services</span>
+            Google & Meta <span className="text-gradient-purple-cyan">Paid Ads</span>
           </h1>
           <p className="!text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed font-semibold">
             PPC (Pay Per Click) is one of the most effective digital marketing strategies for driving targeted traffic, quality leads, and sales to your website.
@@ -149,7 +149,7 @@ export default function PaidAds() {
                   <span className="text-blue-600 font-bold lowercase">https://www.snapixmedia.com/services</span>
                 </div>
                 <h4 className="text-lg font-bold text-blue-600 hover:underline cursor-pointer leading-tight">
-                  PPC Services Noida | Generate Qualified Leads & Sales
+                  Google & Meta Paid Ads Agra | Generate Qualified Leads & Sales
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   SnapixMedia's PPC experts manage & optimize your Google Ads campaigns. Over 10 years of experience. Maximize your ROI with data-driven PPC solutions. Request a audit!

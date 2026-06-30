@@ -131,7 +131,7 @@ export default function SocialMediaMarketing() {
         <section className="flex flex-col lg:flex-row gap-12 items-center mb-24">
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
-              Social Media Marketing Agency in Noida
+              Social Media Marketing Agency in Agra
             </h2>
             <p className="text-slate-600 text-sm sm:text-base font-semibold leading-relaxed">
               At SnapixMedia, we help businesses leverage the power of social media to increase brand awareness, generate quality leads, and drive meaningful customer engagement. We create customized strategies for platforms such as Facebook, Instagram, LinkedIn, X (formerly Twitter), YouTube, and Pinterest.
