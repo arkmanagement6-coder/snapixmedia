@@ -137,3 +137,67 @@ h1, h2, h3, h4, h5, h6 {
     linear-gradient(90deg, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+/* Mobile responsive styling overrides for page banners and body headings */
+@media (max-w: 768px) {
+  /* Make all page hero banners fill 85% of the viewport height on mobile */
+  .page-hero-banner {
+    min-height: 85vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 6.5rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Optimize heading inside banners */
+  .page-hero-banner h1 {
+    font-size: 2.25rem !important; /* Large, bold h1 style for mobile hero section */
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 800 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Optimize paragraph text inside banners */
+  .page-hero-banner p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-top: 1rem !important;
+    color: #cbd5e1 !important; /* slate-300 */
+  }
+
+  /* Attractive styling for headings in the main body content */
+  h1:not(.page-hero-banner h1) {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  h2:not(.page-hero-banner h2) {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.025em !important;
+    position: relative;
+    padding-bottom: 0.75rem !important;
+  }
+
+  /* Professional left or center accent line for section headings on mobile */
+  section h2:not(.page-hero-banner h2)::after,
+  .heading-accent h2::after {
+    content: '';
+    display: block;
+    width: 45px;
+    height: 3.5px;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+    margin-top: 0.5rem;
+    border-radius: 999px;
+  }
+
+  /* Center the accent line if the heading or its container is centered */
+  section.text-center h2:not(.page-hero-banner h2)::after,
+  .text-center h2::after {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
