@@ -197,8 +197,8 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-[10px] text-neon-cyan uppercase font-extrabold tracking-wider">Email us</p>
-              <a href="mailto:snapixmediaofficial@gmail.com" className="text-sm text-white hover:text-neon-cyan transition-colors font-semibold">
-                snapixmediaofficial@gmail.com
+              <a href="mailto:info@snapixmedia.com" className="text-sm text-white hover:text-neon-cyan transition-colors font-semibold">
+                info@snapixmedia.com
               </a>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function Footer() {
             <div>
               <p className="text-[10px] text-neon-purple uppercase font-extrabold tracking-wider">Visit us</p>
               <span className="text-sm text-white font-semibold leading-relaxed">
-                17 Kamla Kunj Kamla Nagar Tej Nagar Agra 282005
+                Second Floor, Plat No - , Sector 6, Transport Nagar, Agra, Uttar Pradesh, India - 282002
               </span>
             </div>
           </div>

@@ -38,6 +38,12 @@ export default function Contact() {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setFormLoading(false);
     setFormSubmitted(true);
+
+    // Send details to WhatsApp
+    const phoneNumber = "919675818088";
+    const textMessage = `Hi SnapixMedia! I filled out the Project Intake form on your website:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Interest Domain:* ${formData.service}\n*Budget Range:* ${formData.budget}\n*Message:* ${formData.message}`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
+
     setFormData({ name: "", email: "", service: "web", budget: "$10k-$25k", message: "" });
 
     // Trigger celebration confetti
@@ -60,6 +66,11 @@ export default function Contact() {
     await new Promise((resolve) => setTimeout(resolve, 1200));
     setSchedulerLoading(false);
     setSchedulerSubmitted(true);
+
+    // Send booking details to WhatsApp
+    const phoneNumber = "919675818088";
+    const textMessage = `Hi SnapixMedia! I would like to book a Free Consultation Call via your website scheduler:\n\n*Day:* June ${selectedDay}\n*Time Slot:* ${selectedSlot}`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
 
     confetti({
       particleCount: 70,
@@ -124,8 +135,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-500 uppercase font-semibold">Write to us</span>
-                  <a href="mailto:snapixmediaofficial@gmail.com" className="block text-sm text-slate-700 hover:text-slate-900 font-bold mt-0.5">
-                    snapixmediaofficial@gmail.com
+                  <a href="mailto:info@snapixmedia.com" className="block text-sm text-slate-700 hover:text-slate-900 font-bold mt-0.5">
+                    info@snapixmedia.com
                   </a>
                 </div>
               </div>
@@ -149,7 +160,7 @@ export default function Contact() {
                 <div>
                   <span className="text-[10px] text-slate-500 uppercase font-semibold">Our Office</span>
                   <p className="text-sm text-slate-700 font-bold leading-relaxed mt-0.5">
-                    17 Kamla Kunj Kamla Nagar Tej Nagar Agra 282005
+                    Second Floor, Plat No - , Sector 6, Transport Nagar, Agra, Uttar Pradesh, India - 282002
                   </p>
                 </div>
               </div>
@@ -172,18 +183,15 @@ export default function Contact() {
               </button>
             </GlassCard>
 
-            {/* Elegant Mock Map Vector Card */}
-            <div className="rounded-3xl border border-slate-200 bg-[#f8fafc] h-44 overflow-hidden relative group">
-              <div className="absolute inset-0 bg-[#f8fafc] opacity-90" />
-              <div className="absolute inset-0 glow-grid opacity-30 group-hover:scale-105 transition-transform duration-500" />
-              {/* Radial gradient representing a mock radar glow */}
-              <div className="absolute top-1/2 left-1/3 w-32 h-32 rounded-full bg-radial from-neon-purple/10 to-transparent blur-[25px] animate-pulse" />
-              {/* Marker pin */}
-              <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <span className="w-3.5 h-3.5 bg-neon-purple border-2 border-white rounded-full animate-ping absolute" />
-                <span className="w-3 h-3 bg-neon-purple border-2 border-white rounded-full relative z-10" />
-                <span className="text-[9px] font-bold font-mono px-2 py-0.5 rounded bg-white text-slate-800 mt-1 border border-slate-200 shadow-sm">Snapix Media Agra</span>
-              </div>
+            {/* Google Map Embed */}
+            <div className="rounded-3xl border border-slate-200 bg-white h-56 overflow-hidden relative shadow-sm">
+              <iframe
+                title="Snapix Media Agra Location Map"
+                src="https://maps.google.com/maps?q=Sector%206,%20Transport%20Nagar,%20Agra,%20Uttar%20Pradesh,%20India%2520282002&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full border-0"
+                allowFullScreen={true}
+                loading="lazy"
+              />
             </div>
           </div>
 

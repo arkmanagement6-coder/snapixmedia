@@ -93,9 +93,9 @@ export default function PrivacyPolicy() {
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="text-[9px] text-slate-500 uppercase font-semibold">Email us</span>
-                  <a href="mailto:snapixmediaofficial@gmail.com" className="block text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors">
-                    snapixmediaofficial@gmail.com
+                  <span className="text-[9px] text-slate-505 uppercase font-semibold">Email us</span>
+                  <a href="mailto:info@snapixmedia.com" className="block text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors">
+                    info@snapixmedia.com
                   </a>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function PrivacyPolicy() {
                 <div>
                   <span className="text-[9px] text-slate-550 uppercase font-semibold">Official Address</span>
                   <p className="text-xs font-bold text-slate-700 leading-relaxed">
-                    17 Kamla Kunj Kamla Nagar Tej Nagar Agra 282005
+                    Second Floor, Plat No - , Sector 6, Transport Nagar, Agra, Uttar Pradesh, India - 282002
                   </p>
                 </div>
               </div>
