@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Quick Links</h4>
+            <h4 className="text-sm font-extrabold uppercase tracking-widest !text-white">Quick Links</h4>
             <ul className="flex flex-col gap-3">
               {[
                 { name: "About Us", href: "/about" },
@@ -97,7 +97,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Services</h4>
+            <h4 className="text-sm font-extrabold uppercase tracking-widest !text-white">Services</h4>
             <ul className="flex flex-col gap-3">
               {[
                 { name: "Web Development", href: "/services/web-design-development" },
@@ -122,7 +122,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Stay Updated</h4>
+            <h4 className="text-sm font-extrabold uppercase tracking-widest !text-white">Stay Updated</h4>
             <p className="text-sm text-slate-200 leading-relaxed font-semibold">
               Subscribe to our monthly newsletter for <span className="text-white font-extrabold">engineering insights</span>, digital trends, and <span className="text-neon-cyan font-extrabold">strategies</span>.
             </p>
