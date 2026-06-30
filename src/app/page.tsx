@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import MouseFollower from "@/components/MouseFollower";
 import WhatsAppChat from "@/components/WhatsAppChat";
 import ParticleCanvas from "@/components/ParticleCanvas";
-import LogoSlider from "@/components/LogoSlider";
 import InteractiveStats from "@/components/InteractiveStats";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import ProcessTimeline from "@/components/ProcessTimeline";
@@ -61,13 +60,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. TRUSTED BY SECTION */}
-      <section className="relative py-12 bg-slate-950/20">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-8">
-          <p className="text-xs font-bold tracking-widest text-slate-400 uppercase">Trusted By High-Growth Teams Worldwide</p>
-        </div>
-        <LogoSlider />
-      </section>
 
       {/* 3. SERVICES SECTION */}
       <section className="relative py-24 px-6 overflow-hidden" id="services">
