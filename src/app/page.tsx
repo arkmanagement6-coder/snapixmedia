@@ -17,13 +17,15 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-transparent text-slate-600 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
-      <Navbar />
+      <Navbar isDarkHero={true} />
 
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden glow-grid">
+      {/* 1. HERO SECTION (Dark Hero Banner) */}
+      <section className="relative min-h-screen flex items-center bg-slate-950 overflow-hidden pt-28 pb-12">
+        {/* Background grids & patterns */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60" />
         {/* Glow ambient background assets */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-radial from-neon-purple/5 to-transparent blur-[140px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-radial from-neon-cyan/5 to-transparent blur-[120px] pointer-events-none translate-x-1/2 translate-y-1/2" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-neon-purple/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-neon-cyan/10 rounded-full blur-[100px] pointer-events-none" />
 
         <ParticleCanvas />
 
