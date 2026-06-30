@@ -53,8 +53,8 @@ export default function Footer() {
             <Link href="/" className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-white inline-block cursor-pointer select-none">
               Snapix<span className="text-neon-cyan"> Media</span>
             </Link>
-            <p className="text-sm text-slate-400 leading-relaxed font-medium">
-              We design, build, and optimize premium digital experiences that accelerate growth for enterprise systems, fast-growing SaaS brands, and creative start-ups.
+            <p className="text-sm text-slate-200 leading-relaxed font-semibold">
+              We design, build, and optimize <span className="text-white font-extrabold">premium digital experiences</span> that <span className="text-neon-cyan font-extrabold">accelerate growth</span> for enterprise systems, fast-growing SaaS brands, and creative start-ups.
             </p>
             <div className="flex items-center gap-3 mt-2">
               {["twitter", "linkedin", "github", "instagram"].map((social) => (
@@ -63,7 +63,7 @@ export default function Footer() {
                   href={`https://${social}.com`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 hover:text-white hover:border-neon-cyan hover:bg-white/10 transition-all duration-300 capitalize text-xs shadow-sm"
+                  className="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 bg-white/5 text-slate-200 hover:text-white hover:border-neon-cyan hover:bg-white/10 transition-all duration-300 capitalize text-xs shadow-sm"
                 >
                   {social[0]}
                 </a>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Quick Links</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Quick Links</h4>
             <ul className="flex flex-col gap-3">
               {[
                 { name: "About Us", href: "/about" },
@@ -85,7 +85,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors duration-300 flex items-center gap-1.5 group"
+                    className="text-sm text-slate-200 hover:text-white transition-colors duration-300 flex items-center gap-1.5 group"
                   >
                     <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-neon-cyan" />
                     {link.name}
@@ -97,7 +97,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Services</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Services</h4>
             <ul className="flex flex-col gap-3">
               {[
                 { name: "Web Development", href: "/services/web-design-development" },
@@ -110,7 +110,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors duration-300 flex items-center gap-1.5 group"
+                    className="text-sm text-slate-200 hover:text-white transition-colors duration-300 flex items-center gap-1.5 group"
                   >
                     <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-neon-purple" />
                     {link.name}
@@ -122,9 +122,9 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Stay Updated</h4>
-            <p className="text-sm text-slate-400 leading-relaxed font-medium">
-              Subscribe to our monthly newsletter for engineering insights, digital trends, and strategies.
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Stay Updated</h4>
+            <p className="text-sm text-slate-200 leading-relaxed font-semibold">
+              Subscribe to our monthly newsletter for <span className="text-white font-extrabold">engineering insights</span>, digital trends, and <span className="text-neon-cyan font-extrabold">strategies</span>.
             </p>
             <form onSubmit={handleSubscribe} className="relative flex flex-col gap-2">
               <div className="relative">
@@ -133,7 +133,7 @@ export default function Footer() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan/20 transition-all duration-300 pr-12"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan/20 transition-all duration-300 pr-12"
                   required
                   disabled={loading || subscribed}
                 />
@@ -170,8 +170,8 @@ export default function Footer() {
               <Mail className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Email us</p>
-              <a href="mailto:snapixmediaofficial@gmail.com" className="text-sm text-slate-200 hover:text-white transition-colors font-semibold">
+              <p className="text-[10px] text-neon-cyan uppercase font-extrabold tracking-wider">Email us</p>
+              <a href="mailto:snapixmediaofficial@gmail.com" className="text-sm text-white hover:text-neon-cyan transition-colors font-semibold">
                 snapixmediaofficial@gmail.com
               </a>
             </div>
@@ -182,8 +182,8 @@ export default function Footer() {
               <Phone className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Call us</p>
-              <a href="tel:+919675818088" className="text-sm text-slate-200 hover:text-white transition-colors font-semibold">
+              <p className="text-[10px] text-neon-blue uppercase font-extrabold tracking-wider">Call us</p>
+              <a href="tel:+919675818088" className="text-sm text-white hover:text-neon-blue transition-colors font-semibold">
                 +91 9675818088
               </a>
             </div>
@@ -194,8 +194,8 @@ export default function Footer() {
               <MapPin className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Visit us</p>
-              <span className="text-sm text-slate-200 font-semibold leading-relaxed">
+              <p className="text-[10px] text-neon-purple uppercase font-extrabold tracking-wider">Visit us</p>
+              <span className="text-sm text-white font-semibold leading-relaxed">
                 17 Kamla Kunj Kamla Nagar Tej Nagar Agra 282005
               </span>
             </div>
@@ -203,12 +203,12 @@ export default function Footer() {
         </div>
 
         {/* Legal Disclaimer */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>&copy; {new Date().getFullYear()} Snapix Media. All rights reserved.</p>
           <div className="flex gap-6 flex-wrap justify-center sm:justify-end">
-            <Link href="/privacy" className="hover:text-slate-350 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-slate-350 transition-colors">Terms of Service</Link>
-            <Link href="/refund" className="hover:text-slate-350 transition-colors">Refund & Cancellation Policy</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/refund" className="hover:text-white transition-colors">Refund & Cancellation Policy</Link>
           </div>
         </div>
       </div>
