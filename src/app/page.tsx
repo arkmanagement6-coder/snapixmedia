@@ -64,7 +64,7 @@ export default function Home() {
                 icon: ShieldCheck,
                 color: "text-violet-600 bg-violet-50 border-violet-200",
                 href: "/services/seo-aeo",
-                image: "https://images.unsplash.com/photo-1626379953822-baec19c3bbcd?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Web Development",
@@ -141,7 +141,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col gap-14 relative z-10">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest font-sans">Why Partner With Us</span>
-            <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 mb-3 font-display tracking-tight">Proven Growth In Numbers</h2>
+            <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 mb-3 font-display tracking-tight" style={{ color: "#ffffff" }}>Proven Growth In Numbers</h2>
             <div className="w-16 h-[3px] bg-gradient-to-r from-neon-purple to-neon-cyan mx-auto mt-4 rounded-full" />
           </div>
           <InteractiveStats />
@@ -173,7 +173,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-bold text-neon-purple uppercase tracking-widest font-sans">Our Roadmap</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-3 mb-4 font-display">How We Scale Your Product</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-3 mb-4 font-display">How We Scale Your Business</h2>
             <p className="text-slate-500 text-sm sm:text-base font-medium">
               A structured lifecycle optimizing speed, visual precision, and digital campaign delivery.
             </p>
