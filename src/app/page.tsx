@@ -99,7 +99,6 @@ export default function Home() {
                 image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
               },
             ].map((service, i) => {
-              const Icon = service.icon;
               return (
                 <GlassCard key={i} className="hover:border-neon-purple/40 flex flex-col justify-between min-h-[380px]" hoverGlow>
                   <div className="flex flex-col gap-4">
@@ -110,9 +109,6 @@ export default function Home() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute top-3 left-3 w-8 h-8 rounded-lg flex items-center justify-center backdrop-blur-md bg-white/90 border border-white/20 shadow-sm">
-                        <Icon className={`w-4.5 h-4.5 ${service.color.split(" ").filter(c => c.startsWith("text-")).join(" ")}`} />
-                      </div>
                     </div>
                     <h3 className="text-xl font-bold text-slate-900">
                       <Link href={service.href} className="hover:text-neon-purple transition-colors duration-300">
