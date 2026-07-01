@@ -20,14 +20,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
-  {
-    name: "About",
-    subLinks: [
-      { name: "About us", href: "/about", desc: "Our identity, values, and company mission." },
-      { name: "Our Team", href: "/about/team", desc: "Meet the engineers, designers, and growth experts." },
-      { name: "Our Partner", href: "/about/partners", desc: "Platform integrations and alliances." },
-    ],
-  },
+  { name: "Web Development", href: "/services/web-design-development" },
   {
     name: "Digital Marketing",
     subLinks: [
@@ -37,7 +30,6 @@ const navLinks: NavLink[] = [
       { name: "SEO/AEO", href: "/services/seo-aeo", desc: "Organic page search optimization & LLM visibility." },
     ],
   },
-  { name: "Web Development", href: "/services/web-design-development" },
   {
     name: "Marketplace",
     subLinks: [
@@ -49,8 +41,16 @@ const navLinks: NavLink[] = [
       { name: "Jio Mart", href: "/marketplace/jiomart", desc: "Grocery and retail listing and operations." },
     ],
   },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "/contact" },
+  {
+    name: "About",
+    subLinks: [
+      { name: "About us", href: "/about", desc: "Our identity, values, and company mission." },
+      { name: "Our Team", href: "/about/team", desc: "Meet the engineers, designers, and growth experts." },
+      { name: "Our Partner", href: "/about/partners", desc: "Platform integrations and alliances." },
+      { name: "Portfolio", href: "/portfolio", desc: "Review real metrics, web audits, and leads generated." },
+      { name: "Contact", href: "/contact", desc: "Get a free, comprehensive consultation for your project." },
+    ],
+  },
 ];
 
 const socialIcons: Record<string, React.ReactNode> = {
