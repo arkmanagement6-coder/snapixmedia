@@ -122,7 +122,7 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-5">
           {navLinks.map((link) => {
             const hasSubLinks = !!link.subLinks;
 
@@ -138,9 +138,9 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <button
-                    className={`flex items-center gap-1 text-[17px] font-extrabold tracking-wide transition-colors duration-300 cursor-pointer ${
+                    className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-colors duration-300 cursor-pointer ${
                       isDropdownActive || isPathInSublinks
-                        ? (isTransparentDark ? "text-white font-black" : "text-slate-900 font-black")
+                        ? (isTransparentDark ? "text-white font-bold" : "text-slate-900 font-bold")
                         : (isTransparentDark ? "text-slate-300 hover:text-white" : "text-slate-600 hover:text-slate-900")
                     }`}
                   >
@@ -207,9 +207,9 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
               <Link
                 key={link.name}
                 href={link.href || "/"}
-                className={`relative text-[17px] font-extrabold tracking-wide transition-colors duration-300 py-1 ${
+                className={`relative text-sm font-semibold tracking-wide transition-colors duration-300 py-1 ${
                   isActive
-                    ? (isTransparentDark ? "text-white font-black" : "text-slate-900 font-black")
+                    ? (isTransparentDark ? "text-white font-bold" : "text-slate-900 font-bold")
                     : (isTransparentDark ? "text-slate-300 hover:text-white" : "text-slate-600 hover:text-slate-900")
                 }`}
               >
