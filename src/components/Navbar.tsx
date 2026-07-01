@@ -29,13 +29,24 @@ const navLinks: NavLink[] = [
     ],
   },
   {
-    name: "Services",
+    name: "Digital Marketing",
     subLinks: [
-      { name: "Website Design & Development", href: "/services/web-design-development", desc: "Next.js storefronts & responsive web systems." },
       { name: "Graphic Design & Video Editing", href: "/services/graphic-design-video-ads", desc: "Stunning brand graphics, social creatives, and video ads." },
       { name: "Social Media Marketing", href: "/services/social-media-marketing", desc: "Organic campaigns, branding, and graphics." },
       { name: "Google & Meta Paid Ads", href: "/services/paid-ads", desc: "Audience targeting, PPC, and campaign audits." },
       { name: "SEO/AEO", href: "/services/seo-aeo", desc: "Organic page search optimization & LLM visibility." },
+    ],
+  },
+  { name: "Web Development", href: "/services/web-design-development" },
+  {
+    name: "Marketplace",
+    subLinks: [
+      { name: "Amazon", href: "/marketplace/amazon", desc: "Account launch, listing optimization, and advertising campaigns." },
+      { name: "Flipkart", href: "/marketplace/flipkart", desc: "Boost organic visibility and manage shop listings." },
+      { name: "Myntra", href: "/marketplace/myntra", desc: "Fashion catalog optimization and apparel account growth." },
+      { name: "Meesho", href: "/marketplace/meesho", desc: "Cataloging and management for social commerce scaling." },
+      { name: "Ajio", href: "/marketplace/ajio", desc: "Sourcing audits, cataloging, and store performance." },
+      { name: "Jio Mart", href: "/marketplace/jiomart", desc: "Grocery and retail listing and operations." },
     ],
   },
   { name: "Portfolio", href: "/portfolio" },

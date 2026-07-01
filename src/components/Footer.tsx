@@ -130,7 +130,7 @@ export default function Footer() {
                 { name: "SEO Optimization", href: "/services/seo-aeo" },
                 { name: "Digital Marketing", href: "/services/paid-ads" },
                 { name: "UI/UX Architecture", href: "/services#design" },
-                { name: "E-commerce Stores", href: "/services/web-design-development" },
+                { name: "Marketplace Management", href: "/marketplace/amazon" },
                 { name: "Graphic Design & Video Editing", href: "/services/graphic-design-video-ads" },
               ].map((link) => (
                 <li key={link.name}>
