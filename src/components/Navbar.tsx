@@ -48,9 +48,10 @@ const navLinks: NavLink[] = [
       { name: "Our Team", href: "/about/team", desc: "Meet the engineers, designers, and growth experts." },
       { name: "Our Partner", href: "/about/partners", desc: "Platform integrations and alliances." },
       { name: "Portfolio", href: "/portfolio", desc: "Review real metrics, web audits, and leads generated." },
-      { name: "Contact", href: "/contact", desc: "Get a free, comprehensive consultation for your project." },
+      { name: "Blog", href: "/blog", desc: "Technical breakdowns and digital insights." },
     ],
   },
+  { name: "Contact", href: "/contact" },
 ];
 
 const socialIcons: Record<string, React.ReactNode> = {
