@@ -56,6 +56,7 @@ export default function Home() {
                 icon: Zap,
                 color: "text-purple-600 bg-purple-50 border-purple-200",
                 href: "/services/paid-ads",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "SEO Optimization",
@@ -63,6 +64,7 @@ export default function Home() {
                 icon: ShieldCheck,
                 color: "text-violet-600 bg-violet-50 border-violet-200",
                 href: "/services/seo-aeo",
+                image: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Web Development",
@@ -70,6 +72,7 @@ export default function Home() {
                 icon: Sparkles,
                 color: "text-indigo-600 bg-indigo-50 border-indigo-200",
                 href: "/services/web-design-development",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Performance Marketing",
@@ -77,6 +80,7 @@ export default function Home() {
                 icon: ArrowUpRight,
                 color: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200",
                 href: "/services/paid-ads",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Social Media Marketing",
@@ -84,6 +88,7 @@ export default function Home() {
                 icon: Share2,
                 color: "text-purple-600 bg-purple-50 border-purple-200",
                 href: "/services/social-media-marketing",
+                image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Graphic Design & Video Ads",
@@ -91,14 +96,23 @@ export default function Home() {
                 icon: Paintbrush,
                 color: "text-indigo-600 bg-indigo-50 border-indigo-200",
                 href: "/services/graphic-design-video-ads",
+                image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
               },
             ].map((service, i) => {
               const Icon = service.icon;
               return (
-                <GlassCard key={i} className="hover:border-neon-purple/40 flex flex-col justify-between min-h-[200px]" hoverGlow>
+                <GlassCard key={i} className="hover:border-neon-purple/40 flex flex-col justify-between min-h-[380px]" hoverGlow>
                   <div className="flex flex-col gap-4">
-                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${service.color}`}>
-                      <Icon className="w-5 h-5" />
+                    <div className="relative w-full h-44 rounded-xl overflow-hidden mb-2">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3 w-8 h-8 rounded-lg flex items-center justify-center backdrop-blur-md bg-white/90 border border-white/20 shadow-sm">
+                        <Icon className={`w-4.5 h-4.5 ${service.color.split(" ").filter(c => c.startsWith("text-")).join(" ")}`} />
+                      </div>
                     </div>
                     <h3 className="text-xl font-bold text-slate-900">
                       <Link href={service.href} className="hover:text-neon-purple transition-colors duration-300">
