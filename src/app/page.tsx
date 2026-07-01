@@ -56,7 +56,7 @@ export default function Home() {
                 icon: Zap,
                 color: "text-purple-600 bg-purple-50 border-purple-200",
                 href: "/services/paid-ads",
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "SEO Optimization",
@@ -64,7 +64,7 @@ export default function Home() {
                 icon: ShieldCheck,
                 color: "text-violet-600 bg-violet-50 border-violet-200",
                 href: "/services/seo-aeo",
-                image: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Web Development",
@@ -88,7 +88,7 @@ export default function Home() {
                 icon: Share2,
                 color: "text-purple-600 bg-purple-50 border-purple-200",
                 href: "/services/social-media-marketing",
-                image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Graphic Design & Video Ads",
