@@ -132,28 +132,16 @@ export default function Blog() {
             ))}
           </div>
 
-          {/* Search & Write Blog Panel */}
-          <div className="flex items-center gap-3 w-full md:w-auto">
-            <div className="relative flex-1 md:w-80">
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-full text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all shadow-sm"
-              />
-              <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
-            </div>
-            
-            {/* Direct Admin Access Button */}
-            <Link
-              href="/blog/admin"
-              className="inline-flex items-center gap-1 px-4 py-2.5 rounded-full border border-neon-purple text-neon-purple hover:bg-neon-purple/5 text-xs font-bold uppercase tracking-wider transition-all duration-300"
-              title="Admin Dashboard"
-            >
-              <Edit2 className="w-3.5 h-3.5" />
-              <span>Admin</span>
-            </Link>
+          {/* Search Box */}
+          <div className="relative w-full md:w-80">
+            <input
+              type="text"
+              placeholder="Search articles..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-full text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 transition-all shadow-sm"
+            />
+            <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
           </div>
         </div>
       </section>
