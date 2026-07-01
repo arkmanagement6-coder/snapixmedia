@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import GlassCard from "./GlassCard";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -114,50 +115,67 @@ const projects = [
 
 export default function FeaturedProjects() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-      {projects.map((project, i) => (
-        <GlassCard
-          key={i}
-          className="h-[420px] flex flex-col justify-between group overflow-hidden border-glass-border hover:border-glass-border/30"
-          hoverGlow
-        >
-          {/* Top text content */}
-          <div className="flex flex-col gap-2 relative z-20">
-            <div className="flex justify-between items-center">
-              <span className="text-xs font-semibold uppercase text-neon-cyan tracking-wider">{project.industry}</span>
-              <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-neon-cyan/15 text-neon-cyan border border-neon-cyan/20">
-                {project.metrics}
-              </span>
+    <div className="flex flex-col gap-12 max-w-7xl mx-auto w-full px-4">
+      {projects.map((project, i) => {
+        const isEven = i % 2 === 0;
+        return (
+          <motion.div
+            key={project.slug}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 rounded-3xl border border-slate-200 bg-white/70 backdrop-blur-md p-6 sm:p-8 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 group ${
+              isEven ? "" : "lg:flex-row-reverse"
+            }`}
+          >
+            {/* Visual Dashboard Mockup on one side */}
+            <div className={`w-full lg:w-1/2 h-[280px] rounded-2xl bg-gradient-to-tr ${project.bgClass} border border-slate-200/30 relative overflow-hidden shadow-inner`}>
+              {project.visual}
             </div>
-            <h3 className="text-xl font-bold text-slate-900 group-hover:text-neon-cyan transition-colors duration-300">
-              {project.title}
-            </h3>
-            <div className="flex flex-wrap gap-1.5 mt-1">
-              {project.tech.map((t) => (
-                <span key={t} className="text-[9px] text-slate-600 font-semibold px-2 py-0.5 rounded-full border border-slate-200 bg-white shadow-sm">
-                  {t}
+
+            {/* Content details on the other side */}
+            <div className="w-full lg:w-1/2 flex flex-col gap-4 justify-center">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-neon-purple bg-purple-50 px-3 py-1 rounded-full border border-purple-100">{project.industry}</span>
+                <span className="text-xs font-bold font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">
+                  {project.metrics}
                 </span>
-              ))}
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-neon-purple transition-colors duration-300 font-display tracking-tight">
+                {project.title}
+              </h3>
+
+              <p className="text-sm text-slate-500 leading-relaxed font-semibold">
+                {project.title === "Apex Analytics" && "We re-engineered the entire data pipeline of Apex, accelerating load performance by 2.5x and optimizing core vitals to achieve perfect Lighthouse scores."}
+                {project.title === "Velo Headless Commerce" && "Created a lightning-fast headless e-commerce store with seamless Shopify syncing, resulting in a dramatic conversion rate lift and instant page load speeds."}
+                {project.title === "Aura Global Campaign" && "Engineered and executed an omni-channel search and advertising strategy to lower customer acquisition costs and drive highly targeted organic lead signups."}
+              </p>
+
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-2 mt-1">
+                {project.tech.map((t) => (
+                  <span key={t} className="text-[10px] text-slate-655 font-extrabold px-3 py-1 rounded-lg border border-slate-200 bg-slate-50 shadow-xs">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA link */}
+              <div className="pt-4 border-t border-slate-100 mt-2">
+                <Link
+                  href={`/portfolio/${project.slug}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-neon-purple group-hover:text-purple-800 transition-colors duration-300 w-fit"
+                >
+                  Explore Case Study
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
             </div>
-          </div>
-
-          {/* Interactive visual mockup */}
-          <div className={`relative w-full h-[220px] rounded-xl overflow-hidden mt-6 bg-gradient-to-tr ${project.bgClass} border border-slate-200/50 flex items-center justify-center`}>
-            {project.visual}
-          </div>
-
-          {/* Bottom Card Footer with link */}
-          <div className="flex justify-end mt-4 relative z-20">
-            <Link
-              href={`/portfolio/${project.slug}`}
-              className="text-xs font-semibold uppercase tracking-wider text-slate-600 group-hover:text-slate-900 flex items-center gap-1 transition-colors duration-300"
-            >
-              View Case Study
-              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-          </div>
-        </GlassCard>
-      ))}
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
