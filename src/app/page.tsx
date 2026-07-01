@@ -64,7 +64,7 @@ export default function Home() {
                 icon: ShieldCheck,
                 color: "text-violet-600 bg-violet-50 border-violet-200",
                 href: "/services/seo-aeo",
-                image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=800&q=80",
               },
               {
                 title: "Web Development",
