@@ -91,7 +91,7 @@ export default function Home() {
                 image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=800&q=80",
               },
               {
-                title: "Graphic Design & Video Ads",
+                title: "Graphic Design & Video Editing",
                 desc: "Stunning brand designs, social media graphics, custom logo kits, and high-converting video advertisements.",
                 icon: Paintbrush,
                 color: "text-indigo-600 bg-indigo-50 border-indigo-200",
@@ -132,11 +132,17 @@ export default function Home() {
       </section>
 
       {/* 4. STATISTICS COUNTERS SECTION (WHY CHOOSE US) */}
-      <section className="relative py-20 px-6 bg-[#f8fafc] border-y border-slate-200/50">
-        <div className="max-w-7xl mx-auto flex flex-col gap-12">
-          <div className="text-center max-w-xl mx-auto">
-            <span className="text-xs font-bold text-neon-purple uppercase tracking-widest font-sans">Why Partner With Us</span>
-            <h2 className="text-3xl font-extrabold text-slate-900 mt-3 mb-2 font-display">Proven Growth In Numbers</h2>
+      <section className="relative py-24 px-6 bg-[#030712] border-y border-slate-950 overflow-hidden">
+        {/* Abstract background overlays */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#8b5cf607_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-radial from-neon-purple/5 to-transparent blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto flex flex-col gap-14 relative z-10">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest font-sans">Why Partner With Us</span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 mb-3 font-display tracking-tight">Proven Growth In Numbers</h2>
+            <div className="w-16 h-[3px] bg-gradient-to-r from-neon-purple to-neon-cyan mx-auto mt-4 rounded-full" />
           </div>
           <InteractiveStats />
         </div>

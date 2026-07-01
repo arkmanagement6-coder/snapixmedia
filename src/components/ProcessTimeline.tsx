@@ -50,47 +50,37 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <div className="relative max-w-4xl mx-auto px-4 py-10 font-sans">
-      {/* Central timeline background connector line */}
-      <div className="absolute left-[34px] md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-neon-purple via-neon-blue to-neon-magenta opacity-45 pointer-events-none" />
+    <div className="relative w-full mx-auto px-4 py-8 font-sans">
+      {/* Horizontal connector line on large screens */}
+      <div className="hidden lg:block absolute top-[24px] left-[8%] right-[8%] h-[2px] bg-gradient-to-r from-neon-cyan via-neon-blue via-neon-purple via-neon-magenta via-pink-500 to-emerald-400 opacity-40 pointer-events-none z-0" />
 
-      <div className="flex flex-col gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 relative z-10">
         {steps.map((step, i) => {
           const Icon = step.icon;
-          const isEven = i % 2 === 0;
 
           return (
             <motion.div
               key={step.phase}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-12 relative ${
-                isEven ? "md:flex-row-reverse" : ""
-              }`}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="flex flex-col items-center text-center relative group"
             >
-              {/* Timeline Connector node */}
-              <div className="absolute left-[17px] md:left-1/2 md:-translate-x-1/2 w-[34px] h-[34px] flex items-center justify-center rounded-full bg-white border-2 border-neon-purple/20 z-10 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
+              {/* Step Circle with Phase */}
+              <div className={`w-12 h-12 rounded-full border-2 bg-white flex items-center justify-center relative z-10 group-hover:scale-110 transition-all duration-300 shadow-sm ${
+                step.color.split(" ").filter(c => c.startsWith("border-") || c.startsWith("text-")).join(" ")
+              }`}>
+                <span className="text-sm font-black font-mono">{step.phase}</span>
               </div>
 
-              {/* Text Content block */}
-              <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${isEven ? "md:text-left" : "md:text-right"}`}>
-                <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-mono font-bold tracking-wider mb-3 ${
-                  isEven ? "md:flex-row" : "md:flex-row-reverse"
-                } ${step.color.split(" ")[0]} ${step.color.split(" ")[1]}`}>
-                  <span>Phase {step.phase}</span>
+              {/* Card content */}
+              <div className="mt-6 flex flex-col items-center p-5 rounded-2xl border border-slate-200/80 bg-white/70 hover:bg-white backdrop-blur-md transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/40 hover:border-neon-purple/30 flex-1 w-full">
+                <div className={`w-10 h-10 rounded-xl border flex items-center justify-center mb-4 ${step.color}`}>
+                  <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display">{step.title}</h3>
-                <p className="text-sm text-slate-650 leading-relaxed font-medium">{step.desc}</p>
-              </div>
-
-              {/* Icon / graphic visual block */}
-              <div className="hidden md:flex w-[45%] justify-center">
-                <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center shadow-md transition-transform duration-300 hover:scale-110 ${step.color}`}>
-                  <Icon className="w-6 h-6" />
-                </div>
+                <h3 className="text-base font-bold text-slate-900 mb-2 font-display">{step.title}</h3>
+                <p className="text-[12px] text-slate-500 leading-relaxed font-semibold text-center">{step.desc}</p>
               </div>
             </motion.div>
           );
