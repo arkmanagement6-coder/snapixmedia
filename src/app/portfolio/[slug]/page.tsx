@@ -18,59 +18,63 @@ interface CaseStudyData {
   clientQuote: string;
   clientAuthor: string;
   clientRole: string;
+  banner: string;
 }
 
 const studies: Record<string, CaseStudyData> = {
-  "apex-analytics": {
-    title: "Apex Analytics Dashboard",
-    industry: "SaaS Enterprise",
-    desc: "Re-engineering a legacy B2B data monitoring tool into an ultra-fast Next.js dashboard.",
-    challenge: "Apex Analytics struggled with low page speeds (average load of 8.4s), heavy client bundles, and SQL database bottlenecks during peaks. This caused a 15% user dropoff rate and negative feedback from enterprise teams.",
-    solution: "We re-architected the app using Next.js Server Components, optimizing static layouts, and indexing their PostgreSQL database. We wrapped visual analytics in lightweight charts, cutting client bundles by 70%.",
-    tech: ["Next.js", "React", "TypeScript", "PostgreSQL", "TailwindCSS", "Prisma"],
+  "zenith-ads": {
+    title: "Zenith Ads Campaign Optimization",
+    industry: "Digital Marketing",
+    desc: "Scaling high-intent lead generation and optimizing PPC return on ad spend (ROAS) across search and social channels.",
+    challenge: "Zenith's advertising campaigns suffered from low conversion rates, misaligned target demographics, and a high Cost Per Acquisition ($78) that limited their marketing ROI.",
+    solution: "We deployed target audience segmentation, restructured their Google search ad bidding strategies, and designed customized landing pages. Combined with Facebook/Meta retargeting ad funnels, we optimized budget distribution.",
+    tech: ["Google Ads", "Meta Ads Manager", "A/B Testing", "Conversion API", "Lookalike Audiences"],
     metrics: [
-      { label: "Page Load Speed", val: "1.4s (80% drop)" },
-      { label: "User Retention", val: "+22% Growth" },
-      { label: "System API Lag", val: "<50ms Average" },
-      { label: "Revenue Accelerated", val: "+320% MoM" },
+      { label: "Lead Growth", val: "+350% Increase" },
+      { label: "Acquisition Cost", val: "45% Reduction" },
+      { label: "Return on Ad Spend", val: "5.4x Average ROAS" },
+      { label: "Conversion Rate", val: "6.8% (Scale Jump)" },
     ],
-    clientQuote: "Snapix Media delivered a custom React layout that exceeds FAANG speed standards. The new system is clean, secure, and has completely halted our user churn issues.",
-    clientAuthor: "Sarah Jenkins",
-    clientRole: "VP of Engineering, Apex Analytics",
+    clientQuote: "Snapix Media completely changed how we do performance marketing. Their analytical approach and audience modeling tripled our leads while cutting our ad spend waste.",
+    clientAuthor: "Rohan Khanna",
+    clientRole: "Head of Marketing, Zenith Group",
+    banner: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
   },
-  "velo-headless": {
-    title: "Velo Headless Commerce",
-    industry: "E-Commerce",
-    desc: "Deploying a highly optimized, API-driven Shopify storefront that converts mobile visitors.",
-    challenge: "Velo Commerce suffered from low checkout rates on mobile, a consequence of slow liquid page generation, high layout shift, and rigid CMS templates that restricted marketing experiments.",
-    solution: "We engineered a Headless Shopify platform using Next.js App Router and Shopify's Storefront GraphQL API. By pre-rendering product catalogs, implementing global edge caching, and designing a unified cart checkout process, we eliminated layout latency.",
-    tech: ["Shopify Headless", "GraphQL", "Next.js", "TailwindCSS", "Node.js"],
+  "aura-social": {
+    title: "Aura Social Branding & Engagement",
+    industry: "Social Media Marketing",
+    desc: "Designing viral grid narratives, high-impact reels content, and strategic influencer collaborations to engage younger demographics.",
+    challenge: "Aura had a static social media presence with low engagement metrics (<1%), minimal reel impressions, and lack of brand identity consistency across Instagram, TikTok, and YouTube.",
+    solution: "We developed a 3-month viral content strategy, produced custom high-production Reels and YouTube Shorts scripts, and matched them with targeted nano-influencers. We also standardized their brand grid aesthetic.",
+    tech: ["Content Production", "Reels & Shorts Strategy", "Influencer Campaign", "Social Brand Kit", "Community Auditing"],
     metrics: [
-      { label: "Conversion Rate", val: "4.8% (+34% jump)" },
-      { label: "First Content Paint", val: "0.8s" },
-      { label: "Average Order Value", val: "+45% Growth" },
-      { label: "API Query Load", val: "100% Capped" },
+      { label: "Total Views", val: "5.8M+ Organic Views" },
+      { label: "Engagement Boost", val: "+22% Social Lift" },
+      { label: "Follower Base", val: "+85k Growth" },
+      { label: "Direct Brand DM Leads", val: "+140% Increase" },
     ],
-    clientQuote: "Our headless catalog loads instantly. The checkout dropoff has plummeted, and our marketing team can spin up landing pages in minutes rather than weeks.",
-    clientAuthor: "Elena Rostova",
-    clientRole: "Founder, Velo Commerce",
+    clientQuote: "Their social strategy is incredibly creative. They didn't just post content; they built a community. Our brand is now highly recognized on Instagram and TikTok.",
+    clientAuthor: "Priya Sharma",
+    clientRole: "Creative Director, Aura Lifestyle",
+    banner: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80",
   },
-  "aura-seo": {
-    title: "Aura Global Campaign",
-    industry: "SEO & Growth",
-    desc: "Deploying high-intent organic technical audits and paid search retargeting funnels.",
-    challenge: "Aura was spending heavily on pay-per-click ads with high Cost Per Acquisition ($65) and zero organic search ranks for major industry search terms, restricting sustainable growth.",
-    solution: "We audited and restructured their site indexing, repaired technical layout shifts, and deployed high-intent content hubs. We combined this with precision-targeted retargeting funnels on Meta & Google.",
-    tech: ["Technical SEO", "Google Ads", "Meta Ads", "A/B Testing", "Content Hubs"],
+  "stellar-seo": {
+    title: "Stellar Search Visibility & Rankings",
+    industry: "SEO & Organic Growth",
+    desc: "Structuring schema architectures for generative search visibility (AEO), repairing keyword ranks, and developing content hubs.",
+    challenge: "Stellar lacked organic visibility, ranking on the 3rd or 4th page for their core services keywords, which made them entirely dependent on expensive paid advertising.",
+    solution: "We optimized their page schema structures for search engine crawlers and LLM search agents, fixed technical SEO issues (Core Web Vitals, redirects), and launched high-authority content hubs.",
+    tech: ["Semantic Search (AEO)", "Technical Audits", "Schema JSON-LD", "Content Architecture", "Link Acquisition"],
     metrics: [
-      { label: "Organic Clicks", val: "4.2x Scaled" },
-      { label: "Acquisition Cost", val: "-35% Lower" },
-      { label: "Monthly Leads", val: "+420% Growth" },
-      { label: "First-Page Keywords", val: "45 Primary" },
+      { label: "Organic Search Traffic", val: "10x Growth" },
+      { label: "Keywords on Page 1", val: "45 Primary Terms" },
+      { label: "Core Web Vitals Score", val: "98/100 Mobile" },
+      { label: "Domain Authority", val: "From 12 to 38 DA" },
     ],
-    clientQuote: "Their SEO methodology and organic roadmap are unmatched. They are highly transparent, metric-driven, and helped us slash our advertising cost per acquisition.",
-    clientAuthor: "Marcus Vance",
-    clientRole: "Head of Growth, Aura Global",
+    clientQuote: "Our organic traffic has exploded. We are now ranking #1 for keywords we used to pay $10 a click for. Snapix Media has been an invaluable asset to our growth.",
+    clientAuthor: "Alan Peterson",
+    clientRole: "Founder & CEO, Stellar Corp",
+    banner: "https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=1200&q=80",
   },
 };
 
@@ -100,6 +104,15 @@ export default async function CaseStudy({ params }: PageProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Portfolio
         </Link>
+
+        {/* Banner image */}
+        <div className="w-full h-[240px] sm:h-[380px] rounded-3xl overflow-hidden border border-slate-200 shadow-md mb-10 bg-slate-100 relative">
+          <img
+            src={study.banner}
+            alt={study.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {/* Title Header */}
         <div className="flex flex-col gap-4 border-b border-slate-200/60 pb-8 mb-10">
