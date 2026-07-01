@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowUpRight, ChevronDown, Home, Laptop, Rocket, ShoppingBag, Info, ArrowRight } from "lucide-react";
 
 interface SubLink {
   name: string;
@@ -277,27 +277,49 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden border-b border-slate-200/50 bg-white/95 backdrop-blur-lg overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden fixed inset-x-0 bottom-0 top-[72px] sm:top-[88px] bg-slate-950/95 backdrop-blur-xl border-t border-white/5 z-40 overflow-y-auto flex flex-col justify-between"
           >
-            <div className="flex flex-col gap-3 px-6 py-6 max-h-[80vh] overflow-y-auto">
+            {/* Neon Gradient glow orbs */}
+            <div className="absolute top-1/4 left-10 w-48 h-48 rounded-full bg-radial from-neon-purple/10 to-transparent blur-3xl pointer-events-none" />
+            <div className="absolute bottom-1/4 right-10 w-48 h-48 rounded-full bg-radial from-neon-cyan/10 to-transparent blur-3xl pointer-events-none" />
+
+            <div className="flex flex-col gap-4 px-6 py-8 relative z-10">
               {navLinks.map((link) => {
                 const hasSubLinks = !!link.subLinks;
+                const isExpanded = mobileExpandedMenu === link.name;
+                const IconComponent =
+                  link.name === "Home" ? Home :
+                  link.name === "Web Development" ? Laptop :
+                  link.name === "Digital Marketing" ? Rocket :
+                  link.name === "Marketplace" ? ShoppingBag : Info;
 
                 if (hasSubLinks) {
-                  const isExpanded = mobileExpandedMenu === link.name;
                   return (
-                    <div key={link.name} className="flex flex-col border-b border-slate-100 pb-2">
+                    <div key={link.name} className="flex flex-col border-b border-white/5 pb-3">
                       <button
                         onClick={() => setMobileExpandedMenu(isExpanded ? null : link.name)}
-                        className="flex items-center justify-between text-lg font-bold text-slate-800 py-2 cursor-pointer w-full text-left"
+                        className="flex items-center justify-between py-2.5 cursor-pointer w-full text-left group"
                       >
-                        <span>{link.name}</span>
+                        <span className="flex items-center gap-3">
+                          <div className={`p-2 rounded-xl border transition-all duration-300 ${
+                            isExpanded 
+                              ? "bg-neon-purple/20 border-neon-purple/30 text-neon-purple" 
+                              : "bg-white/5 border-white/10 text-slate-400 group-hover:text-white"
+                          }`}>
+                            <IconComponent className="w-5 h-5" />
+                          </div>
+                          <span className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
+                            isExpanded ? "text-neon-purple" : "text-slate-200 group-hover:text-white"
+                          }`}>
+                            {link.name}
+                          </span>
+                        </span>
                         <ChevronDown
-                          className={`w-5 h-5 text-slate-505 transition-transform duration-300 ${
+                          className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
                             isExpanded ? "rotate-180 text-neon-purple" : ""
                           }`}
                         />
@@ -310,8 +332,8 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.25 }}
-                            className="flex flex-col gap-2 pl-3 py-1 bg-slate-50/50 rounded-xl mt-1 overflow-hidden"
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="flex flex-col gap-2 pl-3 py-2 mt-1 overflow-hidden"
                           >
                             {link.subLinks?.map((sub) => {
                               const isSubActive = pathname === sub.href;
@@ -319,11 +341,14 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
                                 <Link
                                   key={sub.name}
                                   href={sub.href}
-                                  className={`text-sm py-2 px-2 rounded-lg transition-colors font-semibold ${
-                                    isSubActive ? "text-neon-purple bg-purple-50/40 font-bold" : "text-slate-600 hover:text-slate-900"
+                                  className={`text-sm py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-between border ${
+                                    isSubActive
+                                      ? "text-neon-cyan bg-neon-cyan/5 border-neon-cyan/25 font-bold"
+                                      : "text-slate-300 bg-white/3 border-white/5 hover:bg-white/5 hover:text-white"
                                   }`}
                                 >
-                                  {sub.name}
+                                  <span>{sub.name}</span>
+                                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
                                 </Link>
                               );
                             })}
@@ -339,36 +364,43 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
                   <Link
                     key={link.name}
                     href={link.href || "/"}
-                    className={`text-xl font-extrabold tracking-wide border-b border-slate-100 pb-2 transition-colors py-2 ${
-                      isActive ? "text-slate-900 font-bold" : "text-slate-600 hover:text-slate-900"
-                    }`}
+                    className="flex items-center gap-3 border-b border-white/5 pb-3 py-2.5 group"
                   >
-                    {link.name}
+                    <div className={`p-2 rounded-xl border transition-all duration-300 ${
+                      isActive 
+                        ? "bg-neon-purple/20 border-neon-purple/30 text-neon-purple" 
+                        : "bg-white/5 border-white/10 text-slate-400 group-hover:text-white"
+                    }`}>
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                    <span className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
+                      isActive ? "text-neon-purple" : "text-slate-200 group-hover:text-white"
+                    }`}>
+                      {link.name}
+                    </span>
                   </Link>
                 );
               })}
+            </div>
 
-              {/* Mobile Social Icons */}
-              <div className="mt-6 flex items-center justify-center gap-4 border-t border-slate-100 pt-6">
+            {/* Footer Area with Book Audit Button & Social Links */}
+            <div className="p-6 border-t border-white/5 bg-slate-900/40 backdrop-blur-md relative z-10 flex flex-col gap-6">
+              <Link
+                href="/contact"
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-center font-bold text-sm tracking-wide shadow-lg shadow-neon-purple/10 hover:shadow-neon-purple/20 transition-all cursor-pointer"
+              >
+                Book Free Consultation
+              </Link>
+              <div className="flex items-center justify-center gap-4">
                 {["twitter", "linkedin", "facebook", "instagram"].map((social) => {
-                  let hoverStyle = "";
-                  if (social === "twitter") {
-                    hoverStyle = "hover:bg-slate-950 hover:text-white hover:border-slate-950 hover:shadow-[0_0_10px_rgba(15,23,42,0.15)]";
-                  } else if (social === "linkedin") {
-                    hoverStyle = "hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] hover:shadow-[0_0_10px_rgba(0,119,181,0.25)]";
-                  } else if (social === "facebook") {
-                    hoverStyle = "hover:bg-[#1877f2] hover:text-white hover:border-[#1877f2] hover:shadow-[0_0_10px_rgba(24,119,242,0.25)]";
-                  } else if (social === "instagram") {
-                    hoverStyle = "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white hover:border-transparent hover:shadow-[0_0_10px_rgba(238,42,123,0.25)]";
-                  }
-
+                  let hoverStyle = "hover:border-neon-purple hover:bg-neon-purple/10 hover:text-white";
                   return (
                     <a
                       key={social}
                       href={social === "facebook" ? "https://facebook.com/snapixmedia" : `https://${social}.com`}
                       target="_blank"
                       rel="noreferrer"
-                      className={`w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110 border-slate-200 bg-slate-50 text-slate-600 ${hoverStyle}`}
+                      className={`w-11 h-11 flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-300 hover:scale-115 transition-all duration-300 ${hoverStyle}`}
                       aria-label={social}
                     >
                       {socialIcons[social]}
