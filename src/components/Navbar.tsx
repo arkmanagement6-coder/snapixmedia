@@ -217,22 +217,39 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
 
         {/* Desktop Social Icons */}
         <div className="hidden md:flex items-center gap-2.5">
-          {["twitter", "linkedin", "github", "instagram"].map((social) => (
-            <a
-              key={social}
-              href={`https://${social}.com`}
-              target="_blank"
-              rel="noreferrer"
-              className={`w-8.5 h-8.5 flex items-center justify-center rounded-full border transition-all duration-300 ${
-                isTransparentDark
-                  ? "border-white/15 bg-white/5 text-slate-200 hover:text-white hover:border-neon-cyan hover:bg-white/10"
-                  : "border-slate-200 bg-slate-50 text-slate-600 hover:text-slate-950 hover:border-neon-purple hover:bg-slate-100"
-              }`}
-              aria-label={social}
-            >
-              {socialIcons[social]}
-            </a>
-          ))}
+          {["twitter", "linkedin", "github", "instagram"].map((social) => {
+            let hoverStyle = "";
+            if (social === "twitter") {
+              hoverStyle = isTransparentDark
+                ? "hover:bg-white hover:text-black hover:border-white hover:shadow-[0_0_10px_rgba(255,255,255,0.25)]"
+                : "hover:bg-slate-950 hover:text-white hover:border-slate-950 hover:shadow-[0_0_10px_rgba(15,23,42,0.15)]";
+            } else if (social === "linkedin") {
+              hoverStyle = "hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] hover:shadow-[0_0_10px_rgba(0,119,181,0.25)]";
+            } else if (social === "github") {
+              hoverStyle = isTransparentDark
+                ? "hover:bg-slate-800 hover:text-white hover:border-slate-700 hover:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
+                : "hover:bg-slate-900 hover:text-white hover:border-slate-900 hover:shadow-[0_0_10px_rgba(15,23,42,0.15)]";
+            } else if (social === "instagram") {
+              hoverStyle = "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white hover:border-transparent hover:shadow-[0_0_10px_rgba(238,42,123,0.25)]";
+            }
+
+            return (
+              <a
+                key={social}
+                href={`https://${social}.com`}
+                target="_blank"
+                rel="noreferrer"
+                className={`w-9 h-9 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110 ${
+                  isTransparentDark
+                    ? "border-white/15 bg-white/5 text-slate-200"
+                    : "border-slate-200 bg-slate-50 text-slate-655"
+                } ${hoverStyle}`}
+                aria-label={social}
+              >
+                {socialIcons[social]}
+              </a>
+            );
+          })}
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -324,18 +341,31 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
 
               {/* Mobile Social Icons */}
               <div className="mt-6 flex items-center justify-center gap-4 border-t border-slate-100 pt-6">
-                {["twitter", "linkedin", "github", "instagram"].map((social) => (
-                  <a
-                    key={social}
-                    href={`https://${social}.com`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 hover:text-slate-900 hover:border-neon-purple hover:bg-slate-100 transition-all duration-300"
-                    aria-label={social}
-                  >
-                    {socialIcons[social]}
-                  </a>
-                ))}
+                {["twitter", "linkedin", "github", "instagram"].map((social) => {
+                  let hoverStyle = "";
+                  if (social === "twitter") {
+                    hoverStyle = "hover:bg-slate-950 hover:text-white hover:border-slate-950 hover:shadow-[0_0_10px_rgba(15,23,42,0.15)]";
+                  } else if (social === "linkedin") {
+                    hoverStyle = "hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] hover:shadow-[0_0_10px_rgba(0,119,181,0.25)]";
+                  } else if (social === "github") {
+                    hoverStyle = "hover:bg-slate-900 hover:text-white hover:border-slate-900 hover:shadow-[0_0_10px_rgba(15,23,42,0.15)]";
+                  } else if (social === "instagram") {
+                    hoverStyle = "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white hover:border-transparent hover:shadow-[0_0_10px_rgba(238,42,123,0.25)]";
+                  }
+
+                  return (
+                    <a
+                      key={social}
+                      href={`https://${social}.com`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110 border-slate-200 bg-slate-50 text-slate-600 ${hoverStyle}`}
+                      aria-label={social}
+                    >
+                      {socialIcons[social]}
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
