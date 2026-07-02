@@ -41,7 +41,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest">Our Expertise</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-3 mb-4 font-display">Services That Drive Velocity</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-3 mb-4 font-display">Our Digital Marketing Services</h2>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed font-medium">
               We deliver engineered applications and digital campaigns designed to maximize engagement, visibility, and enterprise value.
             </p>
@@ -154,7 +154,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="max-w-xl">
               <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest font-sans">Featured Work</span>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-3 mb-2 font-display">Engineered Case Studies</h2>
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-3 mb-2 font-display">Digital Marketing Success Stories</h2>
               <p className="text-slate-500 text-sm font-medium">Review real metrics, web audits, and leads generated for our creative partners.</p>
             </div>
             <Link

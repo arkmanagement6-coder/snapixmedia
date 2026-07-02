@@ -9,7 +9,7 @@ const slides = [
   {
     tag: "Digital Marketing",
     icon: Megaphone,
-    title: "Scale Organic Brand Visibility & Lead Funnels",
+    title: "Grow Your Brand & Generate More Leads",
     desc: "Deploy premium copywriting grids, monthly post schedules, and creative graphic styling kits designed to maximize organic audience engagement.",
     btnText: "WhatsApp Enquiry",
     waText: "Hello Snapix Media, I want to enquire about Digital Marketing services.",
@@ -108,7 +108,7 @@ export default function HeroSlider() {
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.1] font-display max-w-4xl" style={{ color: "#ffffff" }}>
               {current === 0 ? (
                 <>
-                  Scale Organic <span className="text-gradient-purple-cyan block sm:inline">Brand Visibility & Lead Funnels</span>
+                  Grow Your Brand <span className="text-gradient-purple-cyan block sm:inline">& Generate More Leads</span>
                 </>
               ) : current === 1 ? (
                 <>
