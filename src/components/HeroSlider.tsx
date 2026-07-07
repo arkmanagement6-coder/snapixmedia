@@ -84,7 +84,7 @@ export default function HeroSlider() {
   const ActiveIcon = slides[current].icon;
 
   return (
-    <div className="w-full flex flex-col items-start relative group min-h-[460px] py-12 px-2 sm:px-6">
+    <div className="w-full flex flex-col items-start relative group min-h-[460px] py-12 px-2 sm:px-6 text-left">
       {/* Slide Content wrapper */}
       <div className="w-full max-w-5xl mx-auto flex flex-col items-start justify-center text-left relative min-h-[380px]">
         <AnimatePresence mode="wait" custom={direction}>
@@ -96,16 +96,16 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex flex-col gap-6 items-start w-full md:max-w-[50%] lg:max-w-[48%]"
+            className="flex flex-col gap-6 items-start w-full md:max-w-[50%] lg:max-w-[48%] text-left"
           >
             {/* Badge Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm justify-start text-left">
               <ActiveIcon className="w-4 h-4 text-[#1A50F1]" />
               <span>{slides[current].tag}</span>
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-tight leading-[1.15] font-display w-full" style={{ color: "#0f172a" }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-tight leading-[1.15] font-display w-full text-left" style={{ color: "#0f172a" }}>
               {current === 0 ? (
                 <>
                   Grow Your Brand <span className="text-gradient-purple-cyan block">& Generate More Leads</span>
@@ -126,24 +126,24 @@ export default function HeroSlider() {
             </h1>
 
             {/* Description */}
-            <p className="text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2">
+            <p className="text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2 text-left">
               {slides[current].desc}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full mt-6 text-left">
               <a
                 href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-9 py-4 rounded-full bg-[#1A50F1] hover:bg-[#103ec6] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-[#103ec6]/30"
+                className="w-full sm:w-auto px-9 py-4 rounded-full bg-[#1A50F1] hover:bg-[#103ec6] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-[#103ec6]/30 text-center"
               >
                 {slides[current].btnText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-9 py-4 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                className="w-full sm:w-auto px-9 py-4 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
               >
                 Consultation Call
               </Link>
