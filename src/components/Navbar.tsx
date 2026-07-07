@@ -388,7 +388,7 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
             <div className="p-6 border-t border-white/5 bg-slate-900/40 backdrop-blur-md relative z-10 flex flex-col gap-6">
               <Link
                 href="/contact"
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-center font-bold text-sm tracking-wide shadow-lg shadow-neon-purple/10 hover:shadow-neon-purple/20 transition-all cursor-pointer"
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-neon-purple to-neon-cyan text-slate-950 text-center font-bold text-sm tracking-wide shadow-lg shadow-neon-purple/10 hover:shadow-neon-purple/20 transition-all cursor-pointer"
               >
                 Book Free Consultation
               </Link>
