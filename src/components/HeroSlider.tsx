@@ -99,13 +99,13 @@ export default function HeroSlider() {
             className="flex flex-col gap-6 items-start w-full md:max-w-[64%] lg:max-w-[62%] text-left"
           >
             {/* Badge Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 md:border-slate-200 bg-white/10 md:bg-white/80 text-white md:text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm justify-start text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 md:border-slate-200 bg-white/10 md:bg-white/80 text-white md:text-slate-800 text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm justify-start text-left">
               <ActiveIcon className="w-4 h-4 text-white md:text-[#1A50F1]" />
               <span>{slides[current].tag}</span>
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-[38px] sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.1] md:leading-[1.15] font-display w-full text-left text-white md:text-[#0f172a]">
+            <h1 className="text-[44px] sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.1] md:leading-[1.15] font-display w-full text-left text-white md:text-[#0f172a]">
               {current === 0 ? (
                 <>
                   Grow Your Brand <span className="text-white md:bg-gradient-to-r md:from-[#0f172a] md:to-[#1A50F1] md:bg-clip-text md:text-transparent block">& Generate More Leads</span>
@@ -126,7 +126,7 @@ export default function HeroSlider() {
             </h1>
 
             {/* Description */}
-            <p className="text-blue-100 md:text-slate-600 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2 text-left">
+            <p className="text-blue-100 md:text-slate-600 text-lg md:text-xl leading-relaxed w-full font-semibold mt-2 text-left">
               {slides[current].desc}
             </p>
 
@@ -136,14 +136,14 @@ export default function HeroSlider() {
                 href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full md:w-auto px-9 py-4 rounded-full bg-white text-[#1A50F1] hover:bg-slate-50 md:bg-[#1A50F1] md:text-white md:hover:bg-[#103ec6] text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-white/10 md:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-white/10 md:border-[#103ec6]/30 text-center"
+                className="w-full md:w-auto px-9 py-4 rounded-full bg-white text-[#1A50F1] hover:bg-slate-50 md:bg-[#1A50F1] md:text-white md:hover:bg-[#103ec6] text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-white/10 md:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-white/10 md:border-[#103ec6]/30 text-center"
               >
                 {slides[current].btnText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/contact"
-                className="w-full md:w-auto px-9 py-4 rounded-full border border-white/30 bg-transparent text-white hover:bg-white/10 md:border-slate-200 md:bg-white md:text-slate-800 md:hover:bg-slate-50 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
+                className="w-full md:w-auto px-9 py-4 rounded-full border border-white/30 bg-transparent text-white hover:bg-white/10 md:border-slate-200 md:bg-white md:text-slate-800 md:hover:bg-slate-50 text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
               >
                 Consultation Call
               </Link>
