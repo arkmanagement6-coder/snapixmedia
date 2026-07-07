@@ -105,7 +105,7 @@ export default function HeroSlider() {
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.15] font-display w-full text-left text-white md:text-slate-900">
+            <h1 className="text-[38px] sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.1] md:leading-[1.15] font-display w-full text-left text-white md:text-[#0f172a]">
               {current === 0 ? (
                 <>
                   Grow Your Brand <span className="text-white md:text-gradient-purple-cyan md:bg-clip-text md:text-transparent block">& Generate More Leads</span>
@@ -131,19 +131,19 @@ export default function HeroSlider() {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full mt-6 text-left">
+            <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-start w-full mt-6 text-left">
               <a
                 href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-9 py-4 rounded-full bg-white text-[#1A50F1] hover:bg-slate-50 md:bg-[#1A50F1] md:text-white md:hover:bg-[#103ec6] text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-white/10 md:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-white/10 md:border-[#103ec6]/30 text-center"
+                className="w-full md:w-auto px-9 py-4 rounded-full bg-white text-[#1A50F1] hover:bg-slate-50 md:bg-[#1A50F1] md:text-white md:hover:bg-[#103ec6] text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-white/10 md:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-white/10 md:border-[#103ec6]/30 text-center"
               >
                 {slides[current].btnText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-9 py-4 rounded-full border border-white/30 bg-transparent text-white hover:bg-white/10 md:border-slate-200 md:bg-white md:text-slate-800 md:hover:bg-slate-50 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
+                className="w-full md:w-auto px-9 py-4 rounded-full border border-white/30 bg-transparent text-white hover:bg-white/10 md:border-slate-200 md:bg-white md:text-slate-800 md:hover:bg-slate-50 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
               >
                 Consultation Call
               </Link>
