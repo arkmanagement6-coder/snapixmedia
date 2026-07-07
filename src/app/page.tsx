@@ -25,7 +25,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-80 z-0" />
         
         {/* WeBeeSocial style Geometric Yellow & Green Polygon Backgrounds */}
-        <div className="absolute inset-y-0 right-0 w-full sm:w-2/3 md:w-3/5 pointer-events-none z-0 overflow-hidden select-none">
+        <div className="absolute inset-y-0 left-0 sm:left-auto sm:right-0 w-full sm:w-2/3 md:w-3/5 pointer-events-none z-0 overflow-hidden select-none">
           {/* Yellow Triangle/Polygon (Left & Top-Left) */}
           <div 
             className="absolute inset-0 bg-[#ffd301] opacity-90 sm:opacity-100" 
