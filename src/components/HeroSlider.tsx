@@ -96,7 +96,7 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex flex-col gap-6 items-start w-full md:max-w-[50%] lg:max-w-[48%] text-left"
+            className="flex flex-col gap-6 items-start w-full md:max-w-[62%] lg:max-w-[60%] text-left"
           >
             {/* Badge Tag */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm justify-start text-left">
