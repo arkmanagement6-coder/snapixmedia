@@ -117,9 +117,9 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
           <span className={`text-2xl sm:text-3xl font-extrabold font-display tracking-tight transition-colors duration-300 ${
             isTransparentDark ? "text-white" : "text-slate-900"
           }`}>
-            Snapix<span className="text-neon-purple group-hover:text-neon-cyan transition-colors duration-300"> Media</span>
+            Snapix<span className="text-[#1fb37a] group-hover:text-[#169a67] transition-colors duration-300"> Media</span>
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-neon-purple to-neon-cyan group-hover:w-full transition-all duration-300" />
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#1fb37a] group-hover:w-full transition-all duration-300" />
         </Link>
 
         {/* Desktop Nav Links */}
