@@ -115,16 +115,16 @@ h1, h2, h3, h4, h5, h6 {
   scrollbar-width: none;
 }
 
-/* Gradient text helpers - Honeybee Yellow & Charcoal themed */
+/* Gradient text helpers - High Contrast Teal & Navy themed */
 .text-gradient-purple-cyan {
-  background: linear-gradient(135deg, #0f172a 0%, #ca8a04 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #0b6e65 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-blue-magenta {
-  background: linear-gradient(135deg, #ca8a04 0%, #eab308 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
