@@ -84,9 +84,9 @@ export default function HeroSlider() {
   const ActiveIcon = slides[current].icon;
 
   return (
-    <div className="w-full flex flex-col items-center relative group min-h-[460px] py-12 px-4 sm:px-6">
+    <div className="w-full flex flex-col items-start relative group min-h-[460px] py-12 px-2 sm:px-6">
       {/* Slide Content wrapper */}
-      <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center relative min-h-[380px]">
+      <div className="w-full max-w-5xl mx-auto flex flex-col items-start justify-center text-left relative min-h-[380px]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={current}
@@ -96,42 +96,42 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex flex-col gap-6 items-center w-full"
+            className="flex flex-col gap-6 items-start w-full md:max-w-[50%] lg:max-w-[48%]"
           >
             {/* Badge Tag */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm">
-              <ActiveIcon className="w-4 h-4 text-neon-purple" />
+              <ActiveIcon className="w-4 h-4 text-[#1A50F1]" />
               <span>{slides[current].tag}</span>
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.1] font-display max-w-4xl" style={{ color: "#0f172a" }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-tight leading-[1.15] font-display w-full" style={{ color: "#0f172a" }}>
               {current === 0 ? (
                 <>
-                  Grow Your Brand <span className="text-gradient-purple-cyan block sm:inline">& Generate More Leads</span>
+                  Grow Your Brand <span className="text-gradient-purple-cyan block">& Generate More Leads</span>
                 </>
               ) : current === 1 ? (
                 <>
-                  Rank #1 on <span className="text-gradient-purple-cyan block sm:inline">Search & AI Engines</span>
+                  Rank #1 on <span className="text-gradient-purple-cyan block">Search & AI Engines</span>
                 </>
               ) : current === 2 ? (
                 <>
-                  Scale Profitable <span className="text-gradient-blue-magenta block sm:inline">Paid Ads Campaigns</span>
+                  Scale Profitable <span className="text-gradient-blue-magenta block">Paid Ads Campaigns</span>
                 </>
               ) : (
                 <>
-                  Transform Business with <span className="text-gradient-purple-cyan block sm:inline">Custom Web Systems</span>
+                  Transform Business with <span className="text-gradient-purple-cyan block">Custom Web Systems</span>
                 </>
               )}
             </h1>
 
             {/* Description */}
-            <p className="text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-semibold mt-2">
+            <p className="text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2">
               {slides[current].desc}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full mt-6">
               <a
                 href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
                 target="_blank"
@@ -167,13 +167,13 @@ export default function HeroSlider() {
       </button>
 
       {/* Active Dot Indicators */}
-      <div className="flex gap-2.5 mt-10 z-20">
+      <div className="flex gap-2.5 mt-10 z-20 pl-2">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setSlide(idx)}
             className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              current === idx ? "w-8 bg-neon-purple" : "w-2.5 bg-slate-350 hover:bg-slate-400"
+              current === idx ? "w-8 bg-[#1A50F1]" : "w-2.5 bg-slate-300 hover:bg-slate-400"
             }`}
           />
         ))}
