@@ -27,15 +27,9 @@ export default function Home() {
         {/* WeBeeSocial style Geometric Yellow & Green Polygon Backgrounds */}
         <div className="absolute inset-y-0 left-0 sm:left-auto sm:right-0 w-full sm:w-2/3 md:w-3/5 pointer-events-none z-0 overflow-hidden select-none">
           {/* Yellow Triangle/Polygon (Left & Top-Left) */}
-          <div 
-            className="absolute inset-0 bg-[#ffd301] opacity-90 sm:opacity-100" 
-            style={{ clipPath: "polygon(0 0, 68% 0, 32% 100%, 0 100%)" }}
-          />
+          <div className="absolute inset-0 bg-[#ffd301] opacity-90 sm:opacity-100 hero-polygon-yellow" />
           {/* Green Triangle/Polygon (Right & Bottom-Right) */}
-          <div 
-            className="absolute inset-0 bg-[#1fb37a]" 
-            style={{ clipPath: "polygon(68% 0, 100% 0, 100% 100%, 32% 100%)" }}
-          />
+          <div className="absolute inset-0 bg-[#1fb37a] hero-polygon-green" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">

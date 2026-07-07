@@ -130,6 +130,24 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
+/* Responsive background polygons for Hero Section */
+.hero-polygon-yellow {
+  clip-path: polygon(0 0, 68% 0, 32% 100%, 0 100%);
+}
+
+.hero-polygon-green {
+  clip-path: polygon(68% 0, 100% 0, 100% 100%, 32% 100%);
+}
+
+@media (min-width: 640px) {
+  .hero-polygon-yellow {
+    clip-path: polygon(38% 0, 100% 0, 100% 100%, 15% 100%, 32% 70%, 18% 70%);
+  }
+  .hero-polygon-green {
+    clip-path: polygon(75% 0, 100% 0, 100% 100%, 33% 100%, 48% 48%, 60% 48%);
+  }
+}
+
 /* Grid animations */
 .glow-grid {
   background-image: 
