@@ -24,12 +24,12 @@ export default function Home() {
         {/* Background grids & patterns */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-80 z-0" />
         
-        {/* WeBeeSocial style Geometric Yellow & Green Polygon Backgrounds */}
+        {/* WeBeeSocial style Geometric White & Royal Blue Polygon Backgrounds */}
         <div className="absolute inset-y-0 left-0 w-full pointer-events-none z-0 overflow-hidden select-none">
-          {/* Yellow Triangle/Polygon (Left & Top-Left) */}
-          <div className="absolute inset-0 bg-[#ffd301] opacity-90 sm:opacity-100 hero-polygon-yellow" />
-          {/* Green Triangle/Polygon (Right & Bottom-Right) */}
-          <div className="absolute inset-0 bg-[#1fb37a] hero-polygon-green" />
+          {/* White Triangle/Polygon (Left & Top-Left) */}
+          <div className="absolute inset-0 bg-[#ffffff] opacity-90 sm:opacity-100 hero-polygon-yellow" />
+          {/* Royal Blue Triangle/Polygon (Right & Bottom-Right) */}
+          <div className="absolute inset-0 bg-[#1A50F1] hero-polygon-green" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
@@ -135,15 +135,15 @@ export default function Home() {
       </section>
 
       {/* 4. STATISTICS COUNTERS SECTION (WHY CHOOSE US) */}
-      <section className="relative py-24 px-6 bg-[#ffd301] border-y border-[#e2b700]/30 overflow-hidden">
+      <section className="relative py-24 px-6 bg-slate-50 border-y border-slate-200/80 overflow-hidden">
         {/* Abstract background overlays */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto flex flex-col gap-14 relative z-10">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-bold text-slate-800 uppercase tracking-widest font-sans">Why Partner With Us</span>
+            <span className="text-xs font-bold text-[#1A50F1] uppercase tracking-widest font-sans">Why Partner With Us</span>
             <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mt-4 mb-3 font-display tracking-tight">Proven Growth In Numbers</h2>
-            <div className="w-16 h-[3px] bg-slate-900 mx-auto mt-4 rounded-full" />
+            <div className="w-16 h-[3px] bg-[#1A50F1] mx-auto mt-4 rounded-full" />
           </div>
           <InteractiveStats />
         </div>

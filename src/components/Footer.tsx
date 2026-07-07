@@ -76,7 +76,7 @@ export default function Footer() {
           {/* Company Brief */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-white inline-block cursor-pointer select-none">
-              Snapix<span className="text-[#1fb37a]"> Media</span>
+              Snapix<span className="text-[#1A50F1]"> Media</span>
             </Link>
             <p className="text-sm text-slate-200 leading-relaxed font-semibold">
               We design, build, and optimize <span className="text-white font-extrabold">premium digital experiences</span> that <span className="text-neon-cyan font-extrabold">accelerate growth</span> for enterprise systems, fast-growing SaaS brands, and creative start-ups.
