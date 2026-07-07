@@ -108,25 +108,25 @@ export default function HeroSlider() {
             <h1 className="text-[38px] sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.1] md:leading-[1.15] font-display w-full text-left text-white md:text-[#0f172a]">
               {current === 0 ? (
                 <>
-                  Grow Your Brand <span className="text-white md:text-gradient-purple-cyan md:bg-clip-text md:text-transparent block">& Generate More Leads</span>
+                  Grow Your Brand <span className="text-white md:bg-gradient-to-r md:from-[#0f172a] md:to-[#1A50F1] md:bg-clip-text md:text-transparent block">& Generate More Leads</span>
                 </>
               ) : current === 1 ? (
                 <>
-                  Rank #1 on <span className="text-white md:text-gradient-purple-cyan md:bg-clip-text md:text-transparent block">Search & AI Engines</span>
+                  Rank #1 on <span className="text-white md:bg-gradient-to-r md:from-[#0f172a] md:to-[#1A50F1] md:bg-clip-text md:text-transparent block">Search & AI Engines</span>
                 </>
               ) : current === 2 ? (
                 <>
-                  Scale Profitable <span className="text-white md:text-gradient-blue-magenta md:bg-clip-text md:text-transparent block">Paid Ads Campaigns</span>
+                  Scale Profitable <span className="text-white md:bg-gradient-to-r md:from-[#0f172a] md:to-[#103ec6] md:bg-clip-text md:text-transparent block">Paid Ads Campaigns</span>
                 </>
               ) : (
                 <>
-                  Transform Business with <span className="text-white md:text-gradient-purple-cyan md:bg-clip-text md:text-transparent block">Custom Web Systems</span>
+                  Transform Business with <span className="text-white md:bg-gradient-to-r md:from-[#0f172a] md:to-[#1A50F1] md:bg-clip-text md:text-transparent block">Custom Web Systems</span>
                 </>
               )}
             </h1>
 
             {/* Description */}
-            <p className="text-blue-100 md:text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2 text-left">
+            <p className="text-blue-100 md:text-slate-600 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2 text-left">
               {slides[current].desc}
             </p>
 
