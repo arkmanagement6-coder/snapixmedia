@@ -99,13 +99,13 @@ export default function HeroSlider() {
             className="flex flex-col gap-6 items-center w-full"
           >
             {/* Badge Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-800 bg-slate-900/50 text-slate-300 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm">
-              <ActiveIcon className="w-4 h-4 text-neon-cyan" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm">
+              <ActiveIcon className="w-4 h-4 text-neon-purple" />
               <span>{slides[current].tag}</span>
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.1] font-display max-w-4xl" style={{ color: "#ffffff" }}>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.1] font-display max-w-4xl" style={{ color: "#0f172a" }}>
               {current === 0 ? (
                 <>
                   Grow Your Brand <span className="text-gradient-purple-cyan block sm:inline">& Generate More Leads</span>
@@ -126,7 +126,7 @@ export default function HeroSlider() {
             </h1>
 
             {/* Description */}
-            <p className="text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-medium mt-2">
+            <p className="text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-semibold mt-2">
               {slides[current].desc}
             </p>
 
@@ -136,14 +136,14 @@ export default function HeroSlider() {
                 href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-9 py-4 rounded-full bg-gradient-to-r from-neon-purple to-amber-600 text-slate-950 text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-neon-purple/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto px-9 py-4 rounded-full bg-[#ffd301] hover:bg-[#e2b700] text-slate-900 text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-yellow-500/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-[#e2b700]/30"
               >
                 {slides[current].btnText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-9 py-4 rounded-full border border-slate-800 bg-slate-900/50 hover:bg-slate-900/80 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                className="w-full sm:w-auto px-9 py-4 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
               >
                 Consultation Call
               </Link>
@@ -155,13 +155,13 @@ export default function HeroSlider() {
       {/* Manual Slide Navigation Toggles */}
       <button
         onClick={handlePrev}
-        className="absolute left-[-20px] lg:left-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-slate-800 bg-slate-900/50 hover:bg-slate-800/85 text-slate-300 hover:text-white shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
+        className="absolute left-[-20px] lg:left-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-[-20px] lg:right-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-slate-800 bg-slate-900/50 hover:bg-slate-800/85 text-slate-300 hover:text-white shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
+        className="absolute right-[-20px] lg:right-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 shadow-sm flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer z-20 opacity-0 group-hover:opacity-100 hidden sm:flex"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -173,7 +173,7 @@ export default function HeroSlider() {
             key={idx}
             onClick={() => setSlide(idx)}
             className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              current === idx ? "w-8 bg-neon-purple" : "w-2.5 bg-slate-800 hover:bg-slate-700"
+              current === idx ? "w-8 bg-neon-purple" : "w-2.5 bg-slate-350 hover:bg-slate-400"
             }`}
           />
         ))}

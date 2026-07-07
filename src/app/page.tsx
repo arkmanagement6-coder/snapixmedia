@@ -17,17 +17,26 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-transparent text-slate-600 overflow-x-hidden flex flex-col font-sans">
       <MouseFollower />
-      <Navbar isDarkHero={true} />
+      <Navbar isDarkHero={false} />
 
-      {/* 1. HERO SECTION (Dark Hero Banner) */}
-      <section className="relative min-h-screen flex items-center bg-slate-950 homepage-dark-hero overflow-hidden pt-28 pb-12">
+      {/* 1. HERO SECTION (Light WeBeeSocial style Banner) */}
+      <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-28 pb-12">
         {/* Background grids & patterns */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60" />
-        {/* Glow ambient background assets */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-neon-purple/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-neon-cyan/10 rounded-full blur-[100px] pointer-events-none" />
-
-        <ParticleCanvas />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-80 z-0" />
+        
+        {/* WeBeeSocial style Geometric Yellow & Green Polygon Backgrounds */}
+        <div className="absolute inset-y-0 right-0 w-full sm:w-2/3 md:w-3/5 pointer-events-none z-0 overflow-hidden select-none">
+          {/* Yellow Lightning-Bolt Polygon */}
+          <div 
+            className="absolute inset-0 bg-[#ffd301] opacity-80 sm:opacity-100" 
+            style={{ clipPath: "polygon(30% 0, 100% 0, 80% 100%, 0% 100%)" }}
+          />
+          {/* Green Lightning-Bolt Polygon */}
+          <div 
+            className="absolute inset-y-0 right-0 w-1/3 bg-[#1fb37a]" 
+            style={{ clipPath: "polygon(35% 0, 100% 0, 100% 100%, 0% 100%)" }}
+          />
+        </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
           <HeroSlider />
@@ -132,17 +141,15 @@ export default function Home() {
       </section>
 
       {/* 4. STATISTICS COUNTERS SECTION (WHY CHOOSE US) */}
-      <section className="relative py-24 px-6 bg-[#030712] border-y border-slate-950 overflow-hidden">
+      <section className="relative py-24 px-6 bg-[#ffd301] border-y border-[#e2b700]/30 overflow-hidden">
         {/* Abstract background overlays */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(#8b5cf607_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-radial from-neon-purple/5 to-transparent blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto flex flex-col gap-14 relative z-10">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-bold text-neon-cyan uppercase tracking-widest font-sans">Why Partner With Us</span>
-            <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 mb-3 font-display tracking-tight" style={{ color: "#ffffff" }}>Proven Growth In Numbers</h2>
-            <div className="w-16 h-[3px] bg-gradient-to-r from-neon-purple to-neon-cyan mx-auto mt-4 rounded-full" />
+            <span className="text-xs font-bold text-slate-800 uppercase tracking-widest font-sans">Why Partner With Us</span>
+            <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mt-4 mb-3 font-display tracking-tight">Proven Growth In Numbers</h2>
+            <div className="w-16 h-[3px] bg-slate-900 mx-auto mt-4 rounded-full" />
           </div>
           <InteractiveStats />
         </div>
