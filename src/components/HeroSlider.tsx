@@ -99,34 +99,34 @@ export default function HeroSlider() {
             className="flex flex-col gap-6 items-start w-full md:max-w-[64%] lg:max-w-[62%] text-left"
           >
             {/* Badge Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm justify-start text-left">
-              <ActiveIcon className="w-4 h-4 text-[#1A50F1]" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 md:border-slate-200 bg-white/10 md:bg-white/80 text-white md:text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm justify-start text-left">
+              <ActiveIcon className="w-4 h-4 text-white md:text-[#1A50F1]" />
               <span>{slides[current].tag}</span>
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.15] font-display w-full text-left" style={{ color: "#0f172a" }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.15] font-display w-full text-left text-white md:text-slate-900">
               {current === 0 ? (
                 <>
-                  Grow Your Brand <span className="text-gradient-purple-cyan block">& Generate More Leads</span>
+                  Grow Your Brand <span className="text-white md:text-gradient-purple-cyan md:bg-clip-text md:text-transparent block">& Generate More Leads</span>
                 </>
               ) : current === 1 ? (
                 <>
-                  Rank #1 on <span className="text-gradient-purple-cyan block">Search & AI Engines</span>
+                  Rank #1 on <span className="text-white md:text-gradient-purple-cyan md:bg-clip-text md:text-transparent block">Search & AI Engines</span>
                 </>
               ) : current === 2 ? (
                 <>
-                  Scale Profitable <span className="text-gradient-blue-magenta block">Paid Ads Campaigns</span>
+                  Scale Profitable <span className="text-white md:text-gradient-blue-magenta md:bg-clip-text md:text-transparent block">Paid Ads Campaigns</span>
                 </>
               ) : (
                 <>
-                  Transform Business with <span className="text-gradient-purple-cyan block">Custom Web Systems</span>
+                  Transform Business with <span className="text-white md:text-gradient-purple-cyan md:bg-clip-text md:text-transparent block">Custom Web Systems</span>
                 </>
               )}
             </h1>
 
             {/* Description */}
-            <p className="text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2 text-left">
+            <p className="text-blue-100 md:text-slate-650 text-base sm:text-lg md:text-xl leading-relaxed w-full font-semibold mt-2 text-left">
               {slides[current].desc}
             </p>
 
@@ -136,14 +136,14 @@ export default function HeroSlider() {
                 href={`https://wa.me/919675818088?text=${encodeURIComponent(slides[current].waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-9 py-4 rounded-full bg-[#1A50F1] hover:bg-[#103ec6] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-[#103ec6]/30 text-center"
+                className="w-full sm:w-auto px-9 py-4 rounded-full bg-white text-[#1A50F1] hover:bg-slate-50 md:bg-[#1A50F1] md:text-white md:hover:bg-[#103ec6] text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 shadow-lg shadow-white/10 md:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-white/10 md:border-[#103ec6]/30 text-center"
               >
                 {slides[current].btnText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-9 py-4 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
+                className="w-full sm:w-auto px-9 py-4 rounded-full border border-white/30 bg-transparent text-white hover:bg-white/10 md:border-slate-200 md:bg-white md:text-slate-800 md:hover:bg-slate-50 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
               >
                 Consultation Call
               </Link>

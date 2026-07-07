@@ -102,6 +102,7 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
   }, [pathname]);
 
   const isTransparentDark = isDarkHero && !isScrolled;
+  const isMobileDarkTheme = pathname === "/" && !isScrolled;
 
   return (
     <header
@@ -115,11 +116,19 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
         {/* Logo */}
         <Link href="/" className="relative flex items-center gap-2 group cursor-pointer select-none">
           <span className={`text-2xl sm:text-3xl font-extrabold font-display tracking-tight transition-colors duration-300 ${
-            isTransparentDark ? "text-white" : "text-slate-900"
+            isTransparentDark
+              ? "text-white"
+              : (isMobileDarkTheme ? "text-white md:text-slate-900" : "text-slate-900")
           }`}>
-            Snapix<span className="text-[#1A50F1] group-hover:text-[#103ec6] transition-colors duration-300"> Media</span>
+            Snapix<span className={`transition-colors duration-300 ${
+              isMobileDarkTheme
+                ? "text-white md:text-[#1A50F1] group-hover:text-white/80 md:group-hover:text-[#103ec6]"
+                : "text-[#1A50F1] group-hover:text-[#103ec6]"
+            }`}> Media</span>
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#1A50F1] group-hover:w-full transition-all duration-300" />
+          <span className={`absolute -bottom-1 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-300 ${
+            isMobileDarkTheme ? "bg-white md:bg-[#1A50F1]" : "bg-[#1A50F1]"
+          }`} />
         </Link>
 
         {/* Desktop Nav Links */}
@@ -266,7 +275,7 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`md:hidden p-2 transition-colors ${
-            isTransparentDark ? "text-white hover:text-slate-200" : "text-slate-600 hover:text-slate-900"
+            isTransparentDark || isMobileDarkTheme ? "text-white hover:text-slate-200" : "text-slate-600 hover:text-slate-900"
           }`}
           aria-label="Toggle menu"
         >
