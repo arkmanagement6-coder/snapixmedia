@@ -25,16 +25,16 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-80 z-0" />
         
         {/* WeBeeSocial style Geometric Yellow & Green Polygon Backgrounds */}
-        <div className="absolute inset-y-0 right-0 w-[42%] sm:w-2/3 md:w-3/5 pointer-events-none z-0 overflow-hidden select-none">
-          {/* Yellow Lightning-Bolt Polygon */}
+        <div className="absolute inset-y-0 right-0 w-full sm:w-2/3 md:w-3/5 pointer-events-none z-0 overflow-hidden select-none">
+          {/* Yellow Triangle/Polygon (Left & Top-Left) */}
           <div 
-            className="absolute inset-0 bg-[#ffd301] opacity-80 sm:opacity-100" 
-            style={{ clipPath: "polygon(30% 0, 100% 0, 80% 100%, 0% 100%)" }}
+            className="absolute inset-0 bg-[#ffd301] opacity-90 sm:opacity-100" 
+            style={{ clipPath: "polygon(0 0, 68% 0, 32% 100%, 0 100%)" }}
           />
-          {/* Green Lightning-Bolt Polygon */}
+          {/* Green Triangle/Polygon (Right & Bottom-Right) */}
           <div 
-            className="absolute inset-y-0 right-0 w-1/3 bg-[#1fb37a]" 
-            style={{ clipPath: "polygon(35% 0, 100% 0, 100% 100%, 0% 100%)" }}
+            className="absolute inset-0 bg-[#1fb37a]" 
+            style={{ clipPath: "polygon(68% 0, 100% 0, 100% 100%, 32% 100%)" }}
           />
         </div>
 
