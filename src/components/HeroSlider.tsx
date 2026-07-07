@@ -84,9 +84,9 @@ export default function HeroSlider() {
   const ActiveIcon = slides[current].icon;
 
   return (
-    <div className="w-full flex flex-col items-start relative group min-h-[460px] py-12 px-2 sm:px-6 text-left">
+    <div className="w-full flex flex-col items-start relative group min-h-[460px] py-12 px-0 text-left">
       {/* Slide Content wrapper */}
-      <div className="w-full max-w-5xl mx-auto flex flex-col items-start justify-center text-left relative min-h-[380px]">
+      <div className="w-full flex flex-col items-start justify-center text-left relative min-h-[380px]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={current}
@@ -96,7 +96,7 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex flex-col gap-6 items-start w-full md:max-w-[62%] lg:max-w-[60%] text-left"
+            className="flex flex-col gap-6 items-start w-full md:max-w-[64%] lg:max-w-[62%] text-left"
           >
             {/* Badge Tag */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/80 text-slate-800 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-sm shadow-sm justify-start text-left">
@@ -105,7 +105,7 @@ export default function HeroSlider() {
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.15] font-display w-full text-left" style={{ color: "#0f172a" }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-black tracking-tight leading-[1.15] font-display w-full text-left" style={{ color: "#0f172a" }}>
               {current === 0 ? (
                 <>
                   Grow Your Brand <span className="text-gradient-purple-cyan block">& Generate More Leads</span>
