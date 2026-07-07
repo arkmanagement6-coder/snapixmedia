@@ -105,7 +105,7 @@ export default function HeroSlider() {
             </div>
 
             {/* Slide Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-tight leading-[1.15] font-display w-full text-left" style={{ color: "#0f172a" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.15] font-display w-full text-left" style={{ color: "#0f172a" }}>
               {current === 0 ? (
                 <>
                   Grow Your Brand <span className="text-gradient-purple-cyan block">& Generate More Leads</span>
@@ -166,18 +166,7 @@ export default function HeroSlider() {
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* Active Dot Indicators */}
-      <div className="flex gap-2.5 mt-10 z-20 pl-2">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setSlide(idx)}
-            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              current === idx ? "w-8 bg-[#1A50F1]" : "w-2.5 bg-slate-300 hover:bg-slate-400"
-            }`}
-          />
-        ))}
-      </div>
+
     </div>
   );
 }
