@@ -132,11 +132,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive background polygons for Hero Section */
 .hero-polygon-yellow {
-  clip-path: polygon(0 0, 68% 0, 32% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 .hero-polygon-green {
-  clip-path: polygon(68% 0, 100% 0, 100% 100%, 32% 100%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
 @media (min-width: 768px) {
