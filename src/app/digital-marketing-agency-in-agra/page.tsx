@@ -712,17 +712,18 @@ export default function AgraSEOPage() {
               <GlassCard
                 key={idx}
                 className={`flex flex-col justify-between text-left relative ${
-                  pkg.featured
-                    ? "border-2 border-[#1A50F1] shadow-lg shadow-blue-500/10 pt-10 pb-6 px-6"
-                    : "pt-8 pb-6 px-6"
+                  pkg.featured ? "border-2 border-[#1A50F1] shadow-lg shadow-blue-500/10" : ""
                 }`}
                 hoverGlow
               >
                 {pkg.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#1A50F1] text-white text-[9px] font-bold uppercase tracking-widest rounded-full">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#1A50F1] text-white text-[9px] font-bold uppercase tracking-widest rounded-full z-20">
                     Most Popular
                   </span>
                 )}
+                
+                {/* Spacer to clear the absolute badge and keep headings aligned */}
+                <div className="h-6" />
                 
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-1">
