@@ -399,7 +399,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 2. WHY AGRA BUSINESSES NEED A DIGITAL AGENCY RIGHT NOW */}
-      <section className="py-24 px-6 bg-slate-50 relative border-y border-slate-200/80">
+      <section className="py-16 md:py-24 px-6 bg-slate-50 relative border-y border-slate-200/80">
         <div className="max-w-6xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-3">
             <span className="text-xs font-bold text-[#1A50F1] uppercase tracking-widest">Market Shift</span>
@@ -446,7 +446,7 @@ export default function AgraSEOPage() {
             ))}
           </div>
 
-          <div className="max-w-4xl mx-auto bg-white border border-slate-200/80 p-8 rounded-3xl text-left flex flex-col gap-4 shadow-sm">
+          <div className="max-w-4xl mx-auto bg-white border border-slate-200/80 p-6 sm:p-8 rounded-3xl text-left flex flex-col gap-4 shadow-sm">
             <h3 className="text-xl font-bold text-slate-900 font-display">The Everyday Reality of Running a Business in Agra</h3>
             <p className="text-sm text-slate-600 leading-relaxed font-semibold">
               A tour operator near Fatehabad Road loses bookings every day to competitors who simply show up higher on Google. A dental clinic in Sanjay Place spends lakhs on a signboard but gets fewer enquiries than a competitor with strong Google reviews. A handicraft exporter with beautiful products struggles to reach global buyers because their website isn't built to convert international visitors.
@@ -459,7 +459,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 3. DIGITAL MARKETING TRENDS SHAPING AGRA IN 2026 */}
-      <section className="py-24 px-6 bg-white relative">
+      <section className="py-16 md:py-24 px-6 bg-white relative">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 text-left flex flex-col gap-6">
             <span className="text-xs font-bold text-[#1A50F1] uppercase tracking-widest">Stay Ahead</span>
@@ -512,7 +512,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 4. WHAT MAKES SNAPIX MEDIA THE BEST DIGITAL MARKETING AGENCY IN AGRA */}
-      <section className="py-24 px-6 bg-slate-50 relative border-t border-slate-200/80">
+      <section className="py-16 md:py-24 px-6 bg-slate-50 relative border-t border-slate-200/80">
         <div className="max-w-6xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-3">
             <span className="text-xs font-bold text-[#1A50F1] uppercase tracking-widest">Our Edge</span>
@@ -556,7 +556,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 5. SERVICES GRID WITH 3D IMAGE ASSETS */}
-      <section className="py-24 px-6 bg-white relative">
+      <section className="py-16 md:py-24 px-6 bg-white relative">
         <div className="max-w-6xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-3">
             <span className="text-xs font-bold text-[#1A50F1] uppercase tracking-widest">Our Services</span>
@@ -597,7 +597,7 @@ export default function AgraSEOPage() {
                 </div>
               </div>
               <div className="lg:col-span-6 order-1 lg:order-2 flex justify-center">
-                <div className="relative w-full max-w-[400px] h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
+                <div className="relative w-full max-w-[400px] h-[220px] sm:h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
                   <Image
                     src="/search_authority_3d.png"
                     alt="SEO Search Engine Optimization representation"
@@ -611,7 +611,7 @@ export default function AgraSEOPage() {
             {/* Service 2: Local SEO & Google Maps */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 flex justify-center">
-                <div className="relative w-full max-w-[400px] h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
+                <div className="relative w-full max-w-[400px] h-[220px] sm:h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
                   <Image
                     src="/digital_growth_3d.png"
                     alt="Local SEO Google Business Profile representation"
@@ -679,7 +679,7 @@ export default function AgraSEOPage() {
                 </div>
               </div>
               <div className="lg:col-span-6 order-1 lg:order-2 flex justify-center">
-                <div className="relative w-full max-w-[400px] h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
+                <div className="relative w-full max-w-[400px] h-[220px] sm:h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
                   <Image
                     src="/web_systems_3d.png"
                     alt="Web Design & Systems Dev representation"
@@ -694,7 +694,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 6. PRICING AND PACKAGES TABLES */}
-      <section className="py-24 px-6 bg-slate-50 relative border-t border-slate-200/80" id="pricing">
+      <section className="py-16 md:py-24 px-6 bg-slate-50 relative border-t border-slate-200/80" id="pricing">
         <div className="max-w-6xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-3">
             <span className="text-xs font-bold text-[#1A50F1] uppercase tracking-widest font-mono">Our Pricing</span>
@@ -769,7 +769,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 7. PROVEN PROCESS STEPS */}
-      <section className="py-24 px-6 bg-white relative">
+      <section className="py-16 md:py-24 px-6 bg-white relative">
         <div className="max-w-6xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-3">
             <span className="text-xs font-bold text-[#1A50F1] uppercase tracking-widest font-mono">Our Blueprint</span>
@@ -805,7 +805,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 8. INDUSTRIES WE SERVE & FAQS */}
-      <section className="py-24 px-6 bg-slate-50 relative border-t border-slate-200/80">
+      <section className="py-16 md:py-24 px-6 bg-slate-50 relative border-t border-slate-200/80">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
           
           {/* Left Column: FAQ Accordion */}
@@ -902,7 +902,7 @@ export default function AgraSEOPage() {
       </section>
 
       {/* 9. CALL TO ACTION SECTION */}
-      <section className="relative py-24 px-6 bg-slate-950 text-white overflow-hidden text-center">
+      <section className="relative py-16 md:py-24 px-6 bg-slate-950 text-white overflow-hidden text-center">
         {/* Background grid line overrides */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
