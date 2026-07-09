@@ -44,8 +44,18 @@ export default function AgraSEOPage() {
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  // Modal State for Packages
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPkgName, setSelectedPkgName] = useState("");
+
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const handleEnquireClick = (packageName: string) => {
+    setSelectedPkgName(packageName);
+    setFormData((prev) => ({ ...prev, service: packageName }));
+    setModalOpen(true);
   };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -81,6 +91,38 @@ export default function AgraSEOPage() {
     });
 
     setTimeout(() => setFormSubmitted(false), 5000);
+  };
+
+  const handleModalSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.contact) return;
+
+    setFormLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    setFormLoading(false);
+    setModalOpen(false);
+
+    // Redirect to WhatsApp
+    const phoneNumber = "919675818088";
+    const messageText = `Hi Snapix Media! I requested a package enquiry from the Agra page:\n\n*Name:* ${formData.name}\n*Contact:* ${formData.contact}\n*Website:* ${formData.website || "Not Provided"}\n*Package Interest:* ${selectedPkgName}`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(messageText)}`, "_blank");
+
+    // Reset Form
+    setFormData({
+      name: "",
+      contact: "",
+      website: "",
+      service: "Full-Funnel Digital Growth",
+      message: ""
+    });
+
+    // Confetti celebration
+    confetti({
+      particleCount: 100,
+      spread: 60,
+      origin: { y: 0.6 },
+      colors: ["#1A50F1", "#3b82f6", "#60a5fa"]
+    });
   };
 
   // Pricing Data
@@ -220,13 +262,38 @@ export default function AgraSEOPage() {
               </div>
             </div>
 
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto">
+              <a
+                href={`https://wa.me/919675818088?text=${encodeURIComponent("Hi Snapix Media! I would like to connect on WhatsApp from the Agra Digital Marketing page.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all duration-300 shadow-md shadow-emerald-500/20 w-full sm:w-auto text-center"
+              >
+                <MessageCircle className="w-4.5 h-4.5" />
+                Connect on WhatsApp
+              </a>
+              <a
+                href="#pricing"
+                className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center transition-all duration-300 w-full sm:w-auto text-center"
+              >
+                View Packages
+              </a>
+            </div>
+
             <div className="flex items-center gap-4 mt-6">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[10px] text-white font-bold">
-                    {i === 4 ? "+50" : `U${i}`}
-                  </div>
-                ))}
+                <div className="w-8 h-8 rounded-full border-2 border-slate-950 bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center text-[9px] text-white font-extrabold" title="Agra Properties (Real Estate)">
+                  AP
+                </div>
+                <div className="w-8 h-8 rounded-full border-2 border-slate-950 bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center text-[9px] text-white font-extrabold" title="Taj Hotels (Hospitality)">
+                  TH
+                </div>
+                <div className="w-8 h-8 rounded-full border-2 border-slate-950 bg-gradient-to-tr from-purple-500 to-pink-600 flex items-center justify-center text-[9px] text-white font-extrabold" title="Leather Exporters (Manufacturing)">
+                  LE
+                </div>
+                <div className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[9px] text-white font-bold">
+                  +50
+                </div>
               </div>
               <div className="text-xs text-slate-400 font-medium">
                 Trusted by <span className="text-white font-bold">50+ local brands</span> across Uttar Pradesh
@@ -644,8 +711,10 @@ export default function AgraSEOPage() {
             {pricingPackages.map((pkg, idx) => (
               <GlassCard
                 key={idx}
-                className={`p-6 flex flex-col justify-between text-left relative ${
-                  pkg.featured ? "border-2 border-[#1A50F1] shadow-lg shadow-blue-500/10" : ""
+                className={`flex flex-col justify-between text-left relative ${
+                  pkg.featured
+                    ? "border-2 border-[#1A50F1] shadow-lg shadow-blue-500/10 pt-10 pb-6 px-6"
+                    : "pt-8 pb-6 px-6"
                 }`}
                 hoverGlow
               >
@@ -675,9 +744,21 @@ export default function AgraSEOPage() {
                   </ul>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-slate-100 flex flex-col gap-2">
-                  <div className="text-[10px] text-slate-500 font-bold uppercase">Initial Results Timeline</div>
-                  <div className="text-sm font-bold text-slate-800">{pkg.timeline}</div>
+                <div className="mt-8 pt-4 border-t border-slate-100 flex flex-col gap-4">
+                  <div>
+                    <div className="text-[10px] text-slate-500 font-bold uppercase">Initial Results Timeline</div>
+                    <div className="text-sm font-bold text-slate-800">{pkg.timeline}</div>
+                  </div>
+                  <button
+                    onClick={() => handleEnquireClick(pkg.name)}
+                    className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 text-center cursor-pointer ${
+                      pkg.featured
+                        ? "bg-[#1A50F1] hover:bg-[#103ec6] text-white shadow-md shadow-blue-500/10"
+                        : "border border-slate-200 hover:bg-slate-50 text-slate-700"
+                    }`}
+                  >
+                    Enquire Now
+                  </button>
                 </div>
               </GlassCard>
             ))}
@@ -856,6 +937,112 @@ export default function AgraSEOPage() {
 
       <Footer />
       <WhatsAppChat />
+
+      {/* 10. ENQUIRY MODAL POPUP */}
+      <AnimatePresence>
+        {modalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 overflow-y-auto">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setModalOpen(false)}
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-md cursor-pointer"
+            />
+
+            {/* Modal Body */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              className="relative w-full max-w-md bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 z-[101] shadow-2xl text-left"
+            >
+              <button
+                onClick={() => setModalOpen(false)}
+                className="absolute top-4 right-4 w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors cursor-pointer text-sm font-bold"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+
+              <form onSubmit={handleModalSubmit} className="flex flex-col gap-4">
+                <div className="flex flex-col gap-1 pr-6">
+                  <h3 className="text-lg font-black text-slate-900 font-display">
+                    Enquire: {selectedPkgName}
+                  </h3>
+                  <p className="text-xs text-slate-500 font-semibold">
+                    Let's scale your brand presence. Enter details for a quick quote.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] text-slate-500 font-bold uppercase">Name</label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
+                    />
+                    <User className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] text-slate-500 font-bold uppercase">Email or Phone</label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="john@example.com or +91 9999..."
+                      required
+                      value={formData.contact}
+                      onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                      className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
+                    />
+                    <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] text-slate-500 font-bold uppercase">Website Link (Optional)</label>
+                  <div className="relative">
+                    <input
+                      type="url"
+                      placeholder="https://yourbusiness.com"
+                      value={formData.website}
+                      onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                      className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
+                    />
+                    <Globe className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] text-slate-500 font-bold uppercase">Package Interest</label>
+                  <input
+                    type="text"
+                    readOnly
+                    value={formData.service}
+                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 text-slate-500 rounded-xl text-xs font-semibold focus:outline-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={formLoading}
+                  className="w-full py-3.5 px-6 rounded-xl bg-[#1A50F1] hover:bg-[#103ec6] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-blue-500/10 mt-2"
+                >
+                  {formLoading ? "Sending..." : "Submit Enquiry & Connect"}
+                  <Send className="w-3.5 h-3.5" />
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
