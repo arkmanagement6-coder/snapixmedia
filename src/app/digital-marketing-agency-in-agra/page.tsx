@@ -597,12 +597,12 @@ export default function AgraSEOPage() {
                 </div>
               </div>
               <div className="lg:col-span-6 order-1 lg:order-2 flex justify-center">
-                <div className="relative w-full max-w-[400px] h-[220px] sm:h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
+                <div className="relative w-full max-w-[360px] aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200/60 flex items-center justify-center shadow-md">
                   <Image
-                    src="/search_authority_3d.png"
-                    alt="SEO Search Engine Optimization representation"
+                    src="/seo_services_new.jpg"
+                    alt="SEO Search Engine Optimization representing Snapix Media"
                     fill
-                    className="object-contain p-6"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -611,12 +611,12 @@ export default function AgraSEOPage() {
             {/* Service 2: Local SEO & Google Maps */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 flex justify-center">
-                <div className="relative w-full max-w-[400px] h-[220px] sm:h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
+                <div className="relative w-full max-w-[360px] aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200/60 flex items-center justify-center shadow-md">
                   <Image
-                    src="/digital_growth_3d.png"
-                    alt="Local SEO Google Business Profile representation"
+                    src="/local_seo_services_new.jpg"
+                    alt="Local SEO and Google Maps optimization representing Snapix Media"
                     fill
-                    className="object-contain p-6"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -679,12 +679,12 @@ export default function AgraSEOPage() {
                 </div>
               </div>
               <div className="lg:col-span-6 order-1 lg:order-2 flex justify-center">
-                <div className="relative w-full max-w-[400px] h-[220px] sm:h-[300px] rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center shadow-md">
+                <div className="relative w-full max-w-[360px] aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200/60 flex items-center justify-center shadow-md">
                   <Image
-                    src="/web_systems_3d.png"
-                    alt="Web Design & Systems Dev representation"
+                    src="/ppc_services_new.jpg"
+                    alt="PPC Advertising and Web Engineering representing Snapix Media"
                     fill
-                    className="object-contain p-6"
+                    className="object-cover"
                   />
                 </div>
               </div>
