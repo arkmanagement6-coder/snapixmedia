@@ -107,6 +107,7 @@ export default function Footer() {
                 { name: "Case Studies", href: "/portfolio" },
                 { name: "Insights Blog", href: "/blog" },
                 { name: "Work With Us", href: "/careers" },
+                { name: "Digital Marketing Agra", href: "/digital-marketing-agency-in-agra" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -235,6 +236,7 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/refund" className="hover:text-white transition-colors">Refund & Cancellation Policy</Link>
+            <Link href="/digital-marketing-agency-in-agra" className="hover:text-white transition-colors">Agra SEO Agency</Link>
           </div>
         </div>
       </div>
