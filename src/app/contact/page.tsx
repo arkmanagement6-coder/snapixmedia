@@ -35,7 +35,7 @@ export default function Contact() {
     if (!formData.name || !formData.email) return;
 
     setFormLoading(true);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "e982077c-4012-40d8-aca4-10217e4768e1";
 
     if (accessKey) {
       try {
@@ -92,7 +92,7 @@ export default function Contact() {
     if (!selectedDay || !selectedSlot) return;
 
     setSchedulerLoading(true);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "e982077c-4012-40d8-aca4-10217e4768e1";
 
     if (accessKey) {
       try {

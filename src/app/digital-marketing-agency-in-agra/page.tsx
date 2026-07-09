@@ -64,7 +64,7 @@ export default function AgraSEOPage() {
     if (!formData.name || !formData.contact) return;
 
     setFormLoading(true);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "e982077c-4012-40d8-aca4-10217e4768e1";
 
     if (accessKey) {
       try {
@@ -127,7 +127,7 @@ export default function AgraSEOPage() {
     if (!formData.name || !formData.contact) return;
 
     setFormLoading(true);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "e982077c-4012-40d8-aca4-10217e4768e1";
 
     if (accessKey) {
       try {
