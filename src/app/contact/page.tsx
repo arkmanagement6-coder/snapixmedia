@@ -35,25 +35,41 @@ export default function Contact() {
     if (!formData.name || !formData.email) return;
 
     setFormLoading(true);
-    try {
-      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Form: "Contact Page - Project Intake",
-          Name: formData.name,
-          Email: formData.email,
-          ServiceInterest: formData.service,
-          Budget: formData.budget,
-          Message: formData.message
-        })
-      });
-    } catch (err) {
-      console.error(err);
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "Contact Page - New Project Intake Request",
+            from_name: "Snapix Media Website",
+            Name: formData.name,
+            Email: formData.email,
+            ServiceInterest: formData.service,
+            Budget: formData.budget,
+            Message: formData.message
+          })
+        });
+      } catch (err) {
+        console.error("Web3Forms error, falling back to WhatsApp:", err);
+        // Fallback to WhatsApp
+        const phoneNumber = "919675818088";
+        const textMessage = `Hi SnapixMedia! I filled out the Project Intake form on your website:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Interest Domain:* ${formData.service}\n*Budget Range:* ${formData.budget}\n*Message:* ${formData.message}`;
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
+      }
+    } else {
+      // Fallback: Open WhatsApp directly in new window
+      const phoneNumber = "919675818088";
+      const textMessage = `Hi SnapixMedia! I filled out the Project Intake form on your website:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Interest Domain:* ${formData.service}\n*Budget Range:* ${formData.budget}\n*Message:* ${formData.message}`;
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
     }
+
     setFormLoading(false);
     setFormSubmitted(true);
 
@@ -76,22 +92,38 @@ export default function Contact() {
     if (!selectedDay || !selectedSlot) return;
 
     setSchedulerLoading(true);
-    try {
-      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Form: "Contact Page - Consultation Booking",
-          Day: `June ${selectedDay}`,
-          TimeSlot: selectedSlot
-        })
-      });
-    } catch (err) {
-      console.error(err);
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "Contact Page - Consultation Call Booking",
+            from_name: "Snapix Media Website",
+            Day: `June ${selectedDay}`,
+            TimeSlot: selectedSlot
+          })
+        });
+      } catch (err) {
+        console.error("Web3Forms error, falling back to WhatsApp:", err);
+        // Fallback to WhatsApp
+        const phoneNumber = "919675818088";
+        const textMessage = `Hi SnapixMedia! I would like to book a Free Consultation Call via your website scheduler:\n\n*Day:* June ${selectedDay}\n*Time Slot:* ${selectedSlot}`;
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
+      }
+    } else {
+      // Fallback: Open WhatsApp directly in new window
+      const phoneNumber = "919675818088";
+      const textMessage = `Hi SnapixMedia! I would like to book a Free Consultation Call via your website scheduler:\n\n*Day:* June ${selectedDay}\n*Time Slot:* ${selectedSlot}`;
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
     }
+
     setSchedulerLoading(false);
     setSchedulerSubmitted(true);
 

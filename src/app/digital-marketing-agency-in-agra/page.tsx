@@ -64,25 +64,41 @@ export default function AgraSEOPage() {
     if (!formData.name || !formData.contact) return;
 
     setFormLoading(true);
-    try {
-      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Form: "Agra Page - Free Audit",
-          Name: formData.name,
-          Contact: formData.contact,
-          Website: formData.website || "Not Provided",
-          Service: formData.service,
-          Message: formData.message || "Not Provided"
-        })
-      });
-    } catch (err) {
-      console.error(err);
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "Agra Page - New Free Audit Request",
+            from_name: "Snapix Media Website",
+            Name: formData.name,
+            Contact: formData.contact,
+            Website: formData.website || "Not Provided",
+            Service: formData.service,
+            Message: formData.message || "Not Provided"
+          })
+        });
+      } catch (err) {
+        console.error("Web3Forms error, falling back to WhatsApp:", err);
+        // Fallback to WhatsApp
+        const phoneNumber = "919675818088";
+        const messageText = `Hi Snapix Media! I requested a Free Audit from the Agra page:\n\n*Name:* ${formData.name}\n*Contact/Email:* ${formData.contact}\n*Website:* ${formData.website || "Not Provided"}\n*Interest Area:* ${formData.service}\n*Message:* ${formData.message || "Not Provided"}`;
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(messageText)}`, "_blank");
+      }
+    } else {
+      // Fallback: Open WhatsApp directly in new window
+      const phoneNumber = "919675818088";
+      const messageText = `Hi Snapix Media! I requested a Free Audit from the Agra page:\n\n*Name:* ${formData.name}\n*Contact/Email:* ${formData.contact}\n*Website:* ${formData.website || "Not Provided"}\n*Interest Area:* ${formData.service}\n*Message:* ${formData.message || "Not Provided"}`;
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(messageText)}`, "_blank");
     }
+
     setFormLoading(false);
     setFormSubmitted(true);
 
@@ -111,24 +127,40 @@ export default function AgraSEOPage() {
     if (!formData.name || !formData.contact) return;
 
     setFormLoading(true);
-    try {
-      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Form: "Agra Page - Package Enquiry",
-          Name: formData.name,
-          Contact: formData.contact,
-          Website: formData.website || "Not Provided",
-          PackageInterest: selectedPkgName
-        })
-      });
-    } catch (err) {
-      console.error(err);
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: `Agra Page - Package Enquiry: ${selectedPkgName}`,
+            from_name: "Snapix Media Website",
+            Name: formData.name,
+            Contact: formData.contact,
+            Website: formData.website || "Not Provided",
+            PackageInterest: selectedPkgName
+          })
+        });
+      } catch (err) {
+        console.error("Web3Forms error, falling back to WhatsApp:", err);
+        // Fallback to WhatsApp
+        const phoneNumber = "919675818088";
+        const messageText = `Hi Snapix Media! I requested a package enquiry from the Agra page:\n\n*Name:* ${formData.name}\n*Contact:* ${formData.contact}\n*Website:* ${formData.website || "Not Provided"}\n*Package Interest:* ${selectedPkgName}`;
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(messageText)}`, "_blank");
+      }
+    } else {
+      // Fallback: Open WhatsApp directly in new window
+      const phoneNumber = "919675818088";
+      const messageText = `Hi Snapix Media! I requested a package enquiry from the Agra page:\n\n*Name:* ${formData.name}\n*Contact:* ${formData.contact}\n*Website:* ${formData.website || "Not Provided"}\n*Package Interest:* ${selectedPkgName}`;
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(messageText)}`, "_blank");
     }
+
     setFormLoading(false);
     setModalSubmitted(true);
 
