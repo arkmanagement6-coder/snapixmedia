@@ -106,7 +106,7 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
         isScrolled
           ? "py-4 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-lg shadow-slate-200/10"
           : "py-6 bg-transparent"
@@ -291,7 +291,9 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden fixed inset-x-0 bottom-0 top-[72px] sm:top-[88px] bg-slate-950/95 backdrop-blur-xl border-t border-white/5 z-40 overflow-y-auto flex flex-col justify-between"
+            className={`md:hidden fixed inset-x-0 bottom-0 bg-slate-950/95 backdrop-blur-xl border-t border-white/5 z-[99] overflow-y-auto flex flex-col justify-between transition-all duration-300 ${
+              isScrolled ? "top-[68px]" : "top-[88px]"
+            }`}
           >
             {/* Neon Gradient glow orbs */}
             <div className="absolute top-1/4 left-10 w-48 h-48 rounded-full bg-radial from-neon-purple/10 to-transparent blur-3xl pointer-events-none" />
