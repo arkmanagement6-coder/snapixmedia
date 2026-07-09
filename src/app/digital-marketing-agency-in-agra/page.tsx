@@ -716,14 +716,15 @@ export default function AgraSEOPage() {
                 }`}
                 hoverGlow
               >
-                {pkg.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#1A50F1] text-white text-[9px] font-bold uppercase tracking-widest rounded-full z-20">
-                    Most Popular
-                  </span>
+                {pkg.featured ? (
+                  <div className="flex justify-start mb-3">
+                    <span className="px-3 py-1 bg-[#1A50F1] text-white text-[9px] font-bold uppercase tracking-widest rounded-full">
+                      Most Popular
+                    </span>
+                  </div>
+                ) : (
+                  <div className="h-[22px] mb-3" />
                 )}
-                
-                {/* Spacer to clear the absolute badge and keep headings aligned */}
-                <div className="h-6" />
                 
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-1">

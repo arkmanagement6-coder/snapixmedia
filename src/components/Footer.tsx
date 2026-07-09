@@ -32,32 +32,6 @@ const socialIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubsubscribed] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setLoading(true);
-    // Simulate API request
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setLoading(false);
-    setSubsubscribed(true);
-    setEmail("");
-
-    // Trigger celebratory confetti
-    confetti({
-      particleCount: 80,
-      spread: 60,
-      origin: { y: 0.85 },
-      colors: ["#8b5cf6", "#06b6d4", "#ec4899"],
-    });
-
-    // Reset status after a few seconds
-    setTimeout(() => setSubsubscribed(false), 5000);
-  };
 
   return (
     <footer className="relative border-t border-purple-950 bg-[#0c0418] overflow-hidden text-slate-300">
@@ -72,7 +46,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-[350px] h-[350px] rounded-full bg-radial from-neon-cyan/10 via-transparent to-transparent blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-10 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Company Brief */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-white inline-block cursor-pointer select-none">
@@ -166,48 +140,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="flex flex-col gap-5">
-            <h4 className="text-sm font-extrabold uppercase tracking-widest !text-white">Stay Updated</h4>
-            <p className="text-sm text-slate-200 leading-relaxed font-semibold">
-              Subscribe to our monthly newsletter for <span className="text-white font-extrabold">engineering insights</span>, digital trends, and <span className="text-neon-cyan font-extrabold">strategies</span>.
-            </p>
-            <form onSubmit={handleSubscribe} className="relative flex flex-col gap-2">
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan/20 transition-all duration-300 pr-12"
-                  required
-                  disabled={loading || subscribed}
-                />
-                <button
-                  type="submit"
-                  disabled={loading || subscribed}
-                  className="absolute right-2.5 top-2.5 w-8 h-8 flex items-center justify-center rounded-lg bg-neon-cyan/15 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-white transition-all duration-300 disabled:opacity-50 cursor-pointer"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                </button>
-              </div>
-
-              <AnimatePresence>
-                {subscribed && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="flex items-center gap-1.5 text-xs text-emerald-400 mt-1"
-                  >
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Thanks for subscribing! Check your inbox.</span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </form>
           </div>
         </div>
 
