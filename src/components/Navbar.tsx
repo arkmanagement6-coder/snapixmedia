@@ -107,27 +107,29 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        isScrolled
-          ? "py-4 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-lg shadow-slate-200/10"
-          : "py-6 bg-transparent"
+        isOpen
+          ? "bottom-0 bg-slate-950/95"
+          : (isScrolled
+              ? "py-4 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-lg shadow-slate-200/10"
+              : "py-6 bg-transparent")
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative flex items-center gap-2 group cursor-pointer select-none">
           <span className={`text-2xl sm:text-3xl font-extrabold font-display tracking-tight transition-colors duration-300 ${
-            isTransparentDark
+            isOpen || isTransparentDark
               ? "text-white"
               : (isMobileDarkTheme ? "text-white md:text-slate-900" : "text-slate-900")
           }`}>
             Snapix<span className={`transition-colors duration-300 ${
-              isMobileDarkTheme
+              isOpen || isMobileDarkTheme
                 ? "text-white md:text-[#1A50F1] group-hover:text-white/80 md:group-hover:text-[#103ec6]"
                 : "text-[#1A50F1] group-hover:text-[#103ec6]"
             }`}> Media</span>
           </span>
           <span className={`absolute -bottom-1 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-300 ${
-            isMobileDarkTheme ? "bg-white md:bg-[#1A50F1]" : "bg-[#1A50F1]"
+            isOpen || isMobileDarkTheme ? "bg-white md:bg-[#1A50F1]" : "bg-[#1A50F1]"
           }`} />
         </Link>
 
@@ -275,7 +277,7 @@ export default function Navbar({ isDarkHero = false }: { isDarkHero?: boolean })
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`md:hidden p-2 transition-colors ${
-            isTransparentDark || isMobileDarkTheme ? "text-white hover:text-slate-200" : "text-slate-600 hover:text-slate-900"
+            isOpen || isTransparentDark || isMobileDarkTheme ? "text-white hover:text-slate-200" : "text-slate-600 hover:text-slate-900"
           }`}
           aria-label="Toggle menu"
         >
