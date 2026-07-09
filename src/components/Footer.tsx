@@ -72,7 +72,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-[350px] h-[350px] rounded-full bg-radial from-neon-cyan/10 via-transparent to-transparent blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-10 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
           {/* Company Brief */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="text-2xl sm:text-3xl font-extrabold font-display tracking-tight text-white inline-block cursor-pointer select-none">
@@ -107,7 +107,6 @@ export default function Footer() {
                 { name: "Case Studies", href: "/portfolio" },
                 { name: "Insights Blog", href: "/blog" },
                 { name: "Work With Us", href: "/careers" },
-                { name: "Digital Marketing Agra", href: "/digital-marketing-agency-in-agra" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -140,6 +139,28 @@ export default function Footer() {
                     className="text-sm text-slate-200 hover:text-white transition-colors duration-300 flex items-center gap-1.5 group"
                   >
                     <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-neon-purple" />
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Our Locations (SEO Landing Pages) */}
+          <div className="flex flex-col gap-5">
+            <h4 className="text-sm font-extrabold uppercase tracking-widest !text-white">Our Locations</h4>
+            <ul className="flex flex-col gap-3">
+              {[
+                { name: "Digital Marketing Agra", href: "/digital-marketing-agency-in-agra" },
+                // Add future city SEO landing pages here:
+                // { name: "Digital Marketing Delhi", href: "/digital-marketing-agency-in-delhi" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-200 hover:text-white transition-colors duration-300 flex items-center gap-1.5 group"
+                  >
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-neon-cyan" />
                     {link.name}
                   </Link>
                 </li>
