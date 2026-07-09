@@ -68,7 +68,7 @@ export default function AgraSEOPage() {
 
     if (accessKey) {
       try {
-        await fetch("https://api.web3forms.com/submit", {
+        const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -85,6 +85,10 @@ export default function AgraSEOPage() {
             Message: formData.message || "Not Provided"
           })
         });
+
+        if (!res.ok) {
+          throw new Error(`Web3Forms returned status ${res.status}`);
+        }
       } catch (err) {
         console.error("Web3Forms error, falling back to WhatsApp:", err);
         // Fallback to WhatsApp
@@ -118,8 +122,6 @@ export default function AgraSEOPage() {
       origin: { y: 0.6 },
       colors: ["#1A50F1", "#3b82f6", "#60a5fa"]
     });
-
-    setTimeout(() => setFormSubmitted(false), 5000);
   };
 
   const handleModalSubmit = async (e: React.FormEvent) => {
@@ -131,7 +133,7 @@ export default function AgraSEOPage() {
 
     if (accessKey) {
       try {
-        await fetch("https://api.web3forms.com/submit", {
+        const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -147,6 +149,10 @@ export default function AgraSEOPage() {
             PackageInterest: selectedPkgName
           })
         });
+
+        if (!res.ok) {
+          throw new Error(`Web3Forms returned status ${res.status}`);
+        }
       } catch (err) {
         console.error("Web3Forms error, falling back to WhatsApp:", err);
         // Fallback to WhatsApp
