@@ -46,6 +46,7 @@ export default function AgraSEOPage() {
 
   // Modal State for Packages
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalSubmitted, setModalSubmitted] = useState(false);
   const [selectedPkgName, setSelectedPkgName] = useState("");
 
   const toggleFaq = (index: number) => {
@@ -63,15 +64,27 @@ export default function AgraSEOPage() {
     if (!formData.name || !formData.contact) return;
 
     setFormLoading(true);
-    // Simulate network latency
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Form: "Agra Page - Free Audit",
+          Name: formData.name,
+          Contact: formData.contact,
+          Website: formData.website || "Not Provided",
+          Service: formData.service,
+          Message: formData.message || "Not Provided"
+        })
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setFormLoading(false);
     setFormSubmitted(true);
-
-    // Redirect to WhatsApp with structured text
-    const phoneNumber = "919675818088";
-    const messageText = `Hi Snapix Media! I requested a Free Audit & Digital Marketing Enquiry from the Agra page:\n\n*Name:* ${formData.name}\n*Contact/Email:* ${formData.contact}\n*Website:* ${formData.website || "Not Provided"}\n*Interest Area:* ${formData.service}\n*Message:* ${formData.message || "Not Provided"}`;
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(messageText)}`, "_blank");
 
     // Reset Form
     setFormData({
@@ -98,23 +111,26 @@ export default function AgraSEOPage() {
     if (!formData.name || !formData.contact) return;
 
     setFormLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Form: "Agra Page - Package Enquiry",
+          Name: formData.name,
+          Contact: formData.contact,
+          Website: formData.website || "Not Provided",
+          PackageInterest: selectedPkgName
+        })
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setFormLoading(false);
-    setModalOpen(false);
-
-    // Redirect to WhatsApp
-    const phoneNumber = "919675818088";
-    const messageText = `Hi Snapix Media! I requested a package enquiry from the Agra page:\n\n*Name:* ${formData.name}\n*Contact:* ${formData.contact}\n*Website:* ${formData.website || "Not Provided"}\n*Package Interest:* ${selectedPkgName}`;
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(messageText)}`, "_blank");
-
-    // Reset Form
-    setFormData({
-      name: "",
-      contact: "",
-      website: "",
-      service: "Full-Funnel Digital Growth",
-      message: ""
-    });
+    setModalSubmitted(true);
 
     // Confetti celebration
     confetti({
@@ -123,6 +139,19 @@ export default function AgraSEOPage() {
       origin: { y: 0.6 },
       colors: ["#1A50F1", "#3b82f6", "#60a5fa"]
     });
+
+    // Reset & close modal after a delay
+    setTimeout(() => {
+      setModalSubmitted(false);
+      setModalOpen(false);
+      setFormData({
+        name: "",
+        contact: "",
+        website: "",
+        service: "Full-Funnel Digital Growth",
+        message: ""
+      });
+    }, 4000);
   };
 
   // Pricing Data
@@ -961,86 +990,101 @@ export default function AgraSEOPage() {
               className="relative w-full max-w-md bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 z-[101] shadow-2xl text-left"
             >
               <button
-                onClick={() => setModalOpen(false)}
+                onClick={() => {
+                  setModalOpen(false);
+                  setModalSubmitted(false);
+                }}
                 className="absolute top-4 right-4 w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors cursor-pointer text-sm font-bold"
                 aria-label="Close modal"
               >
                 ✕
               </button>
 
-              <form onSubmit={handleModalSubmit} className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1 pr-6">
-                  <h3 className="text-lg font-black text-slate-900 font-display">
-                    Enquire: {selectedPkgName}
-                  </h3>
-                  <p className="text-xs text-slate-500 font-semibold">
-                    Let's scale your brand presence. Enter details for a quick quote.
+              {modalSubmitted ? (
+                <div className="flex flex-col items-center justify-center text-center py-12 gap-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-2">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 font-display">Thank You!</h3>
+                  <p className="text-sm text-slate-600 font-semibold leading-relaxed max-w-xs">
+                    Your enquiry for <span className="text-[#1A50F1]">{selectedPkgName}</span> has been received. Our team will contact you shortly.
                   </p>
                 </div>
+              ) : (
+                <form onSubmit={handleModalSubmit} className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-1 pr-6">
+                    <h3 className="text-lg font-black text-slate-900 font-display">
+                      Enquire: {selectedPkgName}
+                    </h3>
+                    <p className="text-xs text-slate-500 font-semibold">
+                      Let's scale your brand presence. Enter details for a quick quote.
+                    </p>
+                  </div>
 
-                <div className="flex flex-col gap-1">
-                  <label className="text-[10px] text-slate-500 font-bold uppercase">Name</label>
-                  <div className="relative">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[10px] text-slate-500 font-bold uppercase">Name</label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
+                      />
+                      <User className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[10px] text-slate-500 font-bold uppercase">Email or Phone</label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="john@example.com or +91 9999..."
+                        required
+                        value={formData.contact}
+                        onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                        className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
+                      />
+                      <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[10px] text-slate-500 font-bold uppercase">Website Link (Optional)</label>
+                    <div className="relative">
+                      <input
+                        type="url"
+                        placeholder="https://yourbusiness.com"
+                        value={formData.website}
+                        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                        className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
+                      />
+                      <Globe className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[10px] text-slate-500 font-bold uppercase">Package Interest</label>
                     <input
                       type="text"
-                      placeholder="Your Name"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
+                      readOnly
+                      value={formData.service}
+                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 text-slate-500 rounded-xl text-xs font-semibold focus:outline-none"
                     />
-                    <User className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
                   </div>
-                </div>
 
-                <div className="flex flex-col gap-1">
-                  <label className="text-[10px] text-slate-500 font-bold uppercase">Email or Phone</label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="john@example.com or +91 9999..."
-                      required
-                      value={formData.contact}
-                      onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                      className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
-                    />
-                    <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-[10px] text-slate-500 font-bold uppercase">Website Link (Optional)</label>
-                  <div className="relative">
-                    <input
-                      type="url"
-                      placeholder="https://yourbusiness.com"
-                      value={formData.website}
-                      onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                      className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
-                    />
-                    <Globe className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-[10px] text-slate-500 font-bold uppercase">Package Interest</label>
-                  <input
-                    type="text"
-                    readOnly
-                    value={formData.service}
-                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 text-slate-500 rounded-xl text-xs font-semibold focus:outline-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={formLoading}
-                  className="w-full py-3.5 px-6 rounded-xl bg-[#1A50F1] hover:bg-[#103ec6] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-blue-500/10 mt-2"
-                >
-                  {formLoading ? "Sending..." : "Submit Enquiry & Connect"}
-                  <Send className="w-3.5 h-3.5" />
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    disabled={formLoading}
+                    className="w-full py-3.5 px-6 rounded-xl bg-[#1A50F1] hover:bg-[#103ec6] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-blue-500/10 mt-2"
+                  >
+                    {formLoading ? "Sending..." : "Submit Enquiry & Connect"}
+                    <Send className="w-3.5 h-3.5" />
+                  </button>
+                </form>
+              )}
             </motion.div>
           </div>
         )}

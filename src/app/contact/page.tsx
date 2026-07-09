@@ -35,14 +35,27 @@ export default function Contact() {
     if (!formData.name || !formData.email) return;
 
     setFormLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Form: "Contact Page - Project Intake",
+          Name: formData.name,
+          Email: formData.email,
+          ServiceInterest: formData.service,
+          Budget: formData.budget,
+          Message: formData.message
+        })
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setFormLoading(false);
     setFormSubmitted(true);
-
-    // Send details to WhatsApp
-    const phoneNumber = "919675818088";
-    const textMessage = `Hi SnapixMedia! I filled out the Project Intake form on your website:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Interest Domain:* ${formData.service}\n*Budget Range:* ${formData.budget}\n*Message:* ${formData.message}`;
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
 
     setFormData({ name: "", email: "", service: "web", budget: "$10k-$25k", message: "" });
 
@@ -63,14 +76,24 @@ export default function Contact() {
     if (!selectedDay || !selectedSlot) return;
 
     setSchedulerLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      await fetch("https://formsubmit.co/ajax/create@snapixmedia.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Form: "Contact Page - Consultation Booking",
+          Day: `June ${selectedDay}`,
+          TimeSlot: selectedSlot
+        })
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setSchedulerLoading(false);
     setSchedulerSubmitted(true);
-
-    // Send booking details to WhatsApp
-    const phoneNumber = "919675818088";
-    const textMessage = `Hi SnapixMedia! I would like to book a Free Consultation Call via your website scheduler:\n\n*Day:* June ${selectedDay}\n*Time Slot:* ${selectedSlot}`;
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`, "_blank");
 
     confetti({
       particleCount: 70,
