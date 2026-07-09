@@ -426,8 +426,8 @@ export default function AgraSEOPage() {
                     <label className="text-[10px] text-slate-500 font-bold uppercase">Website Link (Optional)</label>
                     <div className="relative">
                       <input
-                        type="url"
-                        placeholder="https://yourbusiness.com"
+                        type="text"
+                        placeholder="yourbusiness.com"
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                         className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
@@ -1093,8 +1093,8 @@ export default function AgraSEOPage() {
                     <label className="text-[10px] text-slate-500 font-bold uppercase">Website Link (Optional)</label>
                     <div className="relative">
                       <input
-                        type="url"
-                        placeholder="https://yourbusiness.com"
+                        type="text"
+                        placeholder="yourbusiness.com"
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                         className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1A50F1]"
