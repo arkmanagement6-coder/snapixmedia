@@ -146,34 +146,23 @@ export async function GET() {
   if (isFirebaseEnabled && db) {
     try {
       const snapshot = await db.collection("blogs").orderBy("id", "desc").get();
-      if (!snapshot.empty) {
-        const blogs = snapshot.docs.map((doc) => {
-          const d = doc.data();
-          return {
-            id: d.id || doc.id,
-            slug: d.slug,
-            title: d.title,
-            category: d.category,
-            categoryLabel: d.categoryLabel,
-            desc: d.desc,
-            content: d.content,
-            date: d.date,
-            readTime: d.readTime,
-            bgClass: d.bgClass,
-            images: d.images || []
-          };
-        });
-        return NextResponse.json(blogs);
-      } else {
-        // If Firestore is empty, seed it with defaults
-        const batch = db.batch();
-        defaultArticles.forEach((art) => {
-          const docRef = db.collection("blogs").doc(art.id);
-          batch.set(docRef, art);
-        });
-        await batch.commit();
-        return NextResponse.json(defaultArticles);
-      }
+      const blogs = snapshot.docs.map((doc) => {
+        const d = doc.data();
+        return {
+          id: d.id || doc.id,
+          slug: d.slug,
+          title: d.title,
+          category: d.category,
+          categoryLabel: d.categoryLabel,
+          desc: d.desc,
+          content: d.content,
+          date: d.date,
+          readTime: d.readTime,
+          bgClass: d.bgClass,
+          images: d.images || []
+        };
+      });
+      return NextResponse.json(blogs);
     } catch (err) {
       console.error("Firebase Firestore GET error, falling back to local files:", err);
     }
