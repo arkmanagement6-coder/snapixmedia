@@ -56,6 +56,11 @@ export default function BlogAdmin() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   
+  // Auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [passwordInput, setPasswordInput] = useState("");
+  const [loginError, setLoginError] = useState("");
+
   // Form states
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
@@ -69,16 +74,32 @@ export default function BlogAdmin() {
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Load from localStorage
+  // Load from database API
   useEffect(() => {
-    const saved = localStorage.getItem("snapixmedia_blogs");
-    if (saved) {
-      setBlogs(JSON.parse(saved));
-    } else {
-      localStorage.setItem("snapixmedia_blogs", JSON.stringify(defaultArticles));
-      setBlogs(defaultArticles);
-    }
+    const fetchBlogs = async () => {
+      try {
+        const res = await fetch("/api/blogs");
+        if (res.ok) {
+          const data = await res.json();
+          setBlogs(data);
+        }
+      } catch (err) {
+        console.error("Error fetching blogs:", err);
+      }
+    };
+    fetchBlogs();
   }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "snapixadmin123";
+    if (passwordInput === correctPassword) {
+      setIsLoggedIn(true);
+      setLoginError("");
+    } else {
+      setLoginError("Invalid password. Please try again.");
+    }
+  };
 
   // Sync slug with title
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -128,78 +149,70 @@ export default function BlogAdmin() {
   };
 
   // Save / Update Blog
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !slug || !desc || !content) {
       alert("Please fill all required fields!");
       return;
     }
 
-    const categoriesLabels: Record<string, string> = {
-      web: "Web Engineering",
-      seo: "SEO & Search",
-      marketing: "Growth Marketing",
-      ai: "Artificial Intelligence",
-    };
-
-    const bgClasses = [
-      "from-blue-600/10 to-indigo-600/10 border-blue-500/10",
-      "from-cyan-600/10 to-blue-600/10 border-cyan-500/10",
-      "from-purple-600/10 to-pink-600/10 border-purple-500/10",
-      "from-pink-600/10 to-orange-600/10 border-pink-500/10",
-    ];
-
     const validImages = images.filter(img => img.trim() !== "");
     if (validImages.length === 0) {
       validImages.push("https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=800&q=80");
     }
 
-    let updatedBlogs: BlogPost[] = [];
+    try {
+      if (editingPost) {
+        // Edit mode (PUT)
+        const res = await fetch("/api/blogs", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: editingPost.id,
+            title,
+            slug,
+            category,
+            desc,
+            content,
+            readTime,
+            images: validImages
+          })
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || "Failed to update blog post");
+        
+        // Refresh local list
+        setBlogs(blogs.map((b) => b.id === editingPost.id ? json.post : b));
+        setNotificationMsg("Blog post updated successfully!");
+      } else {
+        // Create mode (POST)
+        const res = await fetch("/api/blogs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title,
+            slug,
+            category,
+            desc,
+            content,
+            readTime,
+            images: validImages
+          })
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || "Failed to create blog post");
 
-    if (editingPost) {
-      // Edit mode
-      updatedBlogs = blogs.map((b) =>
-        b.id === editingPost.id
-          ? {
-              ...b,
-              title,
-              slug,
-              category,
-              categoryLabel: categoriesLabels[category] || "General",
-              desc,
-              content,
-              readTime,
-              images: validImages,
-            }
-          : b
-      );
-      setNotificationMsg("Blog post updated successfully!");
-    } else {
-      // Create mode
-      const newPost: BlogPost = {
-        id: Date.now().toString(),
-        slug,
-        title,
-        category,
-        categoryLabel: categoriesLabels[category] || "General",
-        desc,
-        content,
-        date: new Date().toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" }),
-        readTime,
-        bgClass: bgClasses[blogs.length % bgClasses.length],
-        images: validImages,
-      };
-      updatedBlogs = [newPost, ...blogs];
-      setNotificationMsg("New blog post created successfully!");
+        setBlogs([json.post, ...blogs]);
+        setNotificationMsg("New blog post created successfully!");
+      }
+
+      handleReset();
+      setShowNotification(true);
+      setTimeout(() => setShowNotification(false), 3000);
+    } catch (err: any) {
+      console.error(err);
+      alert(err.message || "An error occurred while saving the blog.");
     }
-
-    localStorage.setItem("snapixmedia_blogs", JSON.stringify(updatedBlogs));
-    setBlogs(updatedBlogs);
-    handleReset();
-    
-    // Trigger success notifications
-    setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 3000);
   };
 
   const handleEdit = (post: BlogPost) => {
@@ -214,13 +227,25 @@ export default function BlogAdmin() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this blog post?")) return;
-    const updated = blogs.filter((b) => b.id !== id);
-    localStorage.setItem("snapixmedia_blogs", JSON.stringify(updated));
-    setBlogs(updated);
-    if (editingPost?.id === id) {
-      handleReset();
+    try {
+      const res = await fetch(`/api/blogs?id=${id}`, {
+        method: "DELETE"
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Failed to delete blog post");
+
+      setBlogs(blogs.filter((b) => b.id !== id));
+      if (editingPost?.id === id) {
+        handleReset();
+      }
+      setNotificationMsg("Blog post deleted successfully!");
+      setShowNotification(true);
+      setTimeout(() => setShowNotification(false), 3000);
+    } catch (err: any) {
+      console.error(err);
+      alert(err.message || "An error occurred while deleting the blog.");
     }
   };
 
@@ -234,6 +259,43 @@ export default function BlogAdmin() {
     setReadTime("5 min read");
     setImages([""]);
   };
+
+  // If not logged in, show Password Portal overlay
+  if (!isLoggedIn) {
+    return (
+      <div className="relative min-h-screen bg-slate-950 text-slate-200 flex flex-col items-center justify-center font-sans p-6">
+        <MouseFollower />
+        <Navbar isDarkHero />
+        <GlassCard className="p-8 max-w-sm w-full border-slate-800 bg-slate-900/50 shadow-2xl relative z-10 text-center rounded-3xl mt-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/20 bg-red-500/5 text-red-400 text-[10px] font-bold tracking-widest uppercase mb-4">
+            <span>Access Restrict</span>
+          </div>
+          <h2 className="text-xl font-bold text-white mb-2 font-display">Console Verification</h2>
+          <p className="text-slate-400 text-xs font-semibold mb-6">
+            Enter administrative authorization credentials below to manage insights data.
+          </p>
+
+          <form onSubmit={handleLogin} className="flex flex-col gap-4">
+            <input
+              type="password"
+              placeholder="Authorization Password"
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+              className="w-full px-4 py-3 bg-slate-950 border border-slate-850 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/30 text-center"
+              required
+            />
+            {loginError && <p className="text-[10px] text-red-500 font-bold">{loginError}</p>}
+            <button
+              type="submit"
+              className="w-full py-3 px-6 rounded-xl bg-neon-purple hover:bg-neon-purple/85 text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center cursor-pointer shadow-lg shadow-purple-500/20 mt-2"
+            >
+              Verify Console
+            </button>
+          </form>
+        </GlassCard>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen bg-transparent text-slate-700 overflow-x-hidden flex flex-col font-sans">

@@ -69,15 +69,23 @@ export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [articles, setArticles] = useState<any[]>([]);
 
-  // Synchronize with Local Storage
+  // Load from database API
   useEffect(() => {
-    const saved = localStorage.getItem("snapixmedia_blogs");
-    if (saved) {
-      setArticles(JSON.parse(saved));
-    } else {
-      localStorage.setItem("snapixmedia_blogs", JSON.stringify(defaultArticles));
-      setArticles(defaultArticles);
-    }
+    const loadBlogs = async () => {
+      try {
+        const res = await fetch("/api/blogs");
+        if (res.ok) {
+          const data = await res.json();
+          setArticles(data);
+        } else {
+          setArticles(defaultArticles);
+        }
+      } catch (err) {
+        console.error("Error loading articles:", err);
+        setArticles(defaultArticles);
+      }
+    };
+    loadBlogs();
   }, []);
 
   const filteredArticles = articles.filter((post) => {

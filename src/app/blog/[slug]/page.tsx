@@ -59,20 +59,24 @@ export default function BlogDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const saved = localStorage.getItem("snapixmedia_blogs");
-    let blogsList: BlogPost[] = defaultArticles;
-    
-    if (saved) {
-      blogsList = JSON.parse(saved);
-    } else {
-      localStorage.setItem("snapixmedia_blogs", JSON.stringify(defaultArticles));
-    }
-
-    const matched = blogsList.find((b) => b.slug === slug);
-    if (matched) {
-      setPost(matched);
-    }
-    setLoading(false);
+    const loadPost = async () => {
+      try {
+        const res = await fetch("/api/blogs");
+        let blogsList: BlogPost[] = defaultArticles;
+        if (res.ok) {
+          blogsList = await res.json();
+        }
+        const matched = blogsList.find((b) => b.slug === slug);
+        if (matched) {
+          setPost(matched);
+        }
+      } catch (err) {
+        console.error("Error loading blog detail:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadPost();
   }, [slug]);
 
   if (loading) {
