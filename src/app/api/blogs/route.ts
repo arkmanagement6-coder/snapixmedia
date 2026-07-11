@@ -2,7 +2,13 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
-const filePath = path.join(process.cwd(), "src/data/blogs.json");
+const localFilePath = path.join(process.cwd(), "src/data/blogs.json");
+const tempFilePath = path.join("/tmp", "blogs.json");
+
+// Environment variables for Cloud Database (Supabase)
+const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const isSupabaseEnabled = !!(supabaseUrl && supabaseKey);
 
 // Default seed data in case file is deleted
 const defaultArticles = [
@@ -31,28 +37,79 @@ const defaultArticles = [
     readTime: "8 min read",
     bgClass: "from-cyan-600/10 to-blue-600/10 border-cyan-500/10",
     images: ["https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    id: "3",
+    slug: "ai-agents-in-enterprise-workflows",
+    title: "AI Agents in Enterprise Workflows",
+    category: "ai",
+    categoryLabel: "Artificial Intelligence",
+    desc: "Analyzing how autonomous LLM agents are redefining data pipelines, CRM entries, and accelerating software developer speeds.",
+    content: "<h2>The Rise of Autonomous AI Workforces</h2><p>Autonomous AI agents are transitioning from simple chat interfaces to proactive execution engines. In enterprise environments, agents are now integrated directly into databases, codebases, and customer communication channels.</p><strong>1. Tool Use & Function Calling</strong><p>Modern LLMs can invoke specific APIs and run system actions based on context. This allows them to autonomously retrieve, format, and push data across isolated software blocks.</p><h2>Accelerating Software Engineering</h2><p>Engineering teams using autonomous AI agents report significant speedups in boilerplate generation, test coverage writing, and system migrations. As LLM latency decreases, real-time collaboration with agents will become the industry norm.</p>",
+    date: "May 28, 2026",
+    readTime: "5 min read",
+    bgClass: "from-purple-600/10 to-pink-600/10 border-purple-500/10",
+    images: ["https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    id: "4",
+    slug: "paid-targeting-meta-ads-vs-google-ppc",
+    title: "Paid Retargeting: Meta Ads vs Google PPC",
+    category: "marketing",
+    categoryLabel: "Growth Marketing",
+    desc: "Optimizing audience exclusion rules and campaign bidding strategies to reduce acquisition costs by 30%.",
+    "content": "<h2>Choosing the Right Growth Engine</h2><p>Meta Ads and Google PPC target audiences at different stages of the marketing funnel. Understanding where your prospects are is key to maximizing return on ad spend (ROAS).</p><strong>1. Intent vs. Interest Bidding</strong><p>Google Ads captures high-intent searches (users looking specifically to buy), while Meta Ads targets interest profiles, making it perfect for brand discovery and visual products.</p><h2>Advanced Exclusion Lists</h2><p>To keep customer acquisition cost (CAC) low, always build robust exclusion lists. Stop showing ads to existing customers or unqualified clicks that bounce within seconds.</p>",
+    "date": "May 22, 2026",
+    "readTime": "7 min read",
+    "bgClass": "from-pink-600/10 to-orange-600/10 border-pink-500/10",
+    "images": ["https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80"]
   }
 ];
 
-function readBlogs() {
+function getActiveFilePath() {
+  try {
+    const dir = path.dirname(localFilePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    const testFile = path.join(dir, ".write-test");
+    fs.writeFileSync(testFile, "test");
+    fs.unlinkSync(testFile);
+    return localFilePath;
+  } catch (err) {
+    return tempFilePath;
+  }
+}
+
+function readBlogsLocal() {
+  const filePath = getActiveFilePath();
   try {
     if (!fs.existsSync(filePath)) {
       const dir = path.dirname(filePath);
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
       }
+      
+      // If using /tmp fallback, seed from project source JSON first if present
+      if (filePath === tempFilePath && fs.existsSync(localFilePath)) {
+        const seedData = fs.readFileSync(localFilePath, "utf-8");
+        fs.writeFileSync(tempFilePath, seedData, "utf-8");
+        return JSON.parse(seedData);
+      }
+      
       fs.writeFileSync(filePath, JSON.stringify(defaultArticles, null, 2), "utf-8");
       return defaultArticles;
     }
     const data = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
-    console.error("Error reading blogs database:", error);
-    return [];
+    console.error("Error reading local blogs database:", error);
+    return defaultArticles;
   }
 }
 
-function writeBlogs(blogs: any) {
+function writeBlogsLocal(blogs: any) {
+  const filePath = getActiveFilePath();
   try {
     const dir = path.dirname(filePath);
     if (!fs.existsSync(dir)) {
@@ -61,14 +118,49 @@ function writeBlogs(blogs: any) {
     fs.writeFileSync(filePath, JSON.stringify(blogs, null, 2), "utf-8");
     return true;
   } catch (error) {
-    console.error("Error writing to blogs database:", error);
+    console.error("Error writing to local blogs database:", error);
     return false;
   }
 }
 
+// REST call helpers for Supabase (if configured)
+async function getSupabaseBlogs() {
+  const res = await fetch(`${supabaseUrl}/rest/v1/blogs?select=*&order=id.desc`, {
+    headers: {
+      "apikey": supabaseKey!,
+      "Authorization": `Bearer ${supabaseKey}`
+    }
+  });
+  if (!res.ok) throw new Error("Supabase read failed");
+  const data = await res.json();
+  return data.map((b: any) => ({
+    id: b.id,
+    slug: b.slug,
+    title: b.title,
+    category: b.category,
+    categoryLabel: b.category_label,
+    desc: b.desc,
+    content: b.content,
+    date: b.date,
+    readTime: b.read_time,
+    bgClass: b.bg_class,
+    images: b.images || []
+  }));
+}
+
 // GET all blogs
 export async function GET() {
-  const blogs = readBlogs();
+  try {
+    if (isSupabaseEnabled) {
+      const dbBlogs = await getSupabaseBlogs();
+      return NextResponse.json(dbBlogs);
+    }
+  } catch (err) {
+    console.error("Supabase GET error, falling back to local file system:", err);
+  }
+  
+  // Local File Fallback
+  const blogs = readBlogsLocal();
   return NextResponse.json(blogs);
 }
 
@@ -80,14 +172,6 @@ export async function POST(request: Request) {
 
     if (!title || !slug || !desc || !content) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
-    }
-
-    const blogs = readBlogs();
-    
-    // Check if slug is unique
-    const duplicate = blogs.find((b: any) => b.slug === slug);
-    if (duplicate) {
-      return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
     }
 
     const categoriesLabels: Record<string, string> = {
@@ -104,22 +188,88 @@ export async function POST(request: Request) {
       "from-pink-600/10 to-orange-600/10 border-pink-500/10",
     ];
 
+    const validImages = images && images.length > 0 && images[0] !== "" ? images : ["https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=800&q=80"];
+    const id = Date.now().toString();
+    const date = new Date().toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" });
+    const formattedReadTime = readTime || "5 min read";
+
+    if (isSupabaseEnabled) {
+      try {
+        const blogs = await getSupabaseBlogs();
+        if (blogs.find((b: any) => b.slug === slug)) {
+          return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
+        }
+        
+        const res = await fetch(`${supabaseUrl}/rest/v1/blogs`, {
+          method: "POST",
+          headers: {
+            "apikey": supabaseKey!,
+            "Authorization": `Bearer ${supabaseKey}`,
+            "Content-Type": "application/json",
+            "Prefer": "return=representation"
+          },
+          body: JSON.stringify({
+            id,
+            slug,
+            title,
+            category,
+            category_label: categoriesLabels[category] || "General",
+            desc,
+            content,
+            date,
+            read_time: formattedReadTime,
+            bg_class: bgClasses[blogs.length % bgClasses.length],
+            images: validImages
+          })
+        });
+        
+        if (res.ok) {
+          const json = await res.json();
+          const created = json[0];
+          return NextResponse.json({
+            success: true,
+            post: {
+              id: created.id,
+              slug: created.slug,
+              title: created.title,
+              category: created.category,
+              categoryLabel: created.category_label,
+              desc: created.desc,
+              content: created.content,
+              date: created.date,
+              readTime: created.read_time,
+              bgClass: created.bg_class,
+              images: created.images
+            }
+          });
+        }
+      } catch (err) {
+        console.error("Supabase POST error, falling back to local file system:", err);
+      }
+    }
+
+    // Local File fallback
+    const blogs = readBlogsLocal();
+    if (blogs.find((b: any) => b.slug === slug)) {
+      return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
+    }
+
     const newPost = {
-      id: Date.now().toString(),
+      id,
       slug,
       title,
       category,
       categoryLabel: categoriesLabels[category] || "General",
       desc,
       content,
-      date: new Date().toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" }),
-      readTime: readTime || "5 min read",
+      date,
+      readTime: formattedReadTime,
       bgClass: bgClasses[blogs.length % bgClasses.length],
-      images: images && images.length > 0 && images[0] !== "" ? images : ["https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=800&q=80"]
+      images: validImages
     };
 
     const updated = [newPost, ...blogs];
-    writeBlogs(updated);
+    writeBlogsLocal(updated);
 
     return NextResponse.json({ success: true, post: newPost });
   } catch (error: any) {
@@ -137,25 +287,79 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const blogs = readBlogs();
-    const index = blogs.findIndex((b: any) => b.id === id);
-
-    if (index === -1) {
-      return NextResponse.json({ error: "Blog post not found" }, { status: 404 });
-    }
-
-    // Check slug duplication against other posts
-    const duplicate = blogs.find((b: any) => b.slug === slug && b.id !== id);
-    if (duplicate) {
-      return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
-    }
-
     const categoriesLabels: Record<string, string> = {
       web: "Web Engineering",
       seo: "SEO & Search",
       marketing: "Growth Marketing",
       ai: "Artificial Intelligence",
     };
+
+    const validImages = images && images.length > 0 && images[0] !== "" ? images : ["https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=800&q=80"];
+    const formattedReadTime = readTime || "5 min read";
+
+    if (isSupabaseEnabled) {
+      try {
+        const blogs = await getSupabaseBlogs();
+        if (blogs.find((b: any) => b.slug === slug && b.id !== id)) {
+          return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
+        }
+        
+        const res = await fetch(`${supabaseUrl}/rest/v1/blogs?id=eq.${id}`, {
+          method: "PATCH",
+          headers: {
+            "apikey": supabaseKey!,
+            "Authorization": `Bearer ${supabaseKey}`,
+            "Content-Type": "application/json",
+            "Prefer": "return=representation"
+          },
+          body: JSON.stringify({
+            title,
+            slug,
+            category,
+            category_label: categoriesLabels[category] || "General",
+            desc,
+            content,
+            read_time: formattedReadTime,
+            images: validImages
+          })
+        });
+
+        if (res.ok) {
+          const json = await res.json();
+          const updated = json[0];
+          return NextResponse.json({
+            success: true,
+            post: {
+              id: updated.id,
+              slug: updated.slug,
+              title: updated.title,
+              category: updated.category,
+              categoryLabel: updated.category_label,
+              desc: updated.desc,
+              content: updated.content,
+              date: updated.date,
+              readTime: updated.read_time,
+              bgClass: updated.bg_class,
+              images: updated.images
+            }
+          });
+        }
+      } catch (err) {
+        console.error("Supabase PUT error, falling back to local file system:", err);
+      }
+    }
+
+    // Local File fallback
+    const blogs = readBlogsLocal();
+    const index = blogs.findIndex((b: any) => b.id === id);
+
+    if (index === -1) {
+      return NextResponse.json({ error: "Blog post not found" }, { status: 404 });
+    }
+
+    if (blogs.find((b: any) => b.slug === slug && b.id !== id)) {
+      return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
+    }
 
     blogs[index] = {
       ...blogs[index],
@@ -165,11 +369,11 @@ export async function PUT(request: Request) {
       categoryLabel: categoriesLabels[category] || "General",
       desc,
       content,
-      readTime: readTime || "5 min read",
-      images: images && images.length > 0 && images[0] !== "" ? images : blogs[index].images
+      readTime: formattedReadTime,
+      images: validImages
     };
 
-    writeBlogs(blogs);
+    writeBlogsLocal(blogs);
 
     return NextResponse.json({ success: true, post: blogs[index] });
   } catch (error: any) {
@@ -187,14 +391,32 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "Missing post ID parameter" }, { status: 400 });
     }
 
-    const blogs = readBlogs();
+    if (isSupabaseEnabled) {
+      try {
+        const res = await fetch(`${supabaseUrl}/rest/v1/blogs?id=eq.${id}`, {
+          method: "DELETE",
+          headers: {
+            "apikey": supabaseKey!,
+            "Authorization": `Bearer ${supabaseKey}`
+          }
+        });
+        if (res.ok) {
+          return NextResponse.json({ success: true });
+        }
+      } catch (err) {
+        console.error("Supabase DELETE error, falling back to local file system:", err);
+      }
+    }
+
+    // Local File fallback
+    const blogs = readBlogsLocal();
     const filtered = blogs.filter((b: any) => b.id !== id);
 
     if (blogs.length === filtered.length) {
-      return NextResponse.json({ error: "Blog post not found" }, { status: 404 });
+      return NextResponse.json({ error: "Blog post not found in local system" }, { status: 404 });
     }
 
-    writeBlogs(filtered);
+    writeBlogsLocal(filtered);
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
