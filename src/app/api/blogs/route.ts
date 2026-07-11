@@ -1,16 +1,37 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { getApps, initializeApp, cert } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 
 const localFilePath = path.join(process.cwd(), "src/data/blogs.json");
 const tempFilePath = path.join("/tmp", "blogs.json");
 
-// Environment variables for Cloud Database (Supabase)
-const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const isSupabaseEnabled = !!(supabaseUrl && supabaseKey);
+// Firebase Admin credentials from env variables
+const firebaseProjectId = process.env.FIREBASE_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+const firebaseClientEmail = process.env.FIREBASE_CLIENT_EMAIL || process.env.NEXT_PUBLIC_FIREBASE_CLIENT_EMAIL;
+const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY || process.env.NEXT_PUBLIC_FIREBASE_PRIVATE_KEY;
 
-// Default seed data in case file is deleted
+const isFirebaseEnabled = !!(firebaseProjectId && firebaseClientEmail && firebasePrivateKey);
+
+// Initialize Firebase Admin safely using modular subpaths
+if (isFirebaseEnabled && getApps().length === 0) {
+  try {
+    initializeApp({
+      credential: cert({
+        projectId: firebaseProjectId,
+        clientEmail: firebaseClientEmail,
+        privateKey: firebasePrivateKey!.replace(/\\n/g, "\n")
+      })
+    });
+  } catch (error) {
+    console.error("Firebase admin initialization failed:", error);
+  }
+}
+
+const db = isFirebaseEnabled ? getFirestore() : null;
+
+// Default seed data in case file is deleted or Firestore is empty
 const defaultArticles = [
   {
     id: "1",
@@ -58,11 +79,11 @@ const defaultArticles = [
     category: "marketing",
     categoryLabel: "Growth Marketing",
     desc: "Optimizing audience exclusion rules and campaign bidding strategies to reduce acquisition costs by 30%.",
-    "content": "<h2>Choosing the Right Growth Engine</h2><p>Meta Ads and Google PPC target audiences at different stages of the marketing funnel. Understanding where your prospects are is key to maximizing return on ad spend (ROAS).</p><strong>1. Intent vs. Interest Bidding</strong><p>Google Ads captures high-intent searches (users looking specifically to buy), while Meta Ads targets interest profiles, making it perfect for brand discovery and visual products.</p><h2>Advanced Exclusion Lists</h2><p>To keep customer acquisition cost (CAC) low, always build robust exclusion lists. Stop showing ads to existing customers or unqualified clicks that bounce within seconds.</p>",
-    "date": "May 22, 2026",
-    "readTime": "7 min read",
-    "bgClass": "from-pink-600/10 to-orange-600/10 border-pink-500/10",
-    "images": ["https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80"]
+    content: "<h2>Choosing the Right Growth Engine</h2><p>Meta Ads and Google PPC target audiences at different stages of the marketing funnel. Understanding where your prospects are is key to maximizing return on ad spend (ROAS).</p><strong>1. Intent vs. Interest Bidding</strong><p>Google Ads captures high-intent searches (users looking specifically to buy), while Meta Ads targets interest profiles, making it perfect for brand discovery and visual products.</p><h2>Advanced Exclusion Lists</h2><p>To keep customer acquisition cost (CAC) low, always build robust exclusion lists. Stop showing ads to existing customers or unqualified clicks that bounce within seconds.</p>",
+    date: "May 22, 2026",
+    readTime: "7 min read",
+    bgClass: "from-pink-600/10 to-orange-600/10 border-pink-500/10",
+    images: ["https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80"]
   }
 ];
 
@@ -89,21 +110,18 @@ function readBlogsLocal() {
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
       }
-      
-      // If using /tmp fallback, seed from project source JSON first if present
       if (filePath === tempFilePath && fs.existsSync(localFilePath)) {
         const seedData = fs.readFileSync(localFilePath, "utf-8");
         fs.writeFileSync(tempFilePath, seedData, "utf-8");
         return JSON.parse(seedData);
       }
-      
       fs.writeFileSync(filePath, JSON.stringify(defaultArticles, null, 2), "utf-8");
       return defaultArticles;
     }
     const data = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
-    console.error("Error reading local blogs database:", error);
+    console.error("Error reading local database:", error);
     return defaultArticles;
   }
 }
@@ -118,48 +136,50 @@ function writeBlogsLocal(blogs: any) {
     fs.writeFileSync(filePath, JSON.stringify(blogs, null, 2), "utf-8");
     return true;
   } catch (error) {
-    console.error("Error writing to local blogs database:", error);
+    console.error("Error writing to local database:", error);
     return false;
   }
 }
 
-// REST call helpers for Supabase (if configured)
-async function getSupabaseBlogs() {
-  const res = await fetch(`${supabaseUrl}/rest/v1/blogs?select=*&order=id.desc`, {
-    headers: {
-      "apikey": supabaseKey!,
-      "Authorization": `Bearer ${supabaseKey}`
-    }
-  });
-  if (!res.ok) throw new Error("Supabase read failed");
-  const data = await res.json();
-  return data.map((b: any) => ({
-    id: b.id,
-    slug: b.slug,
-    title: b.title,
-    category: b.category,
-    categoryLabel: b.category_label,
-    desc: b.desc,
-    content: b.content,
-    date: b.date,
-    readTime: b.read_time,
-    bgClass: b.bg_class,
-    images: b.images || []
-  }));
-}
-
 // GET all blogs
 export async function GET() {
-  try {
-    if (isSupabaseEnabled) {
-      const dbBlogs = await getSupabaseBlogs();
-      return NextResponse.json(dbBlogs);
+  if (isFirebaseEnabled && db) {
+    try {
+      const snapshot = await db.collection("blogs").orderBy("id", "desc").get();
+      if (!snapshot.empty) {
+        const blogs = snapshot.docs.map((doc) => {
+          const d = doc.data();
+          return {
+            id: d.id || doc.id,
+            slug: d.slug,
+            title: d.title,
+            category: d.category,
+            categoryLabel: d.categoryLabel,
+            desc: d.desc,
+            content: d.content,
+            date: d.date,
+            readTime: d.readTime,
+            bgClass: d.bgClass,
+            images: d.images || []
+          };
+        });
+        return NextResponse.json(blogs);
+      } else {
+        // If Firestore is empty, seed it with defaults
+        const batch = db.batch();
+        defaultArticles.forEach((art) => {
+          const docRef = db.collection("blogs").doc(art.id);
+          batch.set(docRef, art);
+        });
+        await batch.commit();
+        return NextResponse.json(defaultArticles);
+      }
+    } catch (err) {
+      console.error("Firebase Firestore GET error, falling back to local files:", err);
     }
-  } catch (err) {
-    console.error("Supabase GET error, falling back to local file system:", err);
   }
-  
-  // Local File Fallback
+
+  // Fallback to local files
   const blogs = readBlogsLocal();
   return NextResponse.json(blogs);
 }
@@ -193,62 +213,38 @@ export async function POST(request: Request) {
     const date = new Date().toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" });
     const formattedReadTime = readTime || "5 min read";
 
-    if (isSupabaseEnabled) {
+    if (isFirebaseEnabled && db) {
       try {
-        const blogs = await getSupabaseBlogs();
-        if (blogs.find((b: any) => b.slug === slug)) {
+        const dupSnapshot = await db.collection("blogs").where("slug", "==", slug).get();
+        if (!dupSnapshot.empty) {
           return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
         }
-        
-        const res = await fetch(`${supabaseUrl}/rest/v1/blogs`, {
-          method: "POST",
-          headers: {
-            "apikey": supabaseKey!,
-            "Authorization": `Bearer ${supabaseKey}`,
-            "Content-Type": "application/json",
-            "Prefer": "return=representation"
-          },
-          body: JSON.stringify({
-            id,
-            slug,
-            title,
-            category,
-            category_label: categoriesLabels[category] || "General",
-            desc,
-            content,
-            date,
-            read_time: formattedReadTime,
-            bg_class: bgClasses[blogs.length % bgClasses.length],
-            images: validImages
-          })
-        });
-        
-        if (res.ok) {
-          const json = await res.json();
-          const created = json[0];
-          return NextResponse.json({
-            success: true,
-            post: {
-              id: created.id,
-              slug: created.slug,
-              title: created.title,
-              category: created.category,
-              categoryLabel: created.category_label,
-              desc: created.desc,
-              content: created.content,
-              date: created.date,
-              readTime: created.read_time,
-              bgClass: created.bg_class,
-              images: created.images
-            }
-          });
-        }
+
+        const sizeSnapshot = await db.collection("blogs").get();
+        const blogsCount = sizeSnapshot.size;
+
+        const newPost = {
+          id,
+          slug,
+          title,
+          category,
+          categoryLabel: categoriesLabels[category] || "General",
+          desc,
+          content,
+          date,
+          readTime: formattedReadTime,
+          bgClass: bgClasses[blogsCount % bgClasses.length],
+          images: validImages
+        };
+
+        await db.collection("blogs").doc(id).set(newPost);
+        return NextResponse.json({ success: true, post: newPost });
       } catch (err) {
-        console.error("Supabase POST error, falling back to local file system:", err);
+        console.error("Firebase Firestore POST error, falling back to local files:", err);
       }
     }
 
-    // Local File fallback
+    // Fallback to local files
     const blogs = readBlogsLocal();
     if (blogs.find((b: any) => b.slug === slug)) {
       return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
@@ -297,59 +293,51 @@ export async function PUT(request: Request) {
     const validImages = images && images.length > 0 && images[0] !== "" ? images : ["https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=800&q=80"];
     const formattedReadTime = readTime || "5 min read";
 
-    if (isSupabaseEnabled) {
+    if (isFirebaseEnabled && db) {
       try {
-        const blogs = await getSupabaseBlogs();
-        if (blogs.find((b: any) => b.slug === slug && b.id !== id)) {
+        const dupSnapshot = await db.collection("blogs").where("slug", "==", slug).get();
+        const duplicates = dupSnapshot.docs.filter((doc) => doc.id !== id);
+        if (duplicates.length > 0) {
           return NextResponse.json({ error: "A blog post with this URL slug already exists!" }, { status: 400 });
         }
-        
-        const res = await fetch(`${supabaseUrl}/rest/v1/blogs?id=eq.${id}`, {
-          method: "PATCH",
-          headers: {
-            "apikey": supabaseKey!,
-            "Authorization": `Bearer ${supabaseKey}`,
-            "Content-Type": "application/json",
-            "Prefer": "return=representation"
-          },
-          body: JSON.stringify({
-            title,
-            slug,
-            category,
-            category_label: categoriesLabels[category] || "General",
-            desc,
-            content,
-            read_time: formattedReadTime,
-            images: validImages
-          })
-        });
 
-        if (res.ok) {
-          const json = await res.json();
-          const updated = json[0];
-          return NextResponse.json({
-            success: true,
-            post: {
-              id: updated.id,
-              slug: updated.slug,
-              title: updated.title,
-              category: updated.category,
-              categoryLabel: updated.category_label,
-              desc: updated.desc,
-              content: updated.content,
-              date: updated.date,
-              readTime: updated.read_time,
-              bgClass: updated.bg_class,
-              images: updated.images
-            }
-          });
-        }
+        const updateData = {
+          title,
+          slug,
+          category,
+          categoryLabel: categoriesLabels[category] || "General",
+          desc,
+          content,
+          readTime: formattedReadTime,
+          images: validImages
+        };
+
+        await db.collection("blogs").doc(id).update(updateData);
+        
+        const updatedDoc = await db.collection("blogs").doc(id).get();
+        const updated = updatedDoc.data()!;
+        return NextResponse.json({
+          success: true,
+          post: {
+            id: updated.id || id,
+            slug: updated.slug,
+            title: updated.title,
+            category: updated.category,
+            categoryLabel: updated.categoryLabel,
+            desc: updated.desc,
+            content: updated.content,
+            date: updated.date,
+            readTime: updated.readTime,
+            bgClass: updated.bgClass,
+            images: updated.images
+          }
+        });
       } catch (err) {
-        console.error("Supabase PUT error, falling back to local file system:", err);
+        console.error("Firebase Firestore PUT error, falling back to local files:", err);
       }
     }
 
-    // Local File fallback
+    // Fallback to local files
     const blogs = readBlogsLocal();
     const index = blogs.findIndex((b: any) => b.id === id);
 
@@ -391,24 +379,16 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "Missing post ID parameter" }, { status: 400 });
     }
 
-    if (isSupabaseEnabled) {
+    if (isFirebaseEnabled && db) {
       try {
-        const res = await fetch(`${supabaseUrl}/rest/v1/blogs?id=eq.${id}`, {
-          method: "DELETE",
-          headers: {
-            "apikey": supabaseKey!,
-            "Authorization": `Bearer ${supabaseKey}`
-          }
-        });
-        if (res.ok) {
-          return NextResponse.json({ success: true });
-        }
+        await db.collection("blogs").doc(id).delete();
+        return NextResponse.json({ success: true });
       } catch (err) {
-        console.error("Supabase DELETE error, falling back to local file system:", err);
+        console.error("Firebase Firestore DELETE error, falling back to local files:", err);
       }
     }
 
-    // Local File fallback
+    // Fallback to local files
     const blogs = readBlogsLocal();
     const filtered = blogs.filter((b: any) => b.id !== id);
 
