@@ -108,7 +108,16 @@ export default function BlogDetails() {
     );
   }
 
-  const primaryImage = post.images && post.images.length > 0 ? post.images[0] : "https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=800&q=80";
+  const isValidUrl = (url: string) => {
+    if (!url) return false;
+    return url.startsWith("http://") || url.startsWith("https://") || url.startsWith("/");
+  };
+
+  const validPostImages = (post.images || []).filter(isValidUrl);
+
+  const primaryImage = validPostImages.length > 0
+    ? validPostImages[0]
+    : "https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=800&q=80";
 
   return (
     <div className="relative min-h-screen bg-transparent text-slate-700 overflow-x-hidden flex flex-col font-sans">
@@ -177,7 +186,7 @@ export default function BlogDetails() {
         />
 
         {/* Multiple Images Gallery Grid */}
-        {post.images && post.images.length > 1 && (
+        {validPostImages.length > 1 && (
           <section className="mb-12">
             <h3 className="text-lg font-bold text-slate-950 mb-6 font-display flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-neon-cyan" />
@@ -185,7 +194,7 @@ export default function BlogDetails() {
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {post.images.slice(1).map((imgUrl, i) => (
+              {validPostImages.slice(1).map((imgUrl, i) => (
                 <div key={i} className="relative rounded-3xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-100/50 overflow-hidden group h-[260px]">
                   <img
                     src={imgUrl}
